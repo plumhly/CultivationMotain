@@ -1,0 +1,58 @@
+//
+//  Common.m
+//  CoolTable
+//
+//  Created by plum on 16/4/18.
+//  Copyright © 2016年 plum. All rights reserved.
+//
+
+#import "Common.h"
+
+@implementation Common
+
+
+void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor) {
+    /* CGContext state
+    CTM (current transformation matrix)
+    clip region
+    image interpolation quality
+    line width
+    line join
+    miter limit
+    line cap
+    line dash
+    flatness
+    should anti-alias
+    rendering intent
+    fill color space
+    stroke color space
+    fill color
+    stroke color
+    alpha value
+    font
+    font size
+    character spacing
+    text drawing mode
+    shadow parameters
+    the pattern phase
+    the font smoothing parameter
+    blend mode
+     */
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    NSArray *colors = @[(__bridge id)startColor,(__bridge id)endColor];
+    CGFloat location[] = {0.0, 1.0};
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, location);
+    CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
+    CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
+    
+    CGContextSaveGState(context);
+    CGContextAddRect(context, rect);
+    CGContextClip(context);
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
+    CGContextRestoreGState(context);
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+    
+}
+@end
