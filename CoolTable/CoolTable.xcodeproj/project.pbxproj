@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09545C551CC66C3200A9CB5F /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 09545C541CC66C3200A9CB5F /* CustomHeader.m */; };
 		383EC1DC1CC4D2690022D612 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EC1DB1CC4D2690022D612 /* main.m */; };
 		383EC1DF1CC4D2690022D612 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EC1DE1CC4D2690022D612 /* AppDelegate.m */; };
 		383EC1E51CC4D2690022D612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 383EC1E31CC4D2690022D612 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09545C531CC66C3200A9CB5F /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeader.h; sourceTree = "<group>"; };
+		09545C541CC66C3200A9CB5F /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeader.m; sourceTree = "<group>"; };
 		383EC1D71CC4D2690022D612 /* CoolTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		383EC1DB1CC4D2690022D612 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		383EC1DD1CC4D2690022D612 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				383EC1E81CC4D2690022D612 /* LaunchScreen.storyboard */,
 				383EC1EB1CC4D2690022D612 /* Info.plist */,
 				383EC1DA1CC4D2690022D612 /* Supporting Files */,
+				09545C531CC66C3200A9CB5F /* CustomHeader.h */,
+				09545C541CC66C3200A9CB5F /* CustomHeader.m */,
 			);
 			path = CoolTable;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				383EC1F61CC4D55A0022D612 /* CustomCellBackground.m in Sources */,
+				09545C551CC66C3200A9CB5F /* CustomHeader.m in Sources */,
 				383EC1DF1CC4D2690022D612 /* AppDelegate.m in Sources */,
 				383EC1F91CC4D75C0022D612 /* Common.m in Sources */,
 				383EC1F31CC4D2B80022D612 /* CoolTableViewController.m in Sources */,
@@ -312,6 +318,7 @@
 				383EC1F01CC4D2690022D612 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
