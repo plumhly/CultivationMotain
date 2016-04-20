@@ -9,6 +9,7 @@
 #import "CoolTableViewController.h"
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
+#import "CustomFooter.h"
 
 @interface CoolTableViewController ()
 
@@ -94,4 +95,14 @@
     return 50;
 }
 
+
+-(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 15;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [[CustomFooter alloc] init];
+}
 @end
