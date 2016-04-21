@@ -25,6 +25,8 @@
     self.title = @"Core Graphics 101";
     self.thingsToLearn = [@[@"Drawing Rects", @"Drawing Gradients", @"Drawing Arcs"] mutableCopy];
     self.thingsLearned = [@[@"Table Views", @"UIKit", @"Objective-C"] mutableCopy];
+    UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main_bg.jpg"]];
+    self.tableView.backgroundView = background;
 }
 
 #pragma mark - Table view data source
@@ -48,22 +50,33 @@
 {
     static NSString * CellIdentifier = @"Cell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSString * entry;
     
     if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
-        cell.backgroundView = [[CustomCellBackground alloc] init];
+        CustomCellBackground * backgroundCell = [[CustomCellBackground alloc] init];
+        cell.backgroundView = backgroundCell;
     }
     
     if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
-        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+        CustomCellBackground * selectedBackgroundCell = [[CustomCellBackground alloc] init];
+        selectedBackgroundCell.selected = YES;
+        cell.selectedBackgroundView = selectedBackgroundCell;
     }
+    
+    NSString * entry;
+    
     if (indexPath.section == 0) {
         entry = self.thingsToLearn[indexPath.row];
+        ((CustomCellBackground *) cell.backgroundView).lastCell = indexPath.row == self.thingsToLearn.count - 1;
+        ((CustomCellBackground *)cell.selectedBackgroundView).lastCell = indexPath.row == self.thingsToLearn.count - 1;
     } else {
         entry = self.thingsLearned[indexPath.row];
+        ((CustomCellBackground *)cell.backgroundView).lastCell = indexPath.row == self.thingsLearned.count - 1;
+        ((CustomCellBackground *)cell.selectedBackgroundView).lastCell = indexPath.row == self.thingsLearned.count - 1;
     }
+    
     cell.textLabel.text = entry;
     cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.highlightedTextColor = [UIColor blackColor];
     
     return cell;
 }
