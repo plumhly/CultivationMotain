@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D333242D16EB5F3400C0AD61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D333242C16EB5F3400C0AD61 /* UIKit.framework */; };
+		D333242F16EB5F3400C0AD61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D333242E16EB5F3400C0AD61 /* Foundation.framework */; };
+		D333243116EB5F3400C0AD61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D333243016EB5F3400C0AD61 /* CoreGraphics.framework */; };
+		D333243716EB5F3400C0AD61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D333243516EB5F3400C0AD61 /* InfoPlist.strings */; };
+		D333243916EB5F3400C0AD61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D333243816EB5F3400C0AD61 /* main.m */; };
+		D333243D16EB5F3400C0AD61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D333243C16EB5F3400C0AD61 /* AppDelegate.m */; };
+		D333243F16EB5F3400C0AD61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D333243E16EB5F3400C0AD61 /* Default.png */; };
+		D333244116EB5F3400C0AD61 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333244016EB5F3400C0AD61 /* Default@2x.png */; };
+		D333244316EB5F3400C0AD61 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333244216EB5F3400C0AD61 /* Default-568h@2x.png */; };
+		D333246016EB5F8300C0AD61 /* SkyView.m in Sources */ = {isa = PBXBuildFile; fileRef = D333244F16EB5F8300C0AD61 /* SkyView.m */; };
+		D333246116EB5F8300C0AD61 /* ContainerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D333245016EB5F8300C0AD61 /* ContainerScrollView.m */; };
+		D333246216EB5F8300C0AD61 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D333245416EB5F8300C0AD61 /* ViewController.m */; };
+		D333246316EB5F8300C0AD61 /* content.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245616EB5F8300C0AD61 /* content.png */; };
+		D333246416EB5F8300C0AD61 /* content@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245716EB5F8300C0AD61 /* content@2x.png */; };
+		D333246516EB5F8300C0AD61 /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245816EB5F8300C0AD61 /* happy.png */; };
+		D333246616EB5F8300C0AD61 /* happy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245916EB5F8300C0AD61 /* happy@2x.png */; };
+		D333246716EB5F8300C0AD61 /* irked.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245A16EB5F8300C0AD61 /* irked.png */; };
+		D333246816EB5F8300C0AD61 /* irked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245B16EB5F8300C0AD61 /* irked@2x.png */; };
+		D333246916EB5F8300C0AD61 /* no-amused.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245C16EB5F8300C0AD61 /* no-amused.png */; };
+		D333246A16EB5F8300C0AD61 /* no-amused@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245D16EB5F8300C0AD61 /* no-amused@2x.png */; };
+		D333246B16EB5F8300C0AD61 /* raging.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245E16EB5F8300C0AD61 /* raging.png */; };
+		D333246C16EB5F8300C0AD61 /* raging@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D333245F16EB5F8300C0AD61 /* raging@2x.png */; };
+		D333247116EB604D00C0AD61 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D333247016EB604D00C0AD61 /* Social.framework */; };
+		D333247316EB608F00C0AD61 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D333247216EB608F00C0AD61 /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D333242916EB5F3400C0AD61 /* RageTweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RageTweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D333242C16EB5F3400C0AD61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D333242E16EB5F3400C0AD61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D333243016EB5F3400C0AD61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D333243416EB5F3400C0AD61 /* RageTweet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RageTweet-Info.plist"; sourceTree = "<group>"; };
+		D333243616EB5F3400C0AD61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D333243816EB5F3400C0AD61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D333243A16EB5F3400C0AD61 /* RageTweet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RageTweet-Prefix.pch"; sourceTree = "<group>"; };
+		D333243B16EB5F3400C0AD61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D333243C16EB5F3400C0AD61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D333243E16EB5F3400C0AD61 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D333244016EB5F3400C0AD61 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D333244216EB5F3400C0AD61 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D333244F16EB5F8300C0AD61 /* SkyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyView.m; sourceTree = "<group>"; };
+		D333245016EB5F8300C0AD61 /* ContainerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerScrollView.m; sourceTree = "<group>"; };
+		D333245116EB5F8300C0AD61 /* ContainerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerScrollView.h; sourceTree = "<group>"; };
+		D333245216EB5F8300C0AD61 /* SkyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyView.h; sourceTree = "<group>"; };
+		D333245316EB5F8300C0AD61 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D333245416EB5F8300C0AD61 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D333245616EB5F8300C0AD61 /* content.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = content.png; sourceTree = "<group>"; };
+		D333245716EB5F8300C0AD61 /* content@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content@2x.png"; sourceTree = "<group>"; };
+		D333245816EB5F8300C0AD61 /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
+		D333245916EB5F8300C0AD61 /* happy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy@2x.png"; sourceTree = "<group>"; };
+		D333245A16EB5F8300C0AD61 /* irked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = irked.png; sourceTree = "<group>"; };
+		D333245B16EB5F8300C0AD61 /* irked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "irked@2x.png"; sourceTree = "<group>"; };
+		D333245C16EB5F8300C0AD61 /* no-amused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-amused.png"; sourceTree = "<group>"; };
+		D333245D16EB5F8300C0AD61 /* no-amused@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-amused@2x.png"; sourceTree = "<group>"; };
+		D333245E16EB5F8300C0AD61 /* raging.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raging.png; sourceTree = "<group>"; };
+		D333245F16EB5F8300C0AD61 /* raging@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "raging@2x.png"; sourceTree = "<group>"; };
+		D333247016EB604D00C0AD61 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D333247216EB608F00C0AD61 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D333242616EB5F3400C0AD61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D333247116EB604D00C0AD61 /* Social.framework in Frameworks */,
+				D333242D16EB5F3400C0AD61 /* UIKit.framework in Frameworks */,
+				D333242F16EB5F3400C0AD61 /* Foundation.framework in Frameworks */,
+				D333243116EB5F3400C0AD61 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D333242016EB5F3400C0AD61 = {
+			isa = PBXGroup;
+			children = (
+				D333243216EB5F3400C0AD61 /* RageTweet */,
+				D333242B16EB5F3400C0AD61 /* Frameworks */,
+				D333242A16EB5F3400C0AD61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D333242A16EB5F3400C0AD61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D333242916EB5F3400C0AD61 /* RageTweet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D333242B16EB5F3400C0AD61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D333247016EB604D00C0AD61 /* Social.framework */,
+				D333242C16EB5F3400C0AD61 /* UIKit.framework */,
+				D333242E16EB5F3400C0AD61 /* Foundation.framework */,
+				D333243016EB5F3400C0AD61 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D333243216EB5F3400C0AD61 /* RageTweet */ = {
+			isa = PBXGroup;
+			children = (
+				D333243B16EB5F3400C0AD61 /* AppDelegate.h */,
+				D333243C16EB5F3400C0AD61 /* AppDelegate.m */,
+				D333245016EB5F8300C0AD61 /* ContainerScrollView.m */,
+				D333245116EB5F8300C0AD61 /* ContainerScrollView.h */,
+				D333245216EB5F8300C0AD61 /* SkyView.h */,
+				D333244F16EB5F8300C0AD61 /* SkyView.m */,
+				D333245316EB5F8300C0AD61 /* ViewController.h */,
+				D333245416EB5F8300C0AD61 /* ViewController.m */,
+				D333245516EB5F8300C0AD61 /* Images */,
+				D333243316EB5F3400C0AD61 /* Supporting Files */,
+			);
+			path = RageTweet;
+			sourceTree = "<group>";
+		};
+		D333243316EB5F3400C0AD61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D333247216EB608F00C0AD61 /* MainStoryboard.storyboard */,
+				D333243416EB5F3400C0AD61 /* RageTweet-Info.plist */,
+				D333243516EB5F3400C0AD61 /* InfoPlist.strings */,
+				D333243816EB5F3400C0AD61 /* main.m */,
+				D333243A16EB5F3400C0AD61 /* RageTweet-Prefix.pch */,
+				D333243E16EB5F3400C0AD61 /* Default.png */,
+				D333244016EB5F3400C0AD61 /* Default@2x.png */,
+				D333244216EB5F3400C0AD61 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D333245516EB5F8300C0AD61 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D333245616EB5F8300C0AD61 /* content.png */,
+				D333245716EB5F8300C0AD61 /* content@2x.png */,
+				D333245816EB5F8300C0AD61 /* happy.png */,
+				D333245916EB5F8300C0AD61 /* happy@2x.png */,
+				D333245A16EB5F8300C0AD61 /* irked.png */,
+				D333245B16EB5F8300C0AD61 /* irked@2x.png */,
+				D333245C16EB5F8300C0AD61 /* no-amused.png */,
+				D333245D16EB5F8300C0AD61 /* no-amused@2x.png */,
+				D333245E16EB5F8300C0AD61 /* raging.png */,
+				D333245F16EB5F8300C0AD61 /* raging@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D333242816EB5F3400C0AD61 /* RageTweet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D333244C16EB5F3400C0AD61 /* Build configuration list for PBXNativeTarget "RageTweet" */;
+			buildPhases = (
+				D333242516EB5F3400C0AD61 /* Sources */,
+				D333242616EB5F3400C0AD61 /* Frameworks */,
+				D333242716EB5F3400C0AD61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RageTweet;
+			productName = RageTweet;
+			productReference = D333242916EB5F3400C0AD61 /* RageTweet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D333242116EB5F3400C0AD61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Razeware LLC";
+			};
+			buildConfigurationList = D333242416EB5F3400C0AD61 /* Build configuration list for PBXProject "RageTweet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D333242016EB5F3400C0AD61;
+			productRefGroup = D333242A16EB5F3400C0AD61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D333242816EB5F3400C0AD61 /* RageTweet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D333242716EB5F3400C0AD61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D333243716EB5F3400C0AD61 /* InfoPlist.strings in Resources */,
+				D333243F16EB5F3400C0AD61 /* Default.png in Resources */,
+				D333244116EB5F3400C0AD61 /* Default@2x.png in Resources */,
+				D333244316EB5F3400C0AD61 /* Default-568h@2x.png in Resources */,
+				D333246316EB5F8300C0AD61 /* content.png in Resources */,
+				D333246416EB5F8300C0AD61 /* content@2x.png in Resources */,
+				D333246516EB5F8300C0AD61 /* happy.png in Resources */,
+				D333246616EB5F8300C0AD61 /* happy@2x.png in Resources */,
+				D333246716EB5F8300C0AD61 /* irked.png in Resources */,
+				D333246816EB5F8300C0AD61 /* irked@2x.png in Resources */,
+				D333246916EB5F8300C0AD61 /* no-amused.png in Resources */,
+				D333246A16EB5F8300C0AD61 /* no-amused@2x.png in Resources */,
+				D333246B16EB5F8300C0AD61 /* raging.png in Resources */,
+				D333246C16EB5F8300C0AD61 /* raging@2x.png in Resources */,
+				D333247316EB608F00C0AD61 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D333242516EB5F3400C0AD61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D333243916EB5F3400C0AD61 /* main.m in Sources */,
+				D333243D16EB5F3400C0AD61 /* AppDelegate.m in Sources */,
+				D333246016EB5F8300C0AD61 /* SkyView.m in Sources */,
+				D333246116EB5F8300C0AD61 /* ContainerScrollView.m in Sources */,
+				D333246216EB5F8300C0AD61 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D333243516EB5F3400C0AD61 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D333243616EB5F3400C0AD61 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D333244A16EB5F3400C0AD61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D333244B16EB5F3400C0AD61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D333244D16EB5F3400C0AD61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RageTweet/RageTweet-Prefix.pch";
+				INFOPLIST_FILE = "RageTweet/RageTweet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D333244E16EB5F3400C0AD61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RageTweet/RageTweet-Prefix.pch";
+				INFOPLIST_FILE = "RageTweet/RageTweet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D333242416EB5F3400C0AD61 /* Build configuration list for PBXProject "RageTweet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D333244A16EB5F3400C0AD61 /* Debug */,
+				D333244B16EB5F3400C0AD61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D333244C16EB5F3400C0AD61 /* Build configuration list for PBXNativeTarget "RageTweet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D333244D16EB5F3400C0AD61 /* Debug */,
+				D333244E16EB5F3400C0AD61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D333242116EB5F3400C0AD61 /* Project object */;
+}
