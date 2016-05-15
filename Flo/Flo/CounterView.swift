@@ -14,7 +14,13 @@ let π:CGFloat = CGFloat(M_PI)
 
 @IBDesignable class CounterView: UIView {
 
-    @IBInspectable var counter: Int = 8
+    @IBInspectable var counter: Int = 8 {
+        didSet {
+            if counter <= noOfGlasses {
+                setNeedsDisplay()
+            }
+        }
+    }
     @IBInspectable var counterLineColor: UIColor = UIColor.blueColor()
     @IBInspectable var counterColor: UIColor = UIColor.orangeColor()
     
@@ -39,14 +45,15 @@ let π:CGFloat = CGFloat(M_PI)
         let totalAngle: CGFloat = 2 * π - startAngle + endAngle
         let unit: CGFloat = totalAngle / CGFloat(noOfGlasses)
         let outlineAngle: CGFloat = startAngle + unit * CGFloat(counter)
-        
-        var outlinePath = UIBezierPath.init(arcCenter: center, radius:radius/2 - 2.5 , startAngle: startAngle, endAngle: outlineAngle, clockwise: true)
-        outlinePath.addArcWithCenter(center, radius: radius/2 - arcWidth/2 + 2.5, startAngle: startAngle, endAngle: outlineAngle, clockwise: true)
-        
+        let outlineColor = UIColor.blueColor();
+        let outlinePath = UIBezierPath.init(arcCenter: center, radius:rect.width/2 - 2.5 , startAngle: startAngle, endAngle: outlineAngle, clockwise: true)
+        outlinePath.addArcWithCenter(center, radius: rect.width/2 - arcWidth + 2.5, startAngle: outlineAngle, endAngle:startAngle , clockwise: false)
+        outlineColor.setStroke()
         outlinePath.closePath()
         outlinePath.lineWidth = 5
-        outlinePath
+        outlinePath.stroke();
         
+//
         
         
         

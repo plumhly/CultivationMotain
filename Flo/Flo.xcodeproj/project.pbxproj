@@ -14,6 +14,7 @@
 		385A5A2E1CD986A800399487 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385A5A2C1CD986A800399487 /* LaunchScreen.storyboard */; };
 		385A5A361CD9870F00399487 /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A5A351CD9870F00399487 /* PushButtonView.swift */; };
 		385A5A381CD9A98700399487 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A5A371CD9A98700399487 /* CounterView.swift */; };
+		3898196D1CE5B8AA000A2BFB /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898196C1CE5B8AA000A2BFB /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		385A5A2F1CD986A800399487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		385A5A351CD9870F00399487 /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
 		385A5A371CD9A98700399487 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		3898196C1CE5B8AA000A2BFB /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				385A5A231CD986A800399487 /* AppDelegate.swift */,
 				385A5A251CD986A800399487 /* ViewController.swift */,
+				3898196C1CE5B8AA000A2BFB /* GraphView.swift */,
 				385A5A271CD986A800399487 /* Main.storyboard */,
 				385A5A2A1CD986A800399487 /* Assets.xcassets */,
 				385A5A2C1CD986A800399487 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3898196D1CE5B8AA000A2BFB /* GraphView.swift in Sources */,
 				385A5A261CD986A800399487 /* ViewController.swift in Sources */,
 				385A5A361CD9870F00399487 /* PushButtonView.swift in Sources */,
 				385A5A241CD986A800399487 /* AppDelegate.swift in Sources */,
@@ -294,6 +298,7 @@
 				385A5A341CD986A800399487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
