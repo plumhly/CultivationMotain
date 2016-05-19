@@ -53,13 +53,29 @@ let π:CGFloat = CGFloat(M_PI)
         outlinePath.lineWidth = 5
         outlinePath.stroke();
         
-//
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSaveGState(context)
+        outlineColor.setFill()
+        let markerWith:CGFloat = 5.0
+        let markerSize: CGFloat = 10.0
+        var markerPath = UIBezierPath.init(rect: CGRectMake(-markerWith/2, 0, markerWith, markerSize))
         
+        //3 - move top left of context to the previous center position
         
+        CGContextTranslateCTM(context, rect.width/2, rect.height/2)
+        for i in 1...noOfGlasses {
+            CGContextSaveGState(context)
+            var angle = unit * CGFloat(i) + startAngle - π/2
+            CGContextRotateCTM(context, angle)
+            CGContextTranslateCTM(context, 0, rect.height/2 - markerSize)
+            markerPath.fill()
+            CGContextRestoreGState(context)
+            
+        }
         
+        CGContextRestoreGState(context)
         
-        
-        
+
     }
  
 

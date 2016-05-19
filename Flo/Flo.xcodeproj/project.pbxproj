@@ -15,6 +15,7 @@
 		385A5A361CD9870F00399487 /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A5A351CD9870F00399487 /* PushButtonView.swift */; };
 		385A5A381CD9A98700399487 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A5A371CD9A98700399487 /* CounterView.swift */; };
 		3898196D1CE5B8AA000A2BFB /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3898196C1CE5B8AA000A2BFB /* GraphView.swift */; };
+		38FC726F1CED991700F424A5 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC726E1CED991700F424A5 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		385A5A351CD9870F00399487 /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
 		385A5A371CD9A98700399487 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		3898196C1CE5B8AA000A2BFB /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		389CA7BE1CEDE35500EEFF29 /* MedalDrawing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MedalDrawing.playground; sourceTree = "<group>"; };
+		38FC726E1CED991700F424A5 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				385A5A2F1CD986A800399487 /* Info.plist */,
 				385A5A351CD9870F00399487 /* PushButtonView.swift */,
 				385A5A371CD9A98700399487 /* CounterView.swift */,
+				38FC726E1CED991700F424A5 /* BackgroundView.swift */,
+				389CA7BE1CEDE35500EEFF29 /* MedalDrawing.playground */,
 			);
 			path = Flo;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FC726F1CED991700F424A5 /* BackgroundView.swift in Sources */,
 				3898196D1CE5B8AA000A2BFB /* GraphView.swift in Sources */,
 				385A5A261CD986A800399487 /* ViewController.swift in Sources */,
 				385A5A361CD9870F00399487 /* PushButtonView.swift in Sources */,
