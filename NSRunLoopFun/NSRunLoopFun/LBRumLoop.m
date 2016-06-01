@@ -11,10 +11,18 @@
 @interface LBRumLoop ()
 
 @property (nonatomic, assign) BOOL normalThreadDidFinishFlag;
+@property (copy, nonatomic) NSDictionary *dic;
 
 @end
 
 @implementation LBRumLoop
+
+- (NSDictionary *)dic {
+    if (!_dic) {
+        _dic = @{@"1":@"kCFRunLoopEntry", @"2":@"kCFRunLoopBeforeTimers", @"4":@"kCFRunLoopBeforeSources", @"32":@"kCFRunLoopBeforeWaiting", @"64":@"kCFRunLoopAfterWaiting", @"128":@"kCFRunLoopExit"};
+    }
+    return _dic;
+}
 
 - (void)main {
     NSLog(@"enter thread");
@@ -27,19 +35,27 @@
         CFRunLoopRef cfRunLoop = runLoop.getCFRunLoop;
         CFRunLoopAddObserver(cfRunLoop, runLoopObserver, kCFRunLoopDefaultMode);
     }
-    // 创建一个Timer，重复调用来驱动Run Loop
+//     创建一个Timer，重复调用来驱动Run Loop
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handerTimerTask) userInfo:nil repeats:YES];
+//    [runLoop run];
     NSInteger runCount = 10;
     do {
          NSLog(@"LoopCount: %ld", runCount);
-        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+//        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        [runLoop run];
         runCount -= 1;
     } while (runCount);
     NSLog(@"Thread Exit");
 }
 
+
 void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
-    
+    NSLog(@"%ld",activity);
+    NSLog(@"%@",observer);
+}
+
+- (void)handerTimerTask {
+    NSLog(@"timer");
 }
 
 // Normal Thread Task

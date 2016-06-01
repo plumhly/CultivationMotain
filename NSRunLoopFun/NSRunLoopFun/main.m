@@ -14,7 +14,8 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         LBRumLoop *runLoop = [[LBRumLoop alloc]init];
-        [runLoop handleNormalThreadButtonTouchUpInside];
+//        [runLoop handleNormalThreadButtonTouchUpInside];
+        [runLoop main];
     }
     return 0;
 }

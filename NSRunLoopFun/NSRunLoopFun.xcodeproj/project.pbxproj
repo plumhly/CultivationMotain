@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09F681141CF49A09004B426C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F681131CF49A09004B426C /* main.m */; };
 		09F6811C1CF49A29004B426C /* LBRumLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F6811B1CF49A29004B426C /* LBRumLoop.m */; };
+		384AE4F11CF57A9E00C65307 /* RunLoopSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 384AE4F01CF57A9E00C65307 /* RunLoopSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		09F681131CF49A09004B426C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		09F6811A1CF49A29004B426C /* LBRumLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBRumLoop.h; sourceTree = "<group>"; };
 		09F6811B1CF49A29004B426C /* LBRumLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBRumLoop.m; sourceTree = "<group>"; };
+		384AE4EF1CF57A9E00C65307 /* RunLoopSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopSource.h; sourceTree = "<group>"; };
+		384AE4F01CF57A9E00C65307 /* RunLoopSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				09F681131CF49A09004B426C /* main.m */,
 				09F6811A1CF49A29004B426C /* LBRumLoop.h */,
 				09F6811B1CF49A29004B426C /* LBRumLoop.m */,
+				384AE4EF1CF57A9E00C65307 /* RunLoopSource.h */,
+				384AE4F01CF57A9E00C65307 /* RunLoopSource.m */,
 			);
 			path = NSRunLoopFun;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F6811C1CF49A29004B426C /* LBRumLoop.m in Sources */,
+				384AE4F11CF57A9E00C65307 /* RunLoopSource.m in Sources */,
 				09F681141CF49A09004B426C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +251,7 @@
 				09F681191CF49A09004B426C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
