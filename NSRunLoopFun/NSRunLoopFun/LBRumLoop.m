@@ -41,7 +41,7 @@
     NSInteger runCount = 10;
     do {
          NSLog(@"LoopCount: %ld", runCount);
-//        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
         [runLoop run];
         runCount -= 1;
     } while (runCount);
