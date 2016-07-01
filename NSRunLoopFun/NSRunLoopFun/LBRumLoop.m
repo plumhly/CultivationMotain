@@ -74,7 +74,7 @@ void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *i
     [thread start];
     while (!self.normalThreadDidFinishFlag) {
 //        [NSThread sleepForTimeInterval:0.5];
-        [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+//        [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
         NSLog(@"End RunLoop");
     }
     NSLog(@"Exit handleNormalThreadButtonTouchUpInside");
