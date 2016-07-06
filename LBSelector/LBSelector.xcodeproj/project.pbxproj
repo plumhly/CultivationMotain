@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		381175C0606D760E3B04DBD3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD930AE3D2942FC85B884EED /* libPods.a */; };
 		3820DB061CFEAF3F000A8A5F /* LBSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3820DB051CFEAF3F000A8A5F /* LBSelector.m */; };
+		382828F21CFFE65B003224E5 /* EquipForHeroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 382828F11CFFE65B003224E5 /* EquipForHeroView.m */; };
+		382828F41CFFE678003224E5 /* EquipForHeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382828F31CFFE678003224E5 /* EquipForHeroView.xib */; };
 		38EA81DE1CFD641D002C2C43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA81DD1CFD641D002C2C43 /* main.m */; };
 		38EA81E11CFD641D002C2C43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA81E01CFD641D002C2C43 /* AppDelegate.m */; };
 		38EA81E41CFD641D002C2C43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA81E31CFD641D002C2C43 /* ViewController.m */; };
@@ -25,6 +27,9 @@
 		03D29D2BFDC041F83141F24E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3820DB041CFEAF3F000A8A5F /* LBSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBSelector.h; sourceTree = "<group>"; };
 		3820DB051CFEAF3F000A8A5F /* LBSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBSelector.m; sourceTree = "<group>"; };
+		382828F01CFFE65B003224E5 /* EquipForHeroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipForHeroView.h; sourceTree = "<group>"; };
+		382828F11CFFE65B003224E5 /* EquipForHeroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipForHeroView.m; sourceTree = "<group>"; };
+		382828F31CFFE678003224E5 /* EquipForHeroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipForHeroView.xib; sourceTree = "<group>"; };
 		38EA81D91CFD641D002C2C43 /* LBSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA81DD1CFD641D002C2C43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38EA81DF1CFD641D002C2C43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +96,9 @@
 				38EA81DC1CFD641D002C2C43 /* Supporting Files */,
 				3820DB041CFEAF3F000A8A5F /* LBSelector.h */,
 				3820DB051CFEAF3F000A8A5F /* LBSelector.m */,
+				382828F01CFFE65B003224E5 /* EquipForHeroView.h */,
+				382828F11CFFE65B003224E5 /* EquipForHeroView.m */,
+				382828F31CFFE678003224E5 /* EquipForHeroView.xib */,
 			);
 			path = LBSelector;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FBCBEA1CFED9B40081DC8A /* 下拉_选中@3x.png in Resources */,
+				382828F41CFFE678003224E5 /* EquipForHeroView.xib in Resources */,
 				38FBCBE81CFED9B40081DC8A /* 下拉_默认@3x.png in Resources */,
 				38FBCBE71CFED9B40081DC8A /* 下拉_默认@2x.png in Resources */,
 				38EA81EC1CFD641D002C2C43 /* LaunchScreen.storyboard in Resources */,
@@ -246,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38EA81E41CFD641D002C2C43 /* ViewController.m in Sources */,
+				382828F21CFFE65B003224E5 /* EquipForHeroView.m in Sources */,
 				38EA81E11CFD641D002C2C43 /* AppDelegate.m in Sources */,
 				3820DB061CFEAF3F000A8A5F /* LBSelector.m in Sources */,
 				38EA81DE1CFD641D002C2C43 /* main.m in Sources */,

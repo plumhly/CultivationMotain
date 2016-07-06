@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import "LBSelector.h"
 #import <Masonry.h>
+#import "EquipForHeroView.h"
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
 static NSString *cellname = @"cell";
+static NSString *cellheader = @"header";
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end
@@ -54,16 +57,22 @@ static NSString *cellname = @"cell";
     [self.view addSubview:button];
     */
     
+  
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+   
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellname];
+    [collectionView registerClass:UICollectionReusableView.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:cellheader];
     [self.view addSubview:collectionView];
     
     
-    
-   
+//    EquipForHeroView *viw = [[[NSBundle mainBundle] loadNibNamed:@"EquipForHeroView" owner:self options:nil]lastObject];
+//    [self.view addSubview:viw];
+//    [viw mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,8 +91,28 @@ static NSString *cellname = @"cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellname forIndexPath:indexPath];
+    CGFloat w = pow(2, 1/2.0);
+//    CGFloat s =
+    
+    // w:width  h:height      CGRectMake(- w/2 + (w/2 - h/2)/根号2  , (w/2 - h/2)/根号2  - h/2, w, h)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(-25 + (25-5)/w , (25 - 5)/w - 5 , 50, 10)];
+    
+    label.backgroundColor = [UIColor yellowColor];
+    label.text = @"2.3折";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:12];
+    label.transform = CGAffineTransformRotate(label.transform, -M_PI_4);
+//    label.transform = CGAffineTransformMakeRotation( -M_PI_4);
+    cell.contentView.clipsToBounds = YES;
+    [cell.contentView addSubview:label];
+    
     cell.backgroundColor = [UIColor redColor];
     return cell;
+}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:cellheader forIndexPath:indexPath];
+    view.backgroundColor = [UIColor blueColor];
+    return view;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,4 +132,20 @@ static NSString *cellname = @"cell";
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 10;
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(SCREEN_WIDTH, 40);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (section == 0) {
+        return UIEdgeInsetsMake(15, 15, 15, 15);
+    } else if (section == 1) {
+        return UIEdgeInsetsMake(15, 25, 15, 25);
+    } else {
+        return UIEdgeInsetsMake(15, 38, 15, 38);
+    }
+}
+
+
 @end
