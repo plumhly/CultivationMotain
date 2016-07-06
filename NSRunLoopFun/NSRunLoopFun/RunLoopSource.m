@@ -17,7 +17,7 @@
 
 void RunLoopSourceScheduleRoutine (void *info, CFRunLoopRef rl, CFStringRef mode) {
     RunLoopSource *obj = (RunLoopSource *)CFBridgingRelease(info);
-    AppDelegate *del = [AppDelegate share ];
+//    AppDelegate *del = [AppDelegate share ];
 }
 
 

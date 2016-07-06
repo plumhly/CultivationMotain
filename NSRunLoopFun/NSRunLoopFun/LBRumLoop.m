@@ -41,7 +41,7 @@
     NSInteger runCount = 10;
     do {
          NSLog(@"LoopCount: %ld", runCount);
-//        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        [runLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
         [runLoop run];
         runCount -= 1;
     } while (runCount);
@@ -74,7 +74,7 @@ void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *i
     [thread start];
     while (!self.normalThreadDidFinishFlag) {
 //        [NSThread sleepForTimeInterval:0.5];
-        [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+//        [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
         NSLog(@"End RunLoop");
     }
     NSLog(@"Exit handleNormalThreadButtonTouchUpInside");
