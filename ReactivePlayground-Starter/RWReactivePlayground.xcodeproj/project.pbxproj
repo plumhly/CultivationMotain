@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38F34EDD1D2CA9B20040A479 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F34EDC1D2CA9B20040A479 /* Launch Screen.storyboard */; };
 		428FCD83963AD75E4FE09C14 /* libPods-RWReactivePlayground.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 478A92A3CE55E82F730C77D5 /* libPods-RWReactivePlayground.a */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2BC18F12C35F8138FC781DA7 /* Pods-RWReactivePlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWReactivePlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RWReactivePlayground/Pods-RWReactivePlayground.debug.xcconfig"; sourceTree = "<group>"; };
+		38F34EDC1D2CA9B20040A479 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		478A92A3CE55E82F730C77D5 /* libPods-RWReactivePlayground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RWReactivePlayground.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDFDB1ECDE4EED4B5124B29 /* Pods-RWReactivePlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWReactivePlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-RWReactivePlayground/Pods-RWReactivePlayground.release.xcconfig"; sourceTree = "<group>"; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				72A2882418618A2E00DDD30A /* Supporting Files */,
 				72A2885218620EA100DDD30A /* RWDummySignInService.h */,
 				72A2885318620EA100DDD30A /* RWDummySignInService.m */,
+				38F34EDC1D2CA9B20040A479 /* Launch Screen.storyboard */,
 			);
 			path = RWReactivePlayground;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				721E122718698DC100B30134 /* kitten.jpg in Resources */,
 				72A2883618618A2E00DDD30A /* Images.xcassets in Resources */,
 				72A2882818618A2E00DDD30A /* InfoPlist.strings in Resources */,
+				38F34EDD1D2CA9B20040A479 /* Launch Screen.storyboard in Resources */,
 				72A2883118618A2E00DDD30A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

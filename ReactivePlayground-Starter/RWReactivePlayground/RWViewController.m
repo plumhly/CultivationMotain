@@ -33,14 +33,44 @@
   self.signInService = [RWDummySignInService new];
   
   // handle text changes for both text fields
-  [self.usernameTextField addTarget:self action:@selector(usernameTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
+//  [self.usernameTextField addTarget:self action:@selector(usernameTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
   [self.passwordTextField addTarget:self action:@selector(passwordTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
   
   // initially hide the failure message
-  self.signInFailureText.hidden = YES;
-    [[self.usernameTextField rac_textSignal] subscribeNext:^(id x) {
-        NSLog(@"%@",x);
+//  self.signInFailureText.hidden = YES;
+//    [[self.usernameTextField rac_textSignal] subscribeNext:^(id x) {
+//        NSLog(@"%@",x);
+//    }];
+//    RACSignal *signal = [self.usernameTextField rac_textSignal];
+//    RACSignal *filterSignal = [signal filter:^BOOL(id value) {
+//        NSString *text = value;
+//        return text.length > 3;
+//    }];
+//    [filterSignal subscribeNext:^(id x) {
+//        NSLog(@"%@",x);
+//    }];
+//    [[[self.usernameTextField.rac_textSignal map:^id(NSString *text) {
+//        return @(text.length);
+//    }]
+//     filter:^BOOL(NSNumber *length) {
+//        return length.integerValue > 3;
+//    }]
+//    subscribeNext:^(id x) {
+//        NSLog(@"%@",x);
+//    }];
+    RACSignal *validUsernameSignal = [self.usernameTextField.rac_textSignal map:^id(NSString *value) {
+        return @([self isValidUsername:value]);
     }];
+    
+    RACSignal *validPassedWordSignal = [self.passwordTextField.rac_textSignal map:^id(NSString *value) {
+        return @([self isValidPassword:value]);
+    }];
+    
+    [[validPassedWordSignal map:^id(NSNumber *value) {
+        return [value boolValue] ? [UIColor clearColor] : [UIColor redColor];
+    }] subscribeNext:^(UIColor *x) {
+        self.passwordTextField.backgroundColor = x;
+    }] ;
 }
 
 - (BOOL)isValidUsername:(NSString *)username {
