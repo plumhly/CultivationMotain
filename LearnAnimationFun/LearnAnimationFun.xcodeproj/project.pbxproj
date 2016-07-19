@@ -14,6 +14,12 @@
 		0962E65B1D34026400A0D2F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0962E65A1D34026400A0D2F6 /* Assets.xcassets */; };
 		0962E65E1D34026400A0D2F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0962E65C1D34026400A0D2F6 /* LaunchScreen.storyboard */; };
 		0962E6661D340AE000A0D2F6 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0962E6651D340AE000A0D2F6 /* 1.jpg */; };
+		38483B421D3DD17A000856FE /* Cone.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B3E1D3DD17A000856FE /* Cone.png */; };
+		38483B431D3DD17A000856FE /* Cone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B3F1D3DD17A000856FE /* Cone@2x.png */; };
+		38483B441D3DD17A000856FE /* Igloo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B401D3DD17A000856FE /* Igloo.png */; };
+		38483B451D3DD17A000856FE /* Igloo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B411D3DD17A000856FE /* Igloo@2x.png */; };
+		388FDBC01D3E0ED700729D52 /* Snowman.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FDBBE1D3E0ED700729D52 /* Snowman.png */; };
+		388FDBC11D3E0ED700729D52 /* Snowman@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FDBBF1D3E0ED700729D52 /* Snowman@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		0962E65D1D34026400A0D2F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0962E65F1D34026400A0D2F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0962E6651D340AE000A0D2F6 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		38483B3E1D3DD17A000856FE /* Cone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cone.png; sourceTree = "<group>"; };
+		38483B3F1D3DD17A000856FE /* Cone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cone@2x.png"; sourceTree = "<group>"; };
+		38483B401D3DD17A000856FE /* Igloo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Igloo.png; sourceTree = "<group>"; };
+		38483B411D3DD17A000856FE /* Igloo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Igloo@2x.png"; sourceTree = "<group>"; };
+		388FDBBE1D3E0ED700729D52 /* Snowman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snowman.png; sourceTree = "<group>"; };
+		388FDBBF1D3E0ED700729D52 /* Snowman@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snowman@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 		0962E64D1D34026300A0D2F6 /* LearnAnimationFun */ = {
 			isa = PBXGroup;
 			children = (
+				38483B3D1D3DD15A000856FE /* Image */,
 				0962E6651D340AE000A0D2F6 /* 1.jpg */,
 				0962E6511D34026300A0D2F6 /* AppDelegate.h */,
 				0962E6521D34026300A0D2F6 /* AppDelegate.m */,
@@ -80,6 +93,19 @@
 				0962E64F1D34026300A0D2F6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38483B3D1D3DD15A000856FE /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				388FDBBE1D3E0ED700729D52 /* Snowman.png */,
+				388FDBBF1D3E0ED700729D52 /* Snowman@2x.png */,
+				38483B3E1D3DD17A000856FE /* Cone.png */,
+				38483B3F1D3DD17A000856FE /* Cone@2x.png */,
+				38483B401D3DD17A000856FE /* Igloo.png */,
+				38483B411D3DD17A000856FE /* Igloo@2x.png */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +167,13 @@
 			files = (
 				0962E65E1D34026400A0D2F6 /* LaunchScreen.storyboard in Resources */,
 				0962E6661D340AE000A0D2F6 /* 1.jpg in Resources */,
+				388FDBC01D3E0ED700729D52 /* Snowman.png in Resources */,
+				38483B441D3DD17A000856FE /* Igloo.png in Resources */,
+				38483B451D3DD17A000856FE /* Igloo@2x.png in Resources */,
+				38483B421D3DD17A000856FE /* Cone.png in Resources */,
+				38483B431D3DD17A000856FE /* Cone@2x.png in Resources */,
 				0962E65B1D34026400A0D2F6 /* Assets.xcassets in Resources */,
+				388FDBC11D3E0ED700729D52 /* Snowman@2x.png in Resources */,
 				0962E6591D34026300A0D2F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +338,7 @@
 				0962E6641D34026400A0D2F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
