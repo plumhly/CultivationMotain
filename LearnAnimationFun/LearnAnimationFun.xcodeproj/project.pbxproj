@@ -14,6 +14,9 @@
 		0962E65B1D34026400A0D2F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0962E65A1D34026400A0D2F6 /* Assets.xcassets */; };
 		0962E65E1D34026400A0D2F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0962E65C1D34026400A0D2F6 /* LaunchScreen.storyboard */; };
 		0962E6661D340AE000A0D2F6 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0962E6651D340AE000A0D2F6 /* 1.jpg */; };
+		3830913F1D3F24E700145544 /* LayerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3830913E1D3F24E700145544 /* LayerLabel.m */; };
+		383091411D3F751300145544 /* Snowmanbig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 383091401D3F751300145544 /* Snowmanbig@2x.png */; };
+		383091461D3F84AE00145544 /* Spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 383091451D3F84AE00145544 /* Spark.png */; };
 		38483B421D3DD17A000856FE /* Cone.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B3E1D3DD17A000856FE /* Cone.png */; };
 		38483B431D3DD17A000856FE /* Cone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B3F1D3DD17A000856FE /* Cone@2x.png */; };
 		38483B441D3DD17A000856FE /* Igloo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38483B401D3DD17A000856FE /* Igloo.png */; };
@@ -34,6 +37,10 @@
 		0962E65D1D34026400A0D2F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0962E65F1D34026400A0D2F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0962E6651D340AE000A0D2F6 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		3830913D1D3F24E700145544 /* LayerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerLabel.h; sourceTree = "<group>"; };
+		3830913E1D3F24E700145544 /* LayerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerLabel.m; sourceTree = "<group>"; };
+		383091401D3F751300145544 /* Snowmanbig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snowmanbig@2x.png"; sourceTree = "<group>"; };
+		383091451D3F84AE00145544 /* Spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spark.png; sourceTree = "<group>"; };
 		38483B3E1D3DD17A000856FE /* Cone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cone.png; sourceTree = "<group>"; };
 		38483B3F1D3DD17A000856FE /* Cone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cone@2x.png"; sourceTree = "<group>"; };
 		38483B401D3DD17A000856FE /* Igloo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Igloo.png; sourceTree = "<group>"; };
@@ -83,6 +90,8 @@
 				0962E65C1D34026400A0D2F6 /* LaunchScreen.storyboard */,
 				0962E65F1D34026400A0D2F6 /* Info.plist */,
 				0962E64E1D34026300A0D2F6 /* Supporting Files */,
+				3830913D1D3F24E700145544 /* LayerLabel.h */,
+				3830913E1D3F24E700145544 /* LayerLabel.m */,
 			);
 			path = LearnAnimationFun;
 			sourceTree = "<group>";
@@ -98,12 +107,14 @@
 		38483B3D1D3DD15A000856FE /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				383091451D3F84AE00145544 /* Spark.png */,
 				388FDBBE1D3E0ED700729D52 /* Snowman.png */,
 				388FDBBF1D3E0ED700729D52 /* Snowman@2x.png */,
 				38483B3E1D3DD17A000856FE /* Cone.png */,
 				38483B3F1D3DD17A000856FE /* Cone@2x.png */,
 				38483B401D3DD17A000856FE /* Igloo.png */,
 				38483B411D3DD17A000856FE /* Igloo@2x.png */,
+				383091401D3F751300145544 /* Snowmanbig@2x.png */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -168,7 +179,9 @@
 				0962E65E1D34026400A0D2F6 /* LaunchScreen.storyboard in Resources */,
 				0962E6661D340AE000A0D2F6 /* 1.jpg in Resources */,
 				388FDBC01D3E0ED700729D52 /* Snowman.png in Resources */,
+				383091411D3F751300145544 /* Snowmanbig@2x.png in Resources */,
 				38483B441D3DD17A000856FE /* Igloo.png in Resources */,
+				383091461D3F84AE00145544 /* Spark.png in Resources */,
 				38483B451D3DD17A000856FE /* Igloo@2x.png in Resources */,
 				38483B421D3DD17A000856FE /* Cone.png in Resources */,
 				38483B431D3DD17A000856FE /* Cone@2x.png in Resources */,
@@ -185,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3830913F1D3F24E700145544 /* LayerLabel.m in Sources */,
 				0962E6561D34026300A0D2F6 /* ViewController.m in Sources */,
 				0962E6531D34026300A0D2F6 /* AppDelegate.m in Sources */,
 				0962E6501D34026300A0D2F6 /* main.m in Sources */,
