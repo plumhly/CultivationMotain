@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #import <CoreText/CoreText.h>
 #import "LayerLabel.h"
+#import <GLKit/GLKit.h>
+#import <OpenGLES/EAGL.h>
+#import <AVFoundation/AVFoundation.h>
+#import <CoreFoundation/CoreFoundation.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *layerView;
@@ -27,6 +31,19 @@
 @property (strong, nonatomic) CALayer *greenLayer;
 
 @property (strong, nonatomic) CAScrollLayer *scrollLayer;
+
+@property (strong, nonatomic) CALayer *colorLayer;
+
+
+//CAEAGLLayer
+@property (strong, nonatomic) EAGLContext *glContext;
+@property (strong, nonatomic) CAEAGLLayer *glLayer;
+@property (assign, nonatomic) GLuint frameBuffer;
+@property (nonatomic, assign) GLuint colorRenderBuffer;
+@property (nonatomic, assign) GLint frameBufferHeight;
+@property (nonatomic, assign) GLint frameBufferWidth;
+@property (strong, nonatomic) GLKBaseEffect *effect;
+
 @end
 
 @implementation ViewController
@@ -66,7 +83,197 @@
 //    [self testGradientLayer];
 //    [self testReplictorLayer];
 //    [self testCAScrollLayer];
-    [self testCAEmitterLayer];
+//    [self testCAEmitterLayer];
+//    [self testCAEAGLLayer];
+//    [self testPlayerLayer];
+//    [self testColorLayer];
+    [self testPresentLayer];
+}
+
+- (void)testPresentLayer{
+    self.contentView.hidden = self.layerView.hidden = YES;
+    
+    self.colorLayer = [CALayer layer];
+    self.colorLayer.frame = CGRectMake(0, 0, 100, 100);
+    self.colorLayer.position = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.width / 2);
+    self.colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    [self.view.layer addSublayer:self.colorLayer];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    if ([self.colorLayer.presentationLayer hitTest:point]) {
+        //randomize the layer background color
+        CGFloat red = arc4random() / (CGFloat)INT_MAX;
+        CGFloat green = arc4random() / (CGFloat)INT_MAX;
+        CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+        self.colorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+    } else {
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:0.4];
+        self.colorLayer.position = point;
+        [CATransaction commit];
+    }
+}
+
+- (void)testColorLayer {
+    self.colorLayer = [CALayer layer];
+    self.colorLayer.frame = self.shadowView.bounds;
+    self.colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    
+    
+    
+//    CATransition *transition  = [CATransition animation];
+//    transition.type = kCATransitionPush;
+//    transition.subtype = kCATransitionFromLeft;
+//    self.colorLayer.actions = @{@"backgroundColor": transition};
+//    NSDictionary *dic = self.colorLayer.style;
+    
+    [self.shadowView.layer addSublayer:self.colorLayer];
+    
+    //test
+//    NSLog(@"OutBlock %@",[self.shadowView actionForLayer:self.shadowView.layer forKey:@"backgroundColor"]);
+//    
+//    //begin animation
+//    [UIView beginAnimations:nil context:NULL];
+//    NSLog(@"inBlock %@",[self.shadowView actionForLayer:self.shadowView.layer forKey:@"backgroundColor"]);
+//    [UIView commitAnimations];
+}
+
+- (IBAction)buttonClick:(id)sender {
+    
+//    [CATransaction begin];
+//    [UIView beginAnimations:nil context:NULL];
+//    CFTimeInterval interval = 1.0;
+//    [CATransaction setAnimationDuration:interval];
+    CGFloat red = arc4random() / (CGFloat)INT_MAX;
+    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+    CGFloat green = arc4random() / (CGFloat)INT_MAX;
+    self.colorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+//    [UIView commitAnimations];
+//    [CATransaction commit];
+}
+
+- (void)testPlayerLayer {
+    /*
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Ship" withExtension:@"mp4"];
+    AVPlayer *player = [AVPlayer playerWithURL:url];
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
+    playerLayer.frame = self.shadowView.bounds;
+    [self.shadowView.layer addSublayer:playerLayer];
+    [player play];
+    
+    */
+    
+    //结合transform3d
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Ship" withExtension:@"mp4"];
+    AVPlayer *player = [AVPlayer playerWithURL:url];
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
+    playerLayer.frame = CGRectMake(0, 0, 100, 100);
+    playerLayer.borderWidth = 10;
+    playerLayer.borderColor = [UIColor redColor].CGColor;
+    
+    CATransform3D trandform = CATransform3DIdentity;
+    trandform = CATransform3DRotate(trandform, M_PI_4, 1, 1, 0);
+    trandform.m34 = -1 / 500.0;
+    playerLayer.transform = trandform;
+    playerLayer.masksToBounds = YES;
+    [self.shadowView.layer addSublayer:playerLayer];
+    [player play];
+    
+}
+
+- (void)setUpBuffer {
+    //set up frame buffer
+    glGenFramebuffers(1, &_frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+    
+    //set up color render buffer
+    glGenRenderbuffers(1, &_colorRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+    [self.glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.glLayer];
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &_frameBufferWidth);
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &_frameBufferHeight);
+    
+    //check success
+    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+    {
+        NSLog(@"Failed to make complete framebuffer object: %i", glCheckFramebufferStatus(GL_FRAMEBUFFER));
+    }
+}
+
+- (void)tearDownBuffer {
+    if (_frameBuffer) {
+        glDeleteFramebuffers(1, &_frameBuffer);
+        _frameBuffer = 0;
+    }
+    if (_colorRenderBuffer) {
+        glDeleteRenderbuffers(1, &_colorRenderBuffer);
+        _colorRenderBuffer = 0;
+    }
+}
+
+- (void)drawFrame {
+    //bind framebuffer & set viewport
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+    glViewport(0, 0, _frameBufferWidth, _frameBufferHeight);
+    
+    //bind shader program
+    [self.effect prepareToDraw];
+    
+    //clear the screen
+    glClear(GL_COLOR_BUFFER_BIT); glClearColor(0.0, 0.0, 0.0, 1.0);
+    
+    //set up vertices
+    GLfloat vertices[] = {
+        -0.5f, -0.5f, -1.0f, 0.0f, 0.5f, -1.0f, 0.5f, -0.5f, -1.0f,
+    };
+    
+    //set up colors
+    GLfloat colors[] = {
+        0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+    };
+    
+    //draw triangle
+    glEnableVertexAttribArray(GLKVertexAttribPosition);
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+    glVertexAttribPointer(GLKVertexAttribColor,4, GL_FLOAT, GL_FALSE, 0, colors);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
+    //present render buffer
+    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+    [self.glContext presentRenderbuffer:GL_RENDERBUFFER];
+
+}
+
+- (void)testCAEAGLLayer {
+    self.glContext = [[EAGLContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [EAGLContext setCurrentContext:self.glContext];
+    
+     //set up layer
+    self.glLayer = [CAEAGLLayer layer];
+    self.glLayer.frame = self.shadowView.bounds;
+    [self.shadowView.layer addSublayer:self.glLayer];
+    self.glLayer.drawableProperties = @{kEAGLDrawablePropertyRetainedBacking:@NO ,kEAGLDrawablePropertyColorFormat:kEAGLColorFormatRGBA8};
+    
+    //set up base effect
+    self.effect = [[GLKBaseEffect alloc] init];
+    
+    //set up buffers
+    [self setUpBuffer];
+    
+    //draw frame
+    [self drawFrame];
+}
+
+- (void)dealloc
+{
+    [self tearDownBuffer];
+    [EAGLContext setCurrentContext:nil];
 }
 
 - (void)testCAEmitterLayer {
