@@ -13,6 +13,7 @@
 #import <OpenGLES/EAGL.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreFoundation/CoreFoundation.h>
+#import <CoreImage/CoreImage.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *layerView;
@@ -43,6 +44,11 @@
 @property (nonatomic, assign) GLint frameBufferHeight;
 @property (nonatomic, assign) GLint frameBufferWidth;
 @property (strong, nonatomic) GLKBaseEffect *effect;
+
+
+@property (strong, nonatomic) CALayer *doorLayer;
+
+@property (strong, nonatomic) UIImageView *ballView;
 
 @end
 
@@ -87,7 +93,258 @@
 //    [self testCAEAGLLayer];
 //    [self testPlayerLayer];
 //    [self testColorLayer];
-    [self testPresentLayer];
+//    [self testPresentLayer];
+//    [self testExplicitAnimtion];
+//    [self testExplicitAnimtionWithPath];
+//    [self testAutoreverses];
+//    [self testManualAnimation];
+//    [self drawTimingFuncOption];
+    [self testBallBounce];
+}
+
+- (void)testBallBounceUsingSeparateFrame {
+    self.layerView.hidden = self.contentView.hidden = YES;
+    self.ballView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Ball"]];
+    [self.view addSubview:self.ballView];
+    
+    self.ballView.center = CGPointMake(150, 32);
+    
+    
+}
+
+float interpolate(float from, float to, float time)
+{
+    return (to - from) * time + from;
+}
+
+- (id)interpolateFromValue:(id)fromValue toValue:(id)toValue time:(float)time {
+    if ([fromValue isKindOfClass:[NSValue class]]) {
+        const char *type = [fromValue objCType];
+        if (strcmp(type, @encode(CGPoint)) == 0) {
+            CGPoint from = [fromValue CGPointValue];
+            CGPoint to = [toValue CGPointValue];
+            CGPoint result = CGPointMake(interpolate(from.x, to.x, time), interpolate(from.y, to.y, time));
+            return [NSValue valueWithCGPoint:result];
+        }
+    }
+    //provide safe default implementation
+    return (time < 0.5)? fromValue: toValue;
+}
+
+- (void)testBallBounce {
+    self.layerView.hidden = self.contentView.hidden = YES;
+    self.ballView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Ball"]];
+    [self.view addSubview:self.ballView];
+    
+   self.ballView.center = CGPointMake(150, 32);
+    
+    //animation
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.values = @[
+                         [NSValue valueWithCGPoint:CGPointMake(150, 32)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 268)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 140)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 268)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 220)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 268)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 250)],
+                         [NSValue valueWithCGPoint:CGPointMake(150, 268)]
+                         ];
+    animation.timingFunctions = @[
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn],
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut],
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn],
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut],
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn],
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut],
+                                  [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn]
+                                  ];
+
+    animation.duration = 1.0;
+    animation.keyPath = @"position";
+    animation.keyTimes = @[@0.0, @0.3, @0.5, @0.7, @0.8, @0.9, @0.95, @1.0];
+    self.ballView.layer.position = CGPointMake(150, 268);
+    [self.ballView.layer addAnimation:animation forKey:@"bounce"];
+    
+}
+
+- (void)drawTimingFuncOption {
+//    CAMediaTimingFunction *function = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn];
+    CAMediaTimingFunction *function = [CAMediaTimingFunction functionWithControlPoints:1 :0 :0.75 :1];
+    float control1[2] = {};
+    float control2[2] = {};
+    [function getControlPointAtIndex:1 values:(float *)&control1];
+    [function getControlPointAtIndex:2 values:(float *)&control2];
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    
+    CGPoint point1 = CGPointMake(control1[0], control1[1]);
+    CGPoint point2 = CGPointMake(control2[0], control2[1]);
+    [path moveToPoint:CGPointMake(0, 0)];
+    [path addCurveToPoint:CGPointMake(1,1) controlPoint1:point1 controlPoint2:point2];
+    [path applyTransform:CGAffineTransformMakeScale(200, 200)];
+    
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.lineWidth = 4.0;
+    layer.path = path.CGPath;
+    layer.strokeColor = [UIColor redColor].CGColor;
+    layer.fillColor = [UIColor clearColor].CGColor;
+    [self.shadowView.layer addSublayer:layer];
+    
+    self.shadowView.layer.geometryFlipped = YES;//翻转Y轴
+}
+
+- (void)testManualAnimation {
+    _doorLayer = [CALayer layer];
+    _doorLayer.frame = CGRectMake((self.shadowView.frame.size.width - 100 )/2.0, (self.shadowView.frame.size.height - 100 )/2.0, 100, 100);
+    _doorLayer.contents = (__bridge id)[UIImage imageNamed:@"Door"].CGImage;
+    _doorLayer.anchorPoint = CGPointMake(0, 0);
+    _doorLayer.position = CGPointMake(0, 0.5);
+    _doorLayer.speed = 0;
+    [self.shadowView.layer addSublayer:_doorLayer];
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = -1 /500.0;
+    self.shadowView.layer.sublayerTransform = transform;
+    
+    UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pinch:)];
+    [self.view addGestureRecognizer:gesture];
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"transform.rotation.y";
+    animation.duration = 2;
+    animation.toValue = @(-M_PI_2);
+    [_doorLayer addAnimation:animation forKey:@"door"];
+    
+    
+}
+
+- (void)pinch:(UIPanGestureRecognizer *)gesture {
+    CGFloat x = [gesture translationInView:self.shadowView].x;
+    
+    x /= 2000.0;
+    
+    CFTimeInterval timeOffset = self.doorLayer.timeOffset;
+    timeOffset = MIN(0.999, MAX(0.0, timeOffset - x));
+    self.doorLayer.timeOffset = timeOffset;
+    [gesture setTranslation:CGPointZero inView:self.shadowView];
+    
+}
+
+
+- (void)testAutoreverses {
+    CALayer *doorLayer = [CALayer layer];
+    doorLayer.frame = self.shadowView.bounds;
+    doorLayer.contents = (__bridge id)[UIImage imageNamed:@"Door"].CGImage;
+    doorLayer.anchorPoint = CGPointMake(0, 0);
+    doorLayer.position = CGPointMake(0, 0);
+    [self.shadowView.layer addSublayer:doorLayer];
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = -1 /500.0;
+    self.shadowView.layer.sublayerTransform = transform;
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"transform.rotation.y";
+    animation.toValue = @(-M_PI_2);
+    animation.repeatDuration = 5;//repeatCount
+//    animation.beginTime = 0.2;
+//    animation.autoreverses = YES;
+//    animation.fillMode = kCAFillModeBoth;
+//    animation.removedOnCompletion = NO;
+    animation.duration = 2.0;
+    [doorLayer addAnimation:animation forKey:@"door"];
+    
+    self.shadowView.layer.speed = 0;
+}
+
+- (void)testAnimationGroup {
+    self.contentView.hidden = self.layerView.hidden = YES;
+    //    UIBezierPath *path = [UIBezierPath bezierPath];
+    //    [path moveToPoint:CGPointMake(0, 150)];
+    //    [path addCurveToPoint:CGPointMake(300, 150)  controlPoint1:CGPointMake(75, 0) controlPoint2:CGPointMake(225, 300)];
+    //    //CAShapelayer
+    //    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    //    shapeLayer.lineWidth = 2;
+    //    shapeLayer.path = path.CGPath;
+    //    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    //    shapeLayer.strokeColor = [UIColor redColor].CGColor;
+    //
+    //    [self.view.layer addSublayer:shapeLayer];
+    
+    //calayer
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(0, 0, 64, 64);
+    layer.position = CGPointMake(35, 150);
+    layer.contents = (__bridge id)[UIImage imageNamed:@"Ship"].CGImage;
+    
+    [self.view.layer addSublayer:layer];
+    //    //animatiom
+    //    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    //    animation.keyPath = @"position";
+    //    animation.rotationMode = kCAAnimationRotateAutoReverse;
+    //    animation.path = path.CGPath;
+    //    animation.duration = 4.0;
+    //    [layer addAnimation:animation forKey:nil];
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"transform.rotation";
+    animation.duration = 2.0;
+    animation.byValue = @(M_PI * 2);
+    //    animation.byValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI_4, 0, 0, 1)];
+    //    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI_2, 0, 0, 1)];
+    
+    
+    [layer addAnimation:animation forKey:nil];
+}
+
+- (void)testExplicitAnimtionWithPath {
+    self.contentView.hidden = self.layerView.hidden = YES;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(0, 150)];
+    [path addCurveToPoint:CGPointMake(300, 150)  controlPoint1:CGPointMake(75, 0) controlPoint2:CGPointMake(225, 300)];
+    //CAShapelayer
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.lineWidth = 2;
+    shapeLayer.path = path.CGPath;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    shapeLayer.strokeColor = [UIColor redColor].CGColor;
+    
+    [self.view.layer addSublayer:shapeLayer];
+    
+    //calayer
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(0, 0, 64, 64);
+    layer.position = CGPointMake(35, 150);
+//    layer.contents = (__bridge id)[UIImage imageNamed:@"Ship"].CGImage;
+    layer.backgroundColor = [UIColor greenColor].CGColor;
+    
+    [self.view.layer addSublayer:layer];
+    //animatiom
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.keyPath = @"position";
+    animation.rotationMode = kCAAnimationRotateAutoReverse;
+    animation.path = path.CGPath;
+    animation.duration = 4.0;
+    [layer addAnimation:animation forKey:nil];
+    
+    CABasicAnimation *baseAnimation = [CABasicAnimation animation];
+    baseAnimation.keyPath = @"backgroundColor";
+    baseAnimation.duration = 2.0;
+    baseAnimation.toValue = (__bridge id)[UIColor redColor].CGColor;
+    
+    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+    animationGroup.duration = 4.0;
+    animationGroup.animations = @[animation, baseAnimation];
+    [layer addAnimation:animationGroup forKey:@"group"];
+    
+    
+}
+
+- (void)testExplicitAnimtion {
+    self.colorLayer = [CALayer layer];
+    self.colorLayer.frame = CGRectMake(0, 0, 100, 100);
+    self.colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    [self.shadowView.layer addSublayer:self.colorLayer];
 }
 
 - (void)testPresentLayer{
@@ -142,7 +399,7 @@
 }
 
 - (IBAction)buttonClick:(id)sender {
-    
+    /*
 //    [CATransaction begin];
 //    [UIView beginAnimations:nil context:NULL];
 //    CFTimeInterval interval = 1.0;
@@ -150,9 +407,78 @@
     CGFloat red = arc4random() / (CGFloat)INT_MAX;
     CGFloat blue = arc4random() / (CGFloat)INT_MAX;
     CGFloat green = arc4random() / (CGFloat)INT_MAX;
-    self.colorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+    UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 //    [UIView commitAnimations];
 //    [CATransaction commit];
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"backgroundColor";
+    animation.delegate = self;
+    animation.toValue = (__bridge id)color.CGColor;
+    
+    [self.colorLayer addAnimation:animation forKey:nil];
+    */
+    
+//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+//    animation.keyPath = @"backgroundColor";
+//    animation.values = @[(__bridge id)[UIColor blueColor].CGColor, (__bridge id)[UIColor redColor].CGColor, (__bridge id)[UIColor greenColor].CGColor, (__bridge id)[UIColor blueColor].CGColor];
+//    animation.duration = 2.0;
+//    animation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+//    [self.colorLayer addAnimation:animation forKey:nil];
+    
+    //1.test CATransition
+
+//    CATransition *transition = [CATransition animation];
+//    transition.type = kCATransitionFade;
+//    [self.leftView.layer addAnimation:transition forKey:nil];
+//    
+//    self.leftView.image  = [UIImage imageNamed:@"Ship"];
+//
+    //2.用UIViwe的过渡效果
+//    [UIView transitionWithView:self.leftView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+//        self.leftView.image  = [UIImage imageNamed:@"Ship"];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+    
+    //3.自定义动画
+    /*
+    UIGraphicsBeginImageContextWithOptions(self.layerView.bounds.size, YES, 0);
+    [self.layerView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    imageView.frame = self.layerView.bounds;
+    [self.layerView addSubview:imageView];
+    
+    //update the view (we'll simply randomize the layer background color)
+    CGFloat red = arc4random() / (CGFloat)INT_MAX;
+    CGFloat green = arc4random() / (CGFloat)INT_MAX;
+    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+    self.layerView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    
+    //perform animation (anything you like)
+    [UIView animateWithDuration:1.0 animations:^{
+        //scale, rotate and fade the view
+        CGAffineTransform transform = CGAffineTransformMakeScale(0.01, 0.01);
+        transform = CGAffineTransformRotate(transform, M_PI_2);
+        imageView.transform = transform;
+        imageView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        //remove the cover view now we're finished with it
+        [imageView removeFromSuperview];
+    }];
+     */
+    
+}
+
+- (void)animationDidStop:(CABasicAnimation *)anim finished:(BOOL)flag; {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    self.colorLayer.backgroundColor = (__bridge CGColorRef)anim.toValue;
+    
+    [CATransaction commit];
 }
 
 - (void)testPlayerLayer {

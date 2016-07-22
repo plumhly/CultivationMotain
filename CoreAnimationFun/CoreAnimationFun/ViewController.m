@@ -75,16 +75,16 @@
     [self.view addSubview:view1];
     
 //    CABasicAnimation *animation = [CABasicAnimation animation];
-//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
-//    animation.values = @[@0, @50, @100, @150, @400, @150, @400];
-//    animation.keyTimes = @[@0, @(1/6.0), @(2/6.0), @(3/6.0), @(4/6.0), @(5/6.0), @(1)];
-//    animation.keyPath = @"position.y";
-//    animation.duration = 1;
-//    animation.repeatCount = 5;
-//    animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.1 :0.3 :.5f :0.9];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.values = @[@0, @50, @100, @150, @400, @150, @400];
+    animation.keyTimes = @[@0, @(1/6.0), @(2/6.0), @(3/6.0), @(4/6.0), @(5/6.0), @(1)];
+    animation.keyPath = @"position.y";
+    animation.duration = 1;
+    animation.repeatCount = 5;
+    animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.1 :0.3 :.5f :0.9];
     
-//    [view.layer addAnimation:animation forKey:@"function"];
-//    view.layer.position = CGPointMake(0, 400);
+    [view.layer addAnimation:animation forKey:@"function"];
+    view.layer.position = CGPointMake(0, 400);
     
     
     /*
