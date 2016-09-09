@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <CoreImage/CoreImage.h>
 #import <OpenGLES/EAGL.h>
+#import <ImageIO/ImageIO.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -16,20 +17,48 @@
 @end
 
 
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self findEyes];
+    
+    
+    
+//    self setsour
+    
+}
+
+- (void)findEyes {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"我" ofType:@"png"];
+    CIImage *image = [CIImage imageWithContentsOfURL:[NSURL fileURLWithPath:path]];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    NSArray *array = [detector featuresInImage:image options:@{CIDetectorImageOrientation:@1}];
+    CIFaceFeature *face = array.firstObject;
+    CGPoint letfEyePositon = face.leftEyePosition;
+    CGPoint rightEyePositon = face.rightEyePosition;
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(letfEyePositon.x, 101 - letfEyePositon.y, 10, 10)];
+    view.backgroundColor = [UIColor redColor];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"我"]];
+    [self.view addSubview:imageView];
+    
+    [imageView addSubview:view];
+    
+}
+
+- (void)beginLearn {
     // Do any additional setup after loading the view, typically from a nib.
     NSString *path = [[NSBundle mainBundle] pathForResource:@"狗儿" ofType:@"png"];
     
     CIContext *context = [CIContext contextWithOptions:nil];
-//    UIImage *aimage = [UIImage imageNamed:@"狗儿.png"];//内部使用的cgimage实现
+    //    UIImage *aimage = [UIImage imageNamed:@"狗儿.png"];//内部使用的cgimage实现
     CIImage *image = [CIImage imageWithContentsOfURL:[NSURL fileURLWithPath:path]];
     CIFilter *filter = [CIFilter filterWithName:@"CIHueAdjust"];
-//    CIFilter *filter = [CIFilter filterWithName:@"" withInputParameters:@{kCIInputImageKey : image, kCIInputAngleKey : @3.14f}];
-//    [filter setDefaults];
+    //    CIFilter *filter = [CIFilter filterWithName:@"" withInputParameters:@{kCIInputImageKey : image, kCIInputAngleKey : @3.14f}];
+    //    [filter setDefaults];
     [CIFilter filterNamesInCategory:@""];
     [filter setValue:image forKey:kCIInputImageKey];
     [filter setValue:@3.14f forKey:kCIInputAngleKey];
@@ -58,12 +87,8 @@
     
     NSDictionary *option = @{kCIContextWorkingColorSpace : [NSNull null]};
     CIContext *ciContext1 = [CIContext contextWithEAGLContext:eaglContext options:option];
-    
-    
-    
-//    self setsour
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
