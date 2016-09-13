@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        //状态栏高亮
+        application.statusBarStyle = .LightContent
+        let frame = screenScale
+        self.window = UIWindow.init(frame: frame)
+        let adVC = Adview
+        
         return true
     }
 
