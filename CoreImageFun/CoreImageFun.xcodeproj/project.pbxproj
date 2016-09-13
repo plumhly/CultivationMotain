@@ -14,6 +14,7 @@
 		38574A591D79541D0059A0A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38574A581D79541D0059A0A9 /* Assets.xcassets */; };
 		38574A5C1D79541D0059A0A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38574A5A1D79541D0059A0A9 /* LaunchScreen.storyboard */; };
 		38574A661D79586E0059A0A9 /* 狗儿.png in Resources */ = {isa = PBXBuildFile; fileRef = 38574A651D79586E0059A0A9 /* 狗儿.png */; };
+		389DDEE21D86416900C1A76A /* CIColorInvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 389DDEE11D86416900C1A76A /* CIColorInvert.m */; };
 		38FCDD581D829F1E003A34F6 /* 我.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FCDD571D829F1E003A34F6 /* 我.png */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		38574A5B1D79541D0059A0A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38574A5D1D79541D0059A0A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38574A651D79586E0059A0A9 /* 狗儿.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "狗儿.png"; sourceTree = "<group>"; };
+		389DDEE01D86416900C1A76A /* CIColorInvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIColorInvert.h; sourceTree = "<group>"; };
+		389DDEE11D86416900C1A76A /* CIColorInvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIColorInvert.m; sourceTree = "<group>"; };
 		38FCDD571D829F1E003A34F6 /* 我.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +71,8 @@
 				38574A501D79541D0059A0A9 /* AppDelegate.m */,
 				38574A521D79541D0059A0A9 /* ViewController.h */,
 				38574A531D79541D0059A0A9 /* ViewController.m */,
+				389DDEE01D86416900C1A76A /* CIColorInvert.h */,
+				389DDEE11D86416900C1A76A /* CIColorInvert.m */,
 				38574A551D79541D0059A0A9 /* Main.storyboard */,
 				38574A581D79541D0059A0A9 /* Assets.xcassets */,
 				38574A5A1D79541D0059A0A9 /* LaunchScreen.storyboard */,
@@ -158,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38574A541D79541D0059A0A9 /* ViewController.m in Sources */,
+				389DDEE21D86416900C1A76A /* CIColorInvert.m in Sources */,
 				38574A511D79541D0059A0A9 /* AppDelegate.m in Sources */,
 				38574A4E1D79541D0059A0A9 /* main.m in Sources */,
 			);
