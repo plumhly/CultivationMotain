@@ -39,7 +39,20 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let has = NSUserDefaults.standardUserDefaults().boolForKey("username")
+    if has {
+        loginButton.setTitle("Login", forState: .Normal)
+        loginButton.tag = loginButtonTag
+        createInfoLabel.hidden = true
+    } else {
+        loginButton.setTitle("Create", forState: .Normal)
+        loginButton.tag = createLoginButtonTag
+        createInfoLabel.hidden = false
+    }
     
+    if let user = NSUserDefaults.standardUserDefaults().valueForKey("username") as? String {
+        usernameTextField.text = user
+    }
   }
   
   // MARK: - Action for checking username/password
@@ -66,7 +79,7 @@ class LoginViewController: UIViewController {
         }
         
         //5
-        myKeychainWrapper.setValue(usernameTextField.text, forKey: kSecValueData as String)
+        myKeychainWrapper.mySetObject(passwordTextField.text, forKey: kSecValueData)
         myKeychainWrapper.writeToKeychain()
         
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
@@ -90,7 +103,7 @@ class LoginViewController: UIViewController {
   }
   
     func checkLogin(username: String, password: String) -> Bool {
-        if usernameTextField.text == "" || passwordTextField.text == ""{
+        if (password == myKeychainWrapper.myObjectForKey("v_Data") as? String || username == NSUserDefaults.standardUserDefaults().valueForKey("username") as? String){
             return true
         }
         return false
