@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					3850ADCC1DB77E1100F2C152 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = FY9VNRD73A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -270,6 +271,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FY9VNRD73A;
 				INFOPLIST_FILE = SecurityTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anzogame.SecurityTest;
@@ -281,6 +284,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FY9VNRD73A;
 				INFOPLIST_FILE = SecurityTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anzogame.SecurityTest;
@@ -307,6 +312,7 @@
 				3850ADE61DB77E1100F2C152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
