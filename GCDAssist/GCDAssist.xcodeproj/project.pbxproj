@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09F792331DA2B10C000F5050 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F792321DA2B10C000F5050 /* main.m */; };
 		09F7923B1DA2B17B000F5050 /* NoteBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7923A1DA2B17B000F5050 /* NoteBook.m */; };
+		3850AD9F1DB5AA3B00F2C152 /* MRCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3850AD9E1DB5AA3B00F2C152 /* MRCClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		09F792321DA2B10C000F5050 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		09F792391DA2B17B000F5050 /* NoteBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBook.h; sourceTree = "<group>"; };
 		09F7923A1DA2B17B000F5050 /* NoteBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBook.m; sourceTree = "<group>"; };
+		3850AD9D1DB5AA3B00F2C152 /* MRCClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCClass.h; sourceTree = "<group>"; };
+		3850AD9E1DB5AA3B00F2C152 /* MRCClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				09F792321DA2B10C000F5050 /* main.m */,
 				09F792391DA2B17B000F5050 /* NoteBook.h */,
 				09F7923A1DA2B17B000F5050 /* NoteBook.m */,
+				3850AD9D1DB5AA3B00F2C152 /* MRCClass.h */,
+				3850AD9E1DB5AA3B00F2C152 /* MRCClass.m */,
 			);
 			path = GCDAssist;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F7923B1DA2B17B000F5050 /* NoteBook.m in Sources */,
+				3850AD9F1DB5AA3B00F2C152 /* MRCClass.m in Sources */,
 				09F792331DA2B10C000F5050 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +258,7 @@
 				09F792381DA2B10C000F5050 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

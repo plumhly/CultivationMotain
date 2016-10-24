@@ -8,8 +8,6 @@
 
 #import "ViewController.h"
 #import <CommonCrypto/CommonCrypto.h>
-#import <Security/Security.h>
-
 
 @interface ViewController ()
 
@@ -20,9 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    [self encodeDataUseBase_64];
-//    [self encryptionDataUsing_MD5];
-    [self keychainTest];
+    [self encodeDataUseBase_64];
+    [self encryptionDataUsing_MD5];
+    [self encryptionDataUsing_SHA1];
 }
 
 
@@ -52,62 +50,23 @@
     NSLog(@"");
 }
 
-- (void)keychainTest {
-    
-    // add
-    NSMutableDictionary *keyItem = [NSMutableDictionary dictionary];
-    
-    NSString *username = @"libo";
-    NSString *password = @"mitlibo";
-    
-    keyItem[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
-    keyItem[(__bridge id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
-    keyItem[(__bridge id)kSecAttrAccount] = username;
 
-    //return the encrypted data and store it in a CFDataRef object
-    keyItem [(__bridge id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
+- (void)encryptionDataUsing_SHA1 {
     
-    //return a dictionary, that is, a CFDictionaryRef.
-    keyItem [(__bridge id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
-    //是否已经存在
-    
-//    CFDataRef result = nil;
-    CFDictionaryRef result = nil;
-    
-    //如果没有设置 kSecReturnAttributes  那么返回的是CFDataRef
-//    OSStatus sts = SecItemCopyMatching((__bridge CFDictionaryRef) keyItem, (CFTypeRef *)&result);
-    
-    // 如果设置 kSecReturnAttributes
-    OSStatus sts = SecItemCopyMatching((__bridge CFDictionaryRef) keyItem, (CFTypeRef *)&result);
-    
-    
-    if (sts == noErr) {
-        
-        //1.updata
-        /*
-        NSMutableDictionary *attribute = [NSMutableDictionary dictionary];
-        attribute [(__bridge id)kSecValueData] = [password dataUsingEncoding:NSUTF8StringEncoding];
-        OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)keyItem, (__bridge CFDictionaryRef)attribute);
-         */
-        
-        //2.get password
-        /*
-//        NSData *passwordData = (__bridge_transfer NSData*)result;
-        NSDictionary *dic = (__bridge_transfer NSDictionary*)result;
-        NSData *passwordData = dic[(__bridge id)kSecValueData];
-        NSString *pwd = [[NSString alloc]initWithData:passwordData encoding:NSUTF8StringEncoding];
-         */
-        
-        //3.delete
-        OSStatus status = SecItemDelete((__bridge CFDictionaryRef)keyItem);
-        
-        NSLog(@"");
-        
-    } else {
-        keyItem [(__bridge id)kSecValueData] = [password dataUsingEncoding:NSUTF8StringEncoding];
-        OSStatus status = SecItemAdd((__bridge CFDictionaryRef)keyItem, NULL);
-        NSLog(@"%d",status);
+    NSString *pwd = @"libo";
+    /*
+    const char *cstr = [pwd UTF8String];
+     */
+    const char *cs = [pwd cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cs length:pwd.length];
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+//    CC_SHA1(cstr, strlen(cstr), digest);
+    CC_SHA1(data.bytes, data.length, digest);
+    NSMutableString *string = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    for (int i=0 ; i < CC_SHA1_DIGEST_LENGTH; i++) {
+        [string appendFormat:@"%02x",digest[i]];
     }
+    NSLog(@"");
 }
 
 @end
