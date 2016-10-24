@@ -14,4 +14,7 @@
 - (void) demo2;
 - (void) demo3;
 - (void) demo4;
+
++ (NSString *)newHelloWorldString;
++ (NSString *)helloWorldString;
 @end

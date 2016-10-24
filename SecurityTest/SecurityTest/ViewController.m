@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self encodeDataUseBase_64];
     [self encryptionDataUsing_MD5];
+    [self encryptionDataUsing_SHA1];
 }
 
 
@@ -49,5 +50,23 @@
     NSLog(@"");
 }
 
+
+- (void)encryptionDataUsing_SHA1 {
+    
+    NSString *pwd = @"libo";
+    /*
+    const char *cstr = [pwd UTF8String];
+     */
+    const char *cs = [pwd cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cs length:pwd.length];
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+//    CC_SHA1(cstr, strlen(cstr), digest);
+    CC_SHA1(data.bytes, data.length, digest);
+    NSMutableString *string = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    for (int i=0 ; i < CC_SHA1_DIGEST_LENGTH; i++) {
+        [string appendFormat:@"%02x",digest[i]];
+    }
+    NSLog(@"");
+}
 
 @end
