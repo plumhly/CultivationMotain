@@ -57,6 +57,7 @@
     NSLog(@"indirect: passed reference %p, contains %p - %@", byRef, *byRef, *byRef);
     [self indirect:byRef];
     NSLog(@"indirect: returned");
+    
 }
 
 
