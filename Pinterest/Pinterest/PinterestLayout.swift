@@ -16,6 +16,29 @@ protocol PinterestLayoutDelegate {
 }
 
 
+class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
+  
+  //1
+  var photoHeight: CGFloat = 0.0
+  
+  override func copyWithZone(zone: NSZone) -> AnyObject {
+    let copy = super.copyWithZone(zone) as! PinterestLayoutAttributes
+    copy.photoHeight = photoHeight
+    return copy
+  }
+		
+  override func isEqual(object: AnyObject?) -> Bool {
+    if let attributes = object as? PinterestLayoutAttributes {
+      if attributes.photoHeight == photoHeight {
+        return super.isEqual(object)
+      }
+    }
+    return false
+  }
+}
+
+
+
 class PinterestLayout: UICollectionViewLayout {
 
   //1
@@ -26,7 +49,7 @@ class PinterestLayout: UICollectionViewLayout {
   var cellPadding: CGFloat = 6.0
   
   //3
-  private var cache = [UICollectionViewLayoutAttributes]()
+  private var cache = [PinterestLayoutAttributes]()
   
   //4
   private var contentHeight: CGFloat = 0.0
@@ -57,11 +80,12 @@ class PinterestLayout: UICollectionViewLayout {
         let annotationHeight = delegate.collectionView(collectionView!, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
         let height = photoHeight + annotationHeight + 2 * cellPadding
         
-        let frame = CGRectMake(xOffsets[item], yOffset[item], width, height)
+        let frame = CGRectMake(xOffsets[column], yOffset[column], width, height)
         let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
         
         //5
-        let attribute = UICollectionViewLayoutAttributes.init(forCellWithIndexPath: indexPath)
+        let attribute = PinterestLayoutAttributes.init(forCellWithIndexPath: indexPath)
+        attribute.photoHeight = photoHeight
         attribute.frame = insetFrame
         cache.append(attribute)
         
@@ -87,5 +111,10 @@ class PinterestLayout: UICollectionViewLayout {
     }
     return layoutAttributes
   }
-		
+  
+  //This overrides layoutAttributesClass() to tell the collection view to use PinterestLayoutAttributes whenever it creates layout attributes objects.
+  override class func layoutAttributesClass() -> AnyClass {
+    return PinterestLayoutAttributes.self
+  }
+  
 }
