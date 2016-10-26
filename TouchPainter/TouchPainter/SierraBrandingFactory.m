@@ -7,7 +7,22 @@
 //
 
 #import "SierraBrandingFactory.h"
+#import "SierraView.h"
+#import "SierraToolbar.h"
+#import "SierraMainButton.h"
 
 @implementation SierraBrandingFactory
+
+- (UIView *)brandedView {
+    return [SierraView new];
+}
+
+- (UIToolbar *)brandedToolbar {
+    return [SierraToolbar new];
+}
+
+- (UIButton *)brandedMainButton {
+    return [SierraMainButton new];
+}
 
 @end
