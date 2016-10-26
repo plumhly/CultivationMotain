@@ -79,13 +79,16 @@ class LoginViewController: UIViewController {
         }
         
         //5
-        myKeychainWrapper.mySetObject(passwordTextField.text, forKey: kSecValueData)
+        myKeychainWrapper.mySetObject(passwordTextField.text, forKey:kSecValueData)
         myKeychainWrapper.writeToKeychain()
-        
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
         NSUserDefaults.standardUserDefaults().synchronize()
         loginButton.tag = loginButtonTag
         self.performSegueWithIdentifier("dismissLogin", sender: self)
+        
+        
+        
+        
     } else if sender.tag == loginButtonTag {
         //6
         if checkLogin(usernameTextField.text!, password: passwordTextField.text!) {
