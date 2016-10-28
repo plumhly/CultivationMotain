@@ -15,6 +15,6 @@
 
 @property (nonatomic, strong) CanvasView *canvasView;
 
-
+@property (strong, nonatomic) UIColor *strokeColor;
 
 @end

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091FDCAD1DC10583007D47A9 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCAC1DC10583007D47A9 /* Character.m */; };
+		091FDCB01DC106C1007D47A9 /* CharaterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCAF1DC106C1007D47A9 /* CharaterBuilder.m */; };
+		091FDCB31DC1090A007D47A9 /* StandardCharaterBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCB21DC1090A007D47A9 /* StandardCharaterBuilder.m */; };
+		091FDCB61DC2401E007D47A9 /* ChasingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCB51DC2401E007D47A9 /* ChasingGame.m */; };
+		091FDCBA1DC39AF1007D47A9 /* CoordinatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCB91DC39AF1007D47A9 /* CoordinatingController.m */; };
+		091FDCBD1DC39B17007D47A9 /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCBC1DC39B17007D47A9 /* Command.m */; };
+		091FDCC01DC39B3A007D47A9 /* SetStrokeColorCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCBF1DC39B3A007D47A9 /* SetStrokeColorCommand.m */; };
+		091FDCC31DC39B58007D47A9 /* CommandSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCC21DC39B58007D47A9 /* CommandSlider.m */; };
+		091FDCC71DC39B99007D47A9 /* PaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCC51DC39B99007D47A9 /* PaletteViewController.m */; };
+		091FDCC81DC39B99007D47A9 /* PaletteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091FDCC61DC39B99007D47A9 /* PaletteViewController.xib */; };
 		38311A4F1DC05CE8001B6A76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38311A4E1DC05CE8001B6A76 /* main.m */; };
 		38311A521DC05CE8001B6A76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38311A511DC05CE8001B6A76 /* AppDelegate.m */; };
 		38311A551DC05CE8001B6A76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38311A541DC05CE8001B6A76 /* ViewController.m */; };
@@ -35,6 +45,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091FDCAB1DC10583007D47A9 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		091FDCAC1DC10583007D47A9 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		091FDCAE1DC106C1007D47A9 /* CharaterBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharaterBuilder.h; sourceTree = "<group>"; };
+		091FDCAF1DC106C1007D47A9 /* CharaterBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharaterBuilder.m; sourceTree = "<group>"; };
+		091FDCB11DC1090A007D47A9 /* StandardCharaterBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardCharaterBuilder.h; sourceTree = "<group>"; };
+		091FDCB21DC1090A007D47A9 /* StandardCharaterBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardCharaterBuilder.m; sourceTree = "<group>"; };
+		091FDCB41DC2401E007D47A9 /* ChasingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChasingGame.h; sourceTree = "<group>"; };
+		091FDCB51DC2401E007D47A9 /* ChasingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChasingGame.m; sourceTree = "<group>"; };
+		091FDCB81DC39AF1007D47A9 /* CoordinatingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatingController.h; sourceTree = "<group>"; };
+		091FDCB91DC39AF1007D47A9 /* CoordinatingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatingController.m; sourceTree = "<group>"; };
+		091FDCBB1DC39B17007D47A9 /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
+		091FDCBC1DC39B17007D47A9 /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
+		091FDCBE1DC39B3A007D47A9 /* SetStrokeColorCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetStrokeColorCommand.h; sourceTree = "<group>"; };
+		091FDCBF1DC39B3A007D47A9 /* SetStrokeColorCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetStrokeColorCommand.m; sourceTree = "<group>"; };
+		091FDCC11DC39B58007D47A9 /* CommandSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandSlider.h; sourceTree = "<group>"; };
+		091FDCC21DC39B58007D47A9 /* CommandSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandSlider.m; sourceTree = "<group>"; };
+		091FDCC41DC39B99007D47A9 /* PaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteViewController.h; sourceTree = "<group>"; };
+		091FDCC51DC39B99007D47A9 /* PaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteViewController.m; sourceTree = "<group>"; };
+		091FDCC61DC39B99007D47A9 /* PaletteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaletteViewController.xib; sourceTree = "<group>"; };
+		091FDCCA1DC39BFD007D47A9 /* SetStrokeColorCommandDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetStrokeColorCommandDelegate.h; sourceTree = "<group>"; };
 		38311A4A1DC05CE8001B6A76 /* TouchPainter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchPainter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38311A4E1DC05CE8001B6A76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38311A501DC05CE8001B6A76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +127,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		091FDCAA1DC10561007D47A9 /* 第六章 生成器 */ = {
+			isa = PBXGroup;
+			children = (
+				091FDCAB1DC10583007D47A9 /* Character.h */,
+				091FDCAC1DC10583007D47A9 /* Character.m */,
+				091FDCAE1DC106C1007D47A9 /* CharaterBuilder.h */,
+				091FDCAF1DC106C1007D47A9 /* CharaterBuilder.m */,
+				091FDCB11DC1090A007D47A9 /* StandardCharaterBuilder.h */,
+				091FDCB21DC1090A007D47A9 /* StandardCharaterBuilder.m */,
+				091FDCB41DC2401E007D47A9 /* ChasingGame.h */,
+				091FDCB51DC2401E007D47A9 /* ChasingGame.m */,
+			);
+			name = "第六章 生成器";
+			sourceTree = "<group>";
+		};
+		091FDCB71DC39A94007D47A9 /* 第八章 适配器 */ = {
+			isa = PBXGroup;
+			children = (
+				091FDCBB1DC39B17007D47A9 /* Command.h */,
+				091FDCBC1DC39B17007D47A9 /* Command.m */,
+				091FDCBE1DC39B3A007D47A9 /* SetStrokeColorCommand.h */,
+				091FDCBF1DC39B3A007D47A9 /* SetStrokeColorCommand.m */,
+				091FDCC11DC39B58007D47A9 /* CommandSlider.h */,
+				091FDCC21DC39B58007D47A9 /* CommandSlider.m */,
+				091FDCC41DC39B99007D47A9 /* PaletteViewController.h */,
+				091FDCC51DC39B99007D47A9 /* PaletteViewController.m */,
+				091FDCC61DC39B99007D47A9 /* PaletteViewController.xib */,
+				091FDCCA1DC39BFD007D47A9 /* SetStrokeColorCommandDelegate.h */,
+			);
+			name = "第八章 适配器";
+			sourceTree = "<group>";
+		};
 		38311A411DC05CE8001B6A76 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +203,8 @@
 		38311A641DC05CF8001B6A76 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				091FDCB71DC39A94007D47A9 /* 第八章 适配器 */,
+				091FDCAA1DC10561007D47A9 /* 第六章 生成器 */,
 				38311A8C1DC0AE22001B6A76 /* 第五章 抽象工厂 */,
 				38311A7F1DC097D7001B6A76 /* Generators */,
 				38311A751DC0971D001B6A76 /* Views */,
@@ -152,6 +216,8 @@
 				38311A6F1DC06CC0001B6A76 /* Dots.m */,
 				38311A711DC07F9B001B6A76 /* Stroke.h */,
 				38311A721DC07F9B001B6A76 /* Stroke.m */,
+				091FDCB81DC39AF1007D47A9 /* CoordinatingController.h */,
+				091FDCB91DC39AF1007D47A9 /* CoordinatingController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -283,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091FDCC81DC39B99007D47A9 /* PaletteViewController.xib in Resources */,
 				38311A5D1DC05CE8001B6A76 /* LaunchScreen.storyboard in Resources */,
 				38311A5A1DC05CE8001B6A76 /* Assets.xcassets in Resources */,
 				38311A581DC05CE8001B6A76 /* Main.storyboard in Resources */,
@@ -296,13 +363,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091FDCBA1DC39AF1007D47A9 /* CoordinatingController.m in Sources */,
+				091FDCC71DC39B99007D47A9 /* PaletteViewController.m in Sources */,
 				38311AA51DC0D0FD001B6A76 /* SierraView.m in Sources */,
+				091FDCAD1DC10583007D47A9 /* Character.m in Sources */,
+				091FDCBD1DC39B17007D47A9 /* Command.m in Sources */,
+				091FDCC01DC39B3A007D47A9 /* SetStrokeColorCommand.m in Sources */,
 				38311A821DC0987B001B6A76 /* CanvasViewGenerator.m in Sources */,
 				38311AA81DC0D114001B6A76 /* SierraMainButton.m in Sources */,
 				38311A8F1DC0AE56001B6A76 /* BrandingFactory.m in Sources */,
+				091FDCC31DC39B58007D47A9 /* CommandSlider.m in Sources */,
 				38311A9C1DC0B3F7001B6A76 /* AcmeMainButton.m in Sources */,
 				38311AA21DC0D0E8001B6A76 /* SierraToolbar.m in Sources */,
 				38311A881DC098CA001B6A76 /* ClothCanvasViewGenerator.m in Sources */,
+				091FDCB31DC1090A007D47A9 /* StandardCharaterBuilder.m in Sources */,
 				38311A701DC06CC0001B6A76 /* Dots.m in Sources */,
 				38311A8B1DC09C50001B6A76 /* CanvasViewController.m in Sources */,
 				38311A951DC0B0E2001B6A76 /* SierraBrandingFactory.m in Sources */,
@@ -310,8 +384,10 @@
 				38311A551DC05CE8001B6A76 /* ViewController.m in Sources */,
 				38311A851DC098B6001B6A76 /* PaperCanvasViewGenerator.m in Sources */,
 				38311A7E1DC0978A001B6A76 /* ClothCanvasView.m in Sources */,
+				091FDCB01DC106C1007D47A9 /* CharaterBuilder.m in Sources */,
 				38311A6D1DC05EF9001B6A76 /* Vertex.m in Sources */,
 				38311A7B1DC09762001B6A76 /* PaperCanvasView.m in Sources */,
+				091FDCB61DC2401E007D47A9 /* ChasingGame.m in Sources */,
 				38311A521DC05CE8001B6A76 /* AppDelegate.m in Sources */,
 				38311A991DC0B3DB001B6A76 /* AcmeView.m in Sources */,
 				38311A921DC0B0BE001B6A76 /* AcmeBrandingFactory.m in Sources */,
@@ -474,6 +550,7 @@
 				38311A631DC05CE8001B6A76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
