@@ -11,11 +11,11 @@
 		091FDCDA1DC4E876007D47A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCD91DC4E876007D47A9 /* ViewController.swift */; };
 		091FDCDD1DC4E876007D47A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091FDCDB1DC4E876007D47A9 /* Main.storyboard */; };
 		091FDCE01DC4E876007D47A9 /* Bow_Ties.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCDE1DC4E876007D47A9 /* Bow_Ties.xcdatamodeld */; };
-		091FDCE21DC4E876007D47A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091FDCE11DC4E876007D47A9 /* Assets.xcassets */; };
 		091FDCE51DC4E876007D47A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091FDCE31DC4E876007D47A9 /* LaunchScreen.storyboard */; };
 		091FDCED1DC4F5A7007D47A9 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 091FDCEC1DC4F5A7007D47A9 /* SampleData.plist */; };
 		091FDCF01DC4F8BB007D47A9 /* Bowtie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCEE1DC4F8BB007D47A9 /* Bowtie+CoreDataClass.swift */; };
 		091FDCF11DC4F8BB007D47A9 /* Bowtie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091FDCEF1DC4F8BB007D47A9 /* Bowtie+CoreDataProperties.swift */; };
+		3896E9BD1DC6F7CA0058ACDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3896E9BC1DC6F7CA0058ACDC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +24,12 @@
 		091FDCD91DC4E876007D47A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		091FDCDC1DC4E876007D47A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		091FDCDF1DC4E876007D47A9 /* Bow_Ties.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bow_Ties.xcdatamodel; sourceTree = "<group>"; };
-		091FDCE11DC4E876007D47A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		091FDCE41DC4E876007D47A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		091FDCE61DC4E876007D47A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		091FDCEC1DC4F5A7007D47A9 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		091FDCEE1DC4F8BB007D47A9 /* Bowtie+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bowtie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		091FDCEF1DC4F8BB007D47A9 /* Bowtie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bowtie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3896E9BC1DC6F7CA0058ACDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +64,11 @@
 		091FDCD61DC4E876007D47A9 /* Bow Ties */ = {
 			isa = PBXGroup;
 			children = (
+				3896E9BC1DC6F7CA0058ACDC /* Assets.xcassets */,
 				091FDCEC1DC4F5A7007D47A9 /* SampleData.plist */,
 				091FDCD71DC4E876007D47A9 /* AppDelegate.swift */,
 				091FDCD91DC4E876007D47A9 /* ViewController.swift */,
 				091FDCDB1DC4E876007D47A9 /* Main.storyboard */,
-				091FDCE11DC4E876007D47A9 /* Assets.xcassets */,
 				091FDCE31DC4E876007D47A9 /* LaunchScreen.storyboard */,
 				091FDCE61DC4E876007D47A9 /* Info.plist */,
 				091FDCDE1DC4E876007D47A9 /* Bow_Ties.xcdatamodeld */,
@@ -137,8 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				091FDCE51DC4E876007D47A9 /* LaunchScreen.storyboard in Resources */,
-				091FDCE21DC4E876007D47A9 /* Assets.xcassets in Resources */,
 				091FDCED1DC4F5A7007D47A9 /* SampleData.plist in Resources */,
+				3896E9BD1DC6F7CA0058ACDC /* Assets.xcassets in Resources */,
 				091FDCDD1DC4E876007D47A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +318,7 @@
 				091FDCEB1DC4E876007D47A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
