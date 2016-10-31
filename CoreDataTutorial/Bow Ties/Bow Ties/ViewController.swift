@@ -79,6 +79,19 @@ class ViewController: UIViewController {
     
     
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
+      let title = sender.titleForSegment(at: sender.selectedSegmentIndex)
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Bowtie")
+        request.predicate = NSPredicate.init(format: "searchKey == %@", title!)
+        do {
+            let result =
+            try managedContex.execute(request) as! NSAsynchronousFetchResult<NSFetchRequestResult>
+            let results = result.finalResult as! [Bowtie]
+            currentBowtie = results.first
+            populate(bowtie: currentBowtie)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
         
     }
     

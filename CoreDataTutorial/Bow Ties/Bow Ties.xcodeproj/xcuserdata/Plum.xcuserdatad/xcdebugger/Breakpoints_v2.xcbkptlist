@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bow Ties/ViewController.swift"
-            timestampString = "499586762.378733"
+            timestampString = "499588500.873283"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "updateRating(numberic:)"
             landmarkType = "7">
          </BreakpointContent>
