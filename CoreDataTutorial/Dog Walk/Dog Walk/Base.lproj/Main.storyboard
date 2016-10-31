@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kqV-EP-SMC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dog Walk-->
+        <scene sceneID="lHg-6V-zFP">
+            <objects>
+                <viewController id="1pI-9t-rsn" customClass="ViewController" customModule="Dog_Walk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N9I-lo-duz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ttU-9c-xOe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Av-kd-K7s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleDog" translatesAutoresizingMaskIntoConstraints="NO" id="UkE-tn-nbe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="213" id="fr2-si-VeM"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oiq-QJ-gwt">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1pI-9t-rsn" id="1B8-Qs-pxE"/>
+                                    <outlet property="delegate" destination="1pI-9t-rsn" id="slk-cA-EpY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UkE-tn-nbe" firstAttribute="leading" secondItem="5Av-kd-K7s" secondAttribute="leading" id="9fy-9Y-3Or"/>
+                            <constraint firstItem="oiq-QJ-gwt" firstAttribute="leading" secondItem="5Av-kd-K7s" secondAttribute="leading" id="E1t-MZ-zzd"/>
+                            <constraint firstItem="oiq-QJ-gwt" firstAttribute="top" secondItem="UkE-tn-nbe" secondAttribute="bottom" id="ILf-X6-dYV"/>
+                            <constraint firstAttribute="trailing" secondItem="UkE-tn-nbe" secondAttribute="trailing" id="IZH-Nk-IhR"/>
+                            <constraint firstItem="oiq-QJ-gwt" firstAttribute="width" secondItem="5Av-kd-K7s" secondAttribute="width" id="eNi-zi-Fy8"/>
+                            <constraint firstItem="ttU-9c-xOe" firstAttribute="top" secondItem="oiq-QJ-gwt" secondAttribute="bottom" id="jb7-4u-1sP"/>
+                            <constraint firstItem="UkE-tn-nbe" firstAttribute="top" secondItem="N9I-lo-duz" secondAttribute="bottom" id="sM3-Qw-UHe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dog Walk" id="iI4-Jo-igX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="C4W-t0-p7W">
+                            <connections>
+                                <action selector="add:" destination="1pI-9t-rsn" id="6bd-h0-umK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="oiq-QJ-gwt" id="mWa-3l-bWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVe-h2-1Gz" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176" y="426"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="egQ-G3-tax">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kqV-EP-SMC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="793-Fh-NQu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1pI-9t-rsn" kind="relationship" relationship="rootViewController" id="Jzh-tr-cAy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fjr-wn-giX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="426"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sampleDog" width="400" height="267"/>
+    </resources>
+</document>
