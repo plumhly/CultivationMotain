@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     func populate(bowtie: Bowtie) {
         imageView.image = UIImage.init(data: bowtie.photoData! as Data)
         nameLabel.text = bowtie.name
-        ratingLabel.text = "Rating:\(bowtie.rating)"
+        ratingLabel.text = "Rating:\(bowtie.rating)/5"
         
         timesWornLabel.text = "# times worn: \(bowtie.timesWorn)"
         
@@ -149,7 +149,9 @@ class ViewController: UIViewController {
         
     
             entity.lastWorn = aDic["lastWorn"] as? NSDate
-            entity.timesWorn = (aDic["timesWorn"] as? Int32)!
+            entity.isFavorite = (aDic["isFavorite"] as? Bool)!
+
+            entity.timesWorn = (aDic["timesWorn"] as! NSNumber).int32Value
             entity.isFavorite = (aDic["isFavorite"] as? Bool)!
         }
     }
@@ -167,10 +169,12 @@ class ViewController: UIViewController {
         currentBowtie.rating = (numberic as NSString).doubleValue
         do {
             try managedContex.save()
+            populate(bowtie: currentBowtie)
         } catch let error as NSError {
-            
             print("Could not save \(error), \(error.userInfo)")
-            
+            if error.domain == NSCocoaErrorDomain && (error.code == NSValidationNumberTooLargeError || error.code == NSValidationNumberTooSmallError) {
+                rate(currentBowtie)
+            }
         }
     }
 
