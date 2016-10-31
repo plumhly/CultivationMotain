@@ -14,24 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   lazy var  coreDataStack = CoreDataStack()
-  
-  
-  private func application(application: UIApplication,
-    didFinishLaunchingWithOptions
-    launchOptions: [NSObject: AnyObject]?) -> Bool {
-      
-      importJSONSeedDataIfNeeded()
-      
-      let navController = window!.rootViewController as! UINavigationController
-      let viewController = navController.topViewController as! ViewController
-      viewController.coreDataStack = coreDataStack
-      
-      return true
-  }
+    
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        importJSONSeedDataIfNeeded()
+        
+        let navController = window!.rootViewController as! UINavigationController
+        let viewController = navController.topViewController as! ViewController
+        viewController.coreDataStack = self.coreDataStack
+        
+        return true
+    }
+    
   
   func applicationWillTerminate(_ application: UIApplication) {
     coreDataStack.saveContext()
   }
+
   
   func importJSONSeedDataIfNeeded() {
     
