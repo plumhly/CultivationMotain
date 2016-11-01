@@ -18,8 +18,9 @@ class ViewController: UIViewController {
     var coreDataStack: CoreDataStack!
     
     var fetchRequest: NSFetchRequest<NSFetchRequestResult>!
-    var venues: [Venue]!
+    var venues: [Venue]! = []
     
+    var asyncFetchRequest: NSAsynchronousFetchRequest<NSFetchRequestResult>!
     
   
   override func viewDidLoad() {
@@ -28,8 +29,30 @@ class ViewController: UIViewController {
 //    let model = coreDataStack.context.persistentStoreCoordinator!.managedObjectModel
 //    fetchRequest = model.fetchRequestTemplate(forName: "FetchRequest")
     fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Venue")
-    fetchAndReload()
+    asyncFetchRequest = NSAsynchronousFetchRequest.init(fetchRequest: fetchRequest, completionBlock: { [unowned self](result: NSAsynchronousFetchResult<NSFetchRequestResult>!) in
+        self.venues = result.finalResult as! [Venue]
+        self.tableView.reloadData()
+    })
     
+    do {
+        try coreDataStack.context.execute(asyncFetchRequest)
+    } catch let error as NSError {
+        print("Could not fetch \(error), \(error.userInfo)")
+    }
+    
+    /*batch*/
+    let batchUpdate = NSBatchUpdateRequest.init(entityName: "Venue")
+    batchUpdate.propertiesToUpdate = ["favorite": NSNumber.init(booleanLiteral: true)]
+    batchUpdate.affectedStores = coreDataStack.context.persistentStoreCoordinator?.persistentStores
+    batchUpdate.resultType = .updatedObjectsCountResultType
+    
+    do {
+        let batchResult =
+        try coreDataStack.context.execute(batchUpdate) as! NSBatchUpdateResult
+        print("Records updated \(batchResult.result!)")
+    } catch let error as NSError {
+        print("Could not update \(error), \(error.userInfo)")
+    }
   }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

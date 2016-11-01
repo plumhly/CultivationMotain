@@ -73,6 +73,20 @@ class FilterViewController: UITableViewController {
         return pr
     }()
     
+    lazy var nameSortDescriptor: NSSortDescriptor = {
+        let sort = NSSortDescriptor.init(key: "name", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+        return sort
+    }()
+    
+    lazy var distanceSortDescriptor: NSSortDescriptor = {
+        let sort = NSSortDescriptor.init(key: "location.distance", ascending: true)
+        return sort
+    }()
+    
+    lazy var priceSortDescriptor: NSSortDescriptor = {
+        let sort = NSSortDescriptor.init(key: "priceInfo.priceCategory", ascending: true)
+        return sort
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +119,18 @@ class FilterViewController: UITableViewController {
             
         case userTipsCell:
             selectedPredicate = hasUserTipsPredicate
+            
+        case nameAZSortCell:
+            selectedSortDescriptor = nameSortDescriptor
+            
+        case nameZASortCell:
+            selectedSortDescriptor = nameSortDescriptor.reversedSortDescriptor as? NSSortDescriptor
+            
+        case distanceSortCell:
+            selectedSortDescriptor = distanceSortDescriptor
+            
+        case priceSortCell:
+            selectedSortDescriptor = priceSortDescriptor
         default:
             print("default case")
         }
