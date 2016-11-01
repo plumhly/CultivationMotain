@@ -25,8 +25,9 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let model = coreDataStack.context.persistentStoreCoordinator!.managedObjectModel
-    fetchRequest = model.fetchRequestTemplate(forName: "FetchRequest")
+//    let model = coreDataStack.context.persistentStoreCoordinator!.managedObjectModel
+//    fetchRequest = model.fetchRequestTemplate(forName: "FetchRequest")
+    fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Venue")
     fetchAndReload()
     
   }
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
         if segue.identifier == filterViewControllerSegueIdentifier {
             let navi = segue.destination as! UINavigationController
             let vc = navi.topViewController as! FilterViewController
+            vc.delegate = self
             vc.coreDataStack = coreDataStack;
         }
     }
@@ -71,4 +73,22 @@ extension ViewController: UITableViewDataSource {
     
     return cell
   }
+}
+
+extension ViewController: FilterViewControllerDelegate {
+    func filterViewController(filter: FilterViewController, didSelectPredicate predicate: NSPredicate?, sortDescription: NSSortDescriptor?) {
+        fetchRequest.predicate = nil
+        fetchRequest.sortDescriptors = nil
+        
+        if let fetchPredicate = predicate {
+            fetchRequest.predicate = fetchPredicate
+        }
+        
+        if let fetchSort = sortDescription {
+            fetchRequest.sortDescriptors = [fetchSort]
+        }
+        
+        fetchAndReload()
+        
+    }
 }

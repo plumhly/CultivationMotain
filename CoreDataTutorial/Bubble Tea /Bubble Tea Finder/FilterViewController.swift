@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol FilterViewControllerDelegate: class {
+    func filterViewController(filter: FilterViewController, didSelectPredicate predicate: NSPredicate?, sortDescription: NSSortDescriptor?)
+}
+
 class FilterViewController: UITableViewController {
   
   @IBOutlet weak var firstPriceCategoryLabel: UILabel!
@@ -50,23 +54,67 @@ class FilterViewController: UITableViewController {
         return predicate
     }()
     
+    weak var delegate: FilterViewControllerDelegate?
+    var selectedSortDescriptor: NSSortDescriptor?
+    var selectedPredicate: NSPredicate?
+    
+    lazy var offeringDealPredicate: NSPredicate = {
+       let pr = NSPredicate.init(format: "specialCount > 0")
+       return pr
+    }()
+    
+    lazy var walkingDistancePredicate: NSPredicate = {
+        let pr = NSPredicate.init(format: "location.distance < 500")
+        return pr
+    }()
+    
+    lazy var hasUserTipsPredicate: NSPredicate = {
+        let pr = NSPredicate.init(format: "stats.tipCount > 0")
+        return pr
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         populateCheapVenueCountLabel()
         populateModerateVenueCountLabel()
         populateExpensiveVenueCountLabel()
+        populateDealsCountLabel()
     }
     
   //MARK - UITableViewDelegate methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
         
+        switch cell {
+        case cheapVenueCell:
+            selectedPredicate = cheapVenuePredicate
+            
+        case moderateVenueCell:
+            selectedPredicate = moderateVenuePredicate
+            
+        case expensiveVenueCell:
+            selectedPredicate = expensiveVenuePredicate
+            
+        case offeringDealCell:
+            selectedPredicate = offeringDealPredicate
+            
+        case walkingDistanceCell:
+            selectedPredicate = walkingDistancePredicate
+            
+        case userTipsCell:
+            selectedPredicate = hasUserTipsPredicate
+        default:
+            print("default case")
+        }
+        cell.accessoryType = .checkmark
     }
   
   // MARK - UIButton target action
   
   @IBAction func saveButtonTapped(sender: UIBarButtonItem) {
-    
+    delegate?.filterViewController(filter: self, didSelectPredicate: selectedPredicate, sortDescription: selectedSortDescriptor)
     dismiss(animated: true, completion:nil)
   }
     
@@ -115,4 +163,29 @@ class FilterViewController: UITableViewController {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
+    
+    func populateDealsCountLabel() {
+        let fetchRequset = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Venue")
+        fetchRequset.resultType = .dictionaryResultType
+        
+        let sumExp = NSExpressionDescription.init()
+        sumExp.name = "sumDeals"
+        
+        sumExp.expression = NSExpression.init(forFunction: "sum:", arguments: [NSExpression.init(forKeyPath: "specialCount")])
+        
+        sumExp.expressionResultType = .integer32AttributeType
+        fetchRequset.propertiesToFetch = [sumExp]
+        
+        do {
+            let results = try coreDataStack.context.fetch(fetchRequset) as! [NSDictionary]
+            let dic = results.first
+            let numDeals = dic?["sumDeals"]
+            numDealsLabel.text = "\(numDeals!) total deals"
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+    }
 }
+
