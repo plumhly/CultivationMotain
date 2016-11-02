@@ -18,20 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KLa-D1-fte">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-eY-woy">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5eG-RM-PzD"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DMS-XV-Fgy"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="jzn-pw-OKr"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1RT-kY-xpY"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KLa-D1-fte" secondAttribute="bottom" id="3kw-9P-5oe"/>
-                            <constraint firstItem="KLa-D1-fte" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8ml-Pf-pzf"/>
-                            <constraint firstAttribute="trailing" secondItem="KLa-D1-fte" secondAttribute="trailing" id="HW6-c4-Svp"/>
-                            <constraint firstItem="KLa-D1-fte" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RxE-x4-M7n"/>
+                            <constraint firstItem="Qph-eY-woy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7UZ-kt-5dv"/>
+                            <constraint firstItem="Qph-eY-woy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CUh-Ej-aQS"/>
+                            <constraint firstAttribute="trailing" secondItem="Qph-eY-woy" secondAttribute="trailing" id="ETs-qc-EMG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qph-eY-woy" secondAttribute="bottom" id="JCq-5y-Cm8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l5a-gZ-Sm1">
@@ -42,7 +42,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableview" destination="KLa-D1-fte" id="GXu-52-GIG"/>
+                        <outlet property="tableview" destination="Qph-eY-woy" id="wIt-2L-XWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
