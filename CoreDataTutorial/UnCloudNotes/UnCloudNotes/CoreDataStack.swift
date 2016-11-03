@@ -13,9 +13,10 @@ class CoreDataStack: CustomStringConvertible {
   var modelName : String
   var storeName : String
 
-  init(modelName:String, storeName:String) {
+    init(modelName:String, storeName:String, options: NSDictionary? = nil) {
     self.modelName = modelName
     self.storeName = storeName
+        self.options = options
   }
 
   var description : String
@@ -43,6 +44,7 @@ class CoreDataStack: CustomStringConvertible {
         print("Error creating storePath \(storePath): \(error)")
     }
     let sqliteFilePath = storePath.appendingPathComponent(storeName + ".sqlite")
+    print("=============\(sqliteFilePath)============")
     return URL(fileURLWithPath: sqliteFilePath)
   }
 
@@ -55,7 +57,7 @@ class CoreDataStack: CustomStringConvertible {
       do {
         self.store = try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil,
           at: self.storeURL,
-          options: nil)
+          options: self.options as! [AnyHashable : Any]?)
       } catch var error as NSError {
         print("Store Error: \(error)")
         self.store = nil
@@ -70,4 +72,7 @@ class CoreDataStack: CustomStringConvertible {
     context.persistentStoreCoordinator = self.coordinator
     return context
   }()
+    
+    var options: NSDictionary?
+    
 }

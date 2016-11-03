@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class NotesListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-  lazy var stack : CoreDataStack = CoreDataStack(modelName:"UnCloudNotesDataModel", storeName:"UnCloudNotes")
+    lazy var stack : CoreDataStack = CoreDataStack.init(modelName: "UnCloudNotesDataModel", storeName: "UnCloudNotes", options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
+    
   
   lazy var notes : NSFetchedResultsController<NSFetchRequestResult> = {
       let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Note")
