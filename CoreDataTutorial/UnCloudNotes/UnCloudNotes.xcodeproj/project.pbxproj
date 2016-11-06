@@ -507,7 +507,7 @@
 				09147B191DCE3A910013E10B /* UnCloudNotesDataModel 2.xcdatamodel */,
 				C7F78B93194E1FA900BAF550 /* UnCloudNotesDataModel.xcdatamodel */,
 			);
-			currentVersion = 09147B1A1DCE406E0013E10B /* UnCloudNotesDataModel 3.xcdatamodel */;
+			currentVersion = 09147B191DCE3A910013E10B /* UnCloudNotesDataModel 2.xcdatamodel */;
 			path = UnCloudNotesDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
