@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09147B1E1DCE42DC0013E10B /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09147B1D1DCE42DC0013E10B /* Attachment.swift */; };
 		09147B201DCE47A90013E10B /* UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 09147B1F1DCE47A90013E10B /* UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel */; };
+		0932A38E1DCEC3940063AEB7 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932A38D1DCEC3930063AEB7 /* Attachment.swift */; };
 		09FC79E71DCB8F16009C41BB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09FC79E61DCB8F16009C41BB /* Launch Screen.storyboard */; };
 		279570D719827BC400F52BA9 /* ImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279570D619827BC400F52BA9 /* ImageTransformer.swift */; };
 		790FC6E4198439AD00B52A53 /* AttachPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790FC6E3198439AD00B52A53 /* AttachPhotoViewController.swift */; };
@@ -38,8 +38,9 @@
 /* Begin PBXFileReference section */
 		09147B191DCE3A910013E10B /* UnCloudNotesDataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UnCloudNotesDataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		09147B1A1DCE406E0013E10B /* UnCloudNotesDataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UnCloudNotesDataModel 3.xcdatamodel"; sourceTree = "<group>"; };
-		09147B1D1DCE42DC0013E10B /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		09147B1F1DCE47A90013E10B /* UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel; sourceTree = "<group>"; };
+		0932A3821DCEC1EE0063AEB7 /* UnCloudNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnCloudNotes-Bridging-Header.h"; sourceTree = "<group>"; };
+		0932A38D1DCEC3930063AEB7 /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		09FC79E61DCB8F16009C41BB /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		279570D619827BC400F52BA9 /* ImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransformer.swift; sourceTree = "<group>"; };
 		790FC6E3198439AD00B52A53 /* AttachPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachPhotoViewController.swift; sourceTree = "<group>"; };
@@ -83,10 +84,12 @@
 		C77E1E6E1947D6D700762492 = {
 			isa = PBXGroup;
 			children = (
+				0932A38D1DCEC3930063AEB7 /* Attachment.swift */,
 				09FC79E61DCB8F16009C41BB /* Launch Screen.storyboard */,
 				C77E1E791947D6D700762492 /* UnCloudNotes */,
 				C77E1E8C1947D6D700762492 /* UnCloudNotesTests */,
 				C77E1E781947D6D700762492 /* Products */,
+				0932A3821DCEC1EE0063AEB7 /* UnCloudNotes-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,7 +121,6 @@
 				C77E1E7A1947D6D700762492 /* Supporting Files */,
 				C7F78B92194E1FA900BAF550 /* UnCloudNotesDataModel.xcdatamodeld */,
 				09147B1F1DCE47A90013E10B /* UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel */,
-				09147B1D1DCE42DC0013E10B /* Attachment.swift */,
 			);
 			path = UnCloudNotes;
 			sourceTree = "<group>";
@@ -195,7 +197,7 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Ray Wenderlich";
+				ORGANIZATIONNAME = plum;
 				TargetAttributes = {
 					C77E1E761947D6D700762492 = {
 						CreatedOnToolsVersion = 6.0;
@@ -262,7 +264,7 @@
 				C77E1E7F1947D6D700762492 /* NotesListViewController.swift in Sources */,
 				C7F78B8F194E1D5A00BAF550 /* NoteDetailViewController.swift in Sources */,
 				09147B201DCE47A90013E10B /* UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel in Sources */,
-				09147B1E1DCE42DC0013E10B /* Attachment.swift in Sources */,
+				0932A38E1DCEC3940063AEB7 /* Attachment.swift in Sources */,
 				279570D719827BC400F52BA9 /* ImageTransformer.swift in Sources */,
 				790FC6E4198439AD00B52A53 /* AttachPhotoViewController.swift in Sources */,
 				C7BBD86D194FFCDF00BDDB95 /* Note.swift in Sources */,
@@ -400,9 +402,9 @@
 				INFOPLIST_FILE = UnCloudNotes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.cdbt.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plum.coredata.UnCloudNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "UnCloudNotes-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -418,9 +420,9 @@
 				INFOPLIST_FILE = UnCloudNotes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.cdbt.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.plum.coredata.UnCloudNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "UnCloudNotes-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
