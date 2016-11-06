@@ -33,7 +33,7 @@ class AttachPhotoViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let note = note {
-            if let attachment = NSEntityDescription.insertNewObject(forEntityName: "Attachment", into: note.managedObjectContext!) as? Attachment {
+            if let attachment = NSEntityDescription.insertNewObject(forEntityName: "ImageAttachment", into: note.managedObjectContext!) as? ImageAttachment {
                 attachment.dateCreated = NSDate.init()
                 attachment.image = info[UIImagePickerControllerOriginalImage] as? UIImage
                 attachment.note = note

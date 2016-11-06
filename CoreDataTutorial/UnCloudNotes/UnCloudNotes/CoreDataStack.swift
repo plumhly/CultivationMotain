@@ -44,6 +44,7 @@ class CoreDataStack: CustomStringConvertible {
         print("Error creating storePath \(storePath): \(error)")
     }
     let sqliteFilePath = storePath.appendingPathComponent(storeName + ".sqlite")
+    print("=======\(sqliteFilePath)========")
     return URL(fileURLWithPath: sqliteFilePath)
   }
 

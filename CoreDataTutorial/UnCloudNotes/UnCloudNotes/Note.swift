@@ -25,9 +25,9 @@ class Note : NSManagedObject
         
     }
     
-    var lastestAttachment: Attachment? {
+    var lastestAttachment: ImageAttachment? {
         let attachmentsToSort = attachments.map {
-            $0 as? Attachment
+            $0 as? ImageAttachment
         }.filter {
             $0 != nil
         }.map {
