@@ -13,6 +13,7 @@
 		0932A3951DCF51500063AEB7 /* UnCloudNotesMappingModel_v3_to_v4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0932A3941DCF51500063AEB7 /* UnCloudNotesMappingModel_v3_to_v4.xcmappingmodel */; };
 		0932A3971DCF53680063AEB7 /* AttachmentToImageAttachmentMigrationPolicyV3toV4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932A3961DCF53680063AEB7 /* AttachmentToImageAttachmentMigrationPolicyV3toV4.swift */; };
 		0932A3991DCF5A810063AEB7 /* ImageAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932A3981DCF5A810063AEB7 /* ImageAttachment.swift */; };
+		0932A39B1DCF73470063AEB7 /* DataMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932A39A1DCF73470063AEB7 /* DataMigrationManager.swift */; };
 		279570D719827BC400F52BA9 /* ImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279570D619827BC400F52BA9 /* ImageTransformer.swift */; };
 		790FC6E4198439AD00B52A53 /* AttachPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790FC6E3198439AD00B52A53 /* AttachPhotoViewController.swift */; };
 		C71A68741948D2CB003A62E7 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A68731948D2CB003A62E7 /* CreateNoteViewController.swift */; };
@@ -49,6 +50,7 @@
 		0932A3941DCF51500063AEB7 /* UnCloudNotesMappingModel_v3_to_v4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UnCloudNotesMappingModel_v3_to_v4.xcmappingmodel; sourceTree = "<group>"; };
 		0932A3961DCF53680063AEB7 /* AttachmentToImageAttachmentMigrationPolicyV3toV4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentToImageAttachmentMigrationPolicyV3toV4.swift; sourceTree = "<group>"; };
 		0932A3981DCF5A810063AEB7 /* ImageAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAttachment.swift; sourceTree = "<group>"; };
+		0932A39A1DCF73470063AEB7 /* DataMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMigrationManager.swift; sourceTree = "<group>"; };
 		279570D619827BC400F52BA9 /* ImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransformer.swift; sourceTree = "<group>"; };
 		790FC6E3198439AD00B52A53 /* AttachPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachPhotoViewController.swift; sourceTree = "<group>"; };
 		C71A68731948D2CB003A62E7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreateNoteViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				0932A3961DCF53680063AEB7 /* AttachmentToImageAttachmentMigrationPolicyV3toV4.swift */,
+				0932A39A1DCF73470063AEB7 /* DataMigrationManager.swift */,
 				0932A3981DCF5A810063AEB7 /* ImageAttachment.swift */,
 				0932A3941DCF51500063AEB7 /* UnCloudNotesMappingModel_v3_to_v4.xcmappingmodel */,
 				0932A38F1DCF47790063AEB7 /* Launch Screen.storyboard */,
@@ -274,6 +277,7 @@
 				C77E1E7F1947D6D700762492 /* NotesListViewController.swift in Sources */,
 				C7F78B8F194E1D5A00BAF550 /* NoteDetailViewController.swift in Sources */,
 				09147B201DCE47A90013E10B /* UnCloudNotesMappingModel_v2_to_v3.xcmappingmodel in Sources */,
+				0932A39B1DCF73470063AEB7 /* DataMigrationManager.swift in Sources */,
 				0932A3951DCF51500063AEB7 /* UnCloudNotesMappingModel_v3_to_v4.xcmappingmodel in Sources */,
 				0932A38E1DCEC3940063AEB7 /* Attachment.swift in Sources */,
 				279570D719827BC400F52BA9 /* ImageTransformer.swift in Sources */,
