@@ -10,6 +10,10 @@ import Foundation
 import CoreData
 import UIKit
 
+//目录结构   UnCloudNotesDataModel.momd(文件夹) -》 1.各种版本的数据库 xx.mom； 2 versionInfo.plist （currentModel）
+
+
+
 class DataMigrationManager: NSManagedObjectModel {
     let storeName: String
     let modelName: String
@@ -64,13 +68,14 @@ class DataMigrationManager: NSManagedObjectModel {
     
     
     
-    
+    // 存储器是否兼容model
     func storeIsCompatibleWith(Model model: NSManagedObjectModel) -> Bool {
         let storeMetadata = metadataForStoreAtURL(storeURL: storeURL)
         return model.isConfiguration(withName: nil, compatibleWithStoreMetadata: storeMetadata)
         
     }
     
+    //根据url获取原始数据
     func metadataForStoreAtURL(storeURL: NSURL) -> [String: AnyObject] {
         let metadata: [String: AnyObject]?
         
@@ -84,7 +89,34 @@ class DataMigrationManager: NSManagedObjectModel {
     }
     
     func performMigration() {
+        if !isVersion4() {
+            fatalError("Can only handle migrations to version 4!")
+        }
         
+        if let storeModel = self.storeModel {
+            if storeModel == DataMigrationManager.version1(){
+                options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true];
+            } else {
+                options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: false];
+            }
+            
+            
+            if storeModel == DataMigrationManager.version1() {
+                let destinatonModel = DataMigrationManager.version2()
+                migrateStoreAt(URL: storeURL, fromModel: storeModel, toModel: destinatonModel)
+                performMigration()
+            } else if storeModel == DataMigrationManager.version2() {
+                let destinatonModel = DataMigrationManager.version3()
+                let mappingModel = NSMappingModel.init(from: nil, forSourceModel: storeModel, destinationModel: destinatonModel)
+                migrateStoreAt(URL: storeURL, fromModel: storeModel, toModel: destinatonModel,mappingModel:mappingModel)
+                performMigration()
+            }else if storeModel == DataMigrationManager.version3() {
+                let destinatonModel = DataMigrationManager.version4()
+                let mappingModel = NSMappingModel.init(from: nil, forSourceModel: storeModel, destinationModel: destinatonModel)
+               migrateStoreAt(URL: storeURL, fromModel: storeModel, toModel: destinatonModel,mappingModel:mappingModel)
+                performMigration()
+            }
+        }
     }
     
     
@@ -158,4 +190,54 @@ extension DataMigrationManager {
         let others = otherModel.entitiesByName
         return NSDictionary.init(dictionary: myEntities).isEqual(to: others)
     }
+    
+    func migrateStoreAt(URL storeURL:NSURL, fromModel from: NSManagedObjectModel, toModel to: NSManagedObjectModel, mappingModel:NSMappingModel? = nil) {
+        
+        //1
+        let migrationManager = NSMigrationManager.init(sourceModel: from, destinationModel: to)
+        
+        //2
+        var migrationMappingModel: NSMappingModel
+        if let mappingModel = mappingModel{
+            migrationMappingModel = mappingModel
+        } else {
+            migrationMappingModel = try! NSMappingModel.inferredMappingModel(forSourceModel: from, destinationModel: to)
+        }
+        
+        //3
+        let destinationURL = storeURL.deletingLastPathComponent
+        let destinationName = storeURL.lastPathComponent! + "~" + "1"
+        let destination = destinationURL?.appendingPathComponent(destinationName)
+        print("From model:\(from.versionIdentifiers)")
+        print("To model:\(to.versionIdentifiers)")
+        print("Migrating Store:\(storeURL) to \(destination)")
+        print("Mapping model:\(mappingModel)")
+        
+        
+        //4
+        let success: Bool
+        do {
+            try migrationManager.migrateStore(from: storeURL as URL, sourceType: NSSQLiteStoreType, options: nil, with: migrationMappingModel, toDestinationURL: destination!, destinationType: NSSQLiteStoreType, destinationOptions: nil)
+            success = true
+        } catch let error as NSError {
+            success = false
+            NSLog("Migration failed \(error)")
+        }
+        
+        
+        //5
+        if success {
+            print("Migration Completed Successfully")
+            let fileManager = FileManager.default
+            do {
+                try fileManager.removeItem(at: storeURL as URL)
+                try fileManager.moveItem(at: destination!, to: storeURL as URL)
+            } catch let error as NSError {
+                NSLog("Migration failed \(error)")
+            }
+            
+        }
+        
+    }
+    
 }
