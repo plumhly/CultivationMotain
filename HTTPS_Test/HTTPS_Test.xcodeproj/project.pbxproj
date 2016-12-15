@@ -13,6 +13,8 @@
 		0979D5B91DF07EC600C9A236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0979D5B71DF07EC600C9A236 /* Main.storyboard */; };
 		0979D5BB1DF07EC600C9A236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0979D5BA1DF07EC600C9A236 /* Assets.xcassets */; };
 		0979D5BE1DF07EC600C9A236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0979D5BC1DF07EC600C9A236 /* LaunchScreen.storyboard */; };
+		0979D5C71DF07F6A00C9A236 /* NSConnectionTestTrust.m in Sources */ = {isa = PBXBuildFile; fileRef = 0979D5C61DF07F6A00C9A236 /* NSConnectionTestTrust.m */; };
+		0979D5CA1DF07F7E00C9A236 /* NSSessionTestTrust.m in Sources */ = {isa = PBXBuildFile; fileRef = 0979D5C91DF07F7E00C9A236 /* NSSessionTestTrust.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		0979D5BA1DF07EC600C9A236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0979D5BD1DF07EC600C9A236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0979D5BF1DF07EC600C9A236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0979D5C51DF07F6A00C9A236 /* NSConnectionTestTrust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConnectionTestTrust.h; sourceTree = "<group>"; };
+		0979D5C61DF07F6A00C9A236 /* NSConnectionTestTrust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConnectionTestTrust.m; sourceTree = "<group>"; };
+		0979D5C81DF07F7E00C9A236 /* NSSessionTestTrust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSessionTestTrust.h; sourceTree = "<group>"; };
+		0979D5C91DF07F7E00C9A236 /* NSSessionTestTrust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSessionTestTrust.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 		0979D5AD1DF07EC600C9A236 /* HTTPS_Test */ = {
 			isa = PBXGroup;
 			children = (
+				0979D5C51DF07F6A00C9A236 /* NSConnectionTestTrust.h */,
+				0979D5C61DF07F6A00C9A236 /* NSConnectionTestTrust.m */,
+				0979D5C81DF07F7E00C9A236 /* NSSessionTestTrust.h */,
+				0979D5C91DF07F7E00C9A236 /* NSSessionTestTrust.m */,
 				0979D5B11DF07EC600C9A236 /* AppDelegate.h */,
 				0979D5B21DF07EC600C9A236 /* AppDelegate.m */,
 				0979D5B41DF07EC600C9A236 /* ViewController.h */,
@@ -152,6 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0979D5B61DF07EC600C9A236 /* ViewController.m in Sources */,
+				0979D5CA1DF07F7E00C9A236 /* NSSessionTestTrust.m in Sources */,
+				0979D5C71DF07F6A00C9A236 /* NSConnectionTestTrust.m in Sources */,
 				0979D5B31DF07EC600C9A236 /* AppDelegate.m in Sources */,
 				0979D5B01DF07EC600C9A236 /* main.m in Sources */,
 			);
