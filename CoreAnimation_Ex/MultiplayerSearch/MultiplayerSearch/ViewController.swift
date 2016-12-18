@@ -44,11 +44,48 @@ class ViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
+    searchForOpponent()
   }
   
   @IBAction func actionSearchAgain() {
     UIApplication.shared.keyWindow!.rootViewController = storyboard!.instantiateViewController(withIdentifier: "ViewController") as UIViewController
   }
+    
+    func searchForOpponent() {
+        let avatarSize = myAvatar.frame.size
+        let bounceXOffset: CGFloat = avatarSize.width / 1.9
+        let morphSize = CGSize(width: avatarSize.width * 0.85, height: avatarSize.height * 1.1)
+        let rightBouncePoint = CGPoint(x: view.frame.size.width/2.0 + bounceXOffset, y: myAvatar.center.y)
+        let leftBouncePoint = CGPoint(x: view.frame.size.width/2.0 - bounceXOffset,y: myAvatar.center.y)
+        // MARK: TODO
+        
+        myAvatar.bounceOffPoint(bouncePoint: rightBouncePoint, morphSize: morphSize)
+        
+        opponentAvatar.bounceOffPoint(bouncePoint: leftBouncePoint, morphSize: morphSize)
+        delay(time: 4, complete: foundOpponent)
+        
+    }
+    
+    func foundOpponent() {
+        status.text = "Connecting..."
+        opponentAvatar.image = UIImage(named: "avatar-2")
+        opponentAvatar.name = "Plum"
+        
+        delay(time: 4, complete: connectedToOpponent)
+    }
+    
+    func connectedToOpponent() {
+        myAvatar.shouldTransitionToFinishedState = true
+        opponentAvatar.shouldTransitionToFinishedState = true
+        delay(time: 1.0, complete: completed)
+    }
+    
+    func completed() {
+        status.text = "Ready to play"
+        UIView.animate(withDuration: 0.2, animations: {
+            self.vs.alpha = 1.0
+            self.searchAgain.alpha = 1.0
+        })
+    }
 }
 
