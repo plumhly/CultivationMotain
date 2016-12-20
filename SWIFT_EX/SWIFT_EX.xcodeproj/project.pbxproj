@@ -14,6 +14,17 @@
 		0909FE081E02787C00256806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0909FE071E02787C00256806 /* Assets.xcassets */; };
 		0909FE2C1E02894200256806 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909FE2B1E02894200256806 /* Common.swift */; };
 		0909FE2F1E02BF1400256806 /* UIView+Extenion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0909FE2E1E02BF1400256806 /* UIView+Extenion.swift */; };
+		096E92661E08FC6300EA363A /* LXFBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92651E08FC6300EA363A /* LXFBaseController.swift */; };
+		096E92681E08FD8B00EA363A /* UIColor+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92671E08FD8B00EA363A /* UIColor+Extention.swift */; };
+		096E926A1E08FFFB00EA363A /* LXFPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92691E08FFFB00EA363A /* LXFPlayViewController.swift */; };
+		096E926D1E09052000EA363A /* LXFBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E926C1E09052000EA363A /* LXFBaseNavigationController.swift */; };
+		096E92711E090B9400EA363A /* LXFFindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92701E090B9400EA363A /* LXFFindViewController.swift */; };
+		096E92751E090BF500EA363A /* LXFSubScribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92741E090BF500EA363A /* LXFSubScribeViewController.swift */; };
+		096E92791E090C9D00EA363A /* LXFDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92781E090C9D00EA363A /* LXFDownloadViewController.swift */; };
+		096E927D1E090CF400EA363A /* LXFMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E927C1E090CF400EA363A /* LXFMineViewController.swift */; };
+		096E927F1E093F2D00EA363A /* LXFSubFindFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E927E1E093F2D00EA363A /* LXFSubFindFactory.swift */; };
+		096E92821E095C8A00EA363A /* FindBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92811E095C8A00EA363A /* FindBaseController.swift */; };
+		096E928D1E095D2100EA363A /* LXFFindRecommendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E928C1E095D2100EA363A /* LXFFindRecommendController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +37,17 @@
 		0909FE071E02787C00256806 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0909FE2B1E02894200256806 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		0909FE2E1E02BF1400256806 /* UIView+Extenion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extenion.swift"; sourceTree = "<group>"; };
+		096E92651E08FC6300EA363A /* LXFBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFBaseController.swift; sourceTree = "<group>"; };
+		096E92671E08FD8B00EA363A /* UIColor+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extention.swift"; sourceTree = "<group>"; };
+		096E92691E08FFFB00EA363A /* LXFPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFPlayViewController.swift; sourceTree = "<group>"; };
+		096E926C1E09052000EA363A /* LXFBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFBaseNavigationController.swift; sourceTree = "<group>"; };
+		096E92701E090B9400EA363A /* LXFFindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindViewController.swift; sourceTree = "<group>"; };
+		096E92741E090BF500EA363A /* LXFSubScribeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFSubScribeViewController.swift; sourceTree = "<group>"; };
+		096E92781E090C9D00EA363A /* LXFDownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFDownloadViewController.swift; sourceTree = "<group>"; };
+		096E927C1E090CF400EA363A /* LXFMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFMineViewController.swift; sourceTree = "<group>"; };
+		096E927E1E093F2D00EA363A /* LXFSubFindFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFSubFindFactory.swift; sourceTree = "<group>"; };
+		096E92811E095C8A00EA363A /* FindBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBaseController.swift; sourceTree = "<group>"; };
+		096E928C1E095D2100EA363A /* LXFFindRecommendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindRecommendController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +80,12 @@
 		0909FDF01E0274FA00256806 /* SWIFT_EX */ = {
 			isa = PBXGroup;
 			children = (
+				096E927A1E090CCE00EA363A /* Mine-我的 */,
+				096E92761E090C7700EA363A /* Download-下载 */,
+				096E92721E090BB900EA363A /* Subscribe-订阅 */,
+				096E926E1E090B7800EA363A /* Find-发现 */,
+				096E92631E08FC2100EA363A /* General-通用 */,
+				096E92611E08F8DE00EA363A /* Play-播放 */,
 				0909FE0A1E02797900256806 /* Other-其它 */,
 				0909FE091E02793900256806 /* Main-主要 */,
 				0909FE071E02787C00256806 /* Assets.xcassets */,
@@ -90,8 +118,189 @@
 			isa = PBXGroup;
 			children = (
 				0909FE2E1E02BF1400256806 /* UIView+Extenion.swift */,
+				096E92671E08FD8B00EA363A /* UIColor+Extention.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		096E92611E08F8DE00EA363A /* Play-播放 */ = {
+			isa = PBXGroup;
+			children = (
+				096E92621E08FBFF00EA363A /* Controllers */,
+			);
+			name = "Play-播放";
+			sourceTree = "<group>";
+		};
+		096E92621E08FBFF00EA363A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096E92691E08FFFB00EA363A /* LXFPlayViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		096E92631E08FC2100EA363A /* General-通用 */ = {
+			isa = PBXGroup;
+			children = (
+				096E926B1E09051200EA363A /* BaseNavigationController */,
+				096E92641E08FC3000EA363A /* BaseController */,
+			);
+			name = "General-通用";
+			sourceTree = "<group>";
+		};
+		096E92641E08FC3000EA363A /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				096E92651E08FC6300EA363A /* LXFBaseController.swift */,
+			);
+			name = BaseController;
+			sourceTree = "<group>";
+		};
+		096E926B1E09051200EA363A /* BaseNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				096E926C1E09052000EA363A /* LXFBaseNavigationController.swift */,
+			);
+			name = BaseNavigationController;
+			sourceTree = "<group>";
+		};
+		096E926E1E090B7800EA363A /* Find-发现 */ = {
+			isa = PBXGroup;
+			children = (
+				096E926F1E090B8100EA363A /* Controllers */,
+			);
+			name = "Find-发现";
+			sourceTree = "<group>";
+		};
+		096E926F1E090B8100EA363A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096E92871E095C9E00EA363A /* New Group4 */,
+				096E92861E095C9D00EA363A /* New Group3 */,
+				096E92851E095C9B00EA363A /* New Group2 */,
+				096E92841E095C9900EA363A /* New Group1 */,
+				096E92831E095C9000EA363A /* RecommendControlller */,
+				096E92801E095C7C00EA363A /* FindBaseController */,
+				096E92701E090B9400EA363A /* LXFFindViewController.swift */,
+				096E927E1E093F2D00EA363A /* LXFSubFindFactory.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		096E92721E090BB900EA363A /* Subscribe-订阅 */ = {
+			isa = PBXGroup;
+			children = (
+				096E92731E090BD200EA363A /* Controllers */,
+			);
+			name = "Subscribe-订阅";
+			sourceTree = "<group>";
+		};
+		096E92731E090BD200EA363A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096E92741E090BF500EA363A /* LXFSubScribeViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		096E92761E090C7700EA363A /* Download-下载 */ = {
+			isa = PBXGroup;
+			children = (
+				096E92771E090C8300EA363A /* Controllers */,
+			);
+			name = "Download-下载";
+			sourceTree = "<group>";
+		};
+		096E92771E090C8300EA363A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096E92781E090C9D00EA363A /* LXFDownloadViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		096E927A1E090CCE00EA363A /* Mine-我的 */ = {
+			isa = PBXGroup;
+			children = (
+				096E927B1E090CE000EA363A /* Controllers */,
+			);
+			name = "Mine-我的";
+			sourceTree = "<group>";
+		};
+		096E927B1E090CE000EA363A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096E927C1E090CF400EA363A /* LXFMineViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		096E92801E095C7C00EA363A /* FindBaseController */ = {
+			isa = PBXGroup;
+			children = (
+				096E92811E095C8A00EA363A /* FindBaseController.swift */,
+			);
+			name = FindBaseController;
+			sourceTree = "<group>";
+		};
+		096E92831E095C9000EA363A /* RecommendControlller */ = {
+			isa = PBXGroup;
+			children = (
+				096E928A1E095CFB00EA363A /* ModelView */,
+				096E92891E095CF600EA363A /* View */,
+				096E92881E095CE600EA363A /* Model */,
+				096E928C1E095D2100EA363A /* LXFFindRecommendController.swift */,
+			);
+			name = RecommendControlller;
+			sourceTree = "<group>";
+		};
+		096E92841E095C9900EA363A /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group1";
+			sourceTree = "<group>";
+		};
+		096E92851E095C9B00EA363A /* New Group2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group2";
+			sourceTree = "<group>";
+		};
+		096E92861E095C9D00EA363A /* New Group3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group3";
+			sourceTree = "<group>";
+		};
+		096E92871E095C9E00EA363A /* New Group4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group4";
+			sourceTree = "<group>";
+		};
+		096E92881E095CE600EA363A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		096E92891E095CF600EA363A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		096E928A1E095CFB00EA363A /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ModelView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +376,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096E92791E090C9D00EA363A /* LXFDownloadViewController.swift in Sources */,
+				096E926A1E08FFFB00EA363A /* LXFPlayViewController.swift in Sources */,
+				096E92681E08FD8B00EA363A /* UIColor+Extention.swift in Sources */,
+				096E92751E090BF500EA363A /* LXFSubScribeViewController.swift in Sources */,
+				096E92661E08FC6300EA363A /* LXFBaseController.swift in Sources */,
 				0909FDF41E0274FA00256806 /* MainViewController.swift in Sources */,
 				0909FE2C1E02894200256806 /* Common.swift in Sources */,
+				096E927F1E093F2D00EA363A /* LXFSubFindFactory.swift in Sources */,
 				0909FE2F1E02BF1400256806 /* UIView+Extenion.swift in Sources */,
+				096E92821E095C8A00EA363A /* FindBaseController.swift in Sources */,
+				096E928D1E095D2100EA363A /* LXFFindRecommendController.swift in Sources */,
+				096E927D1E090CF400EA363A /* LXFMineViewController.swift in Sources */,
 				0909FDF21E0274FA00256806 /* AppDelegate.swift in Sources */,
+				096E92711E090B9400EA363A /* LXFFindViewController.swift in Sources */,
+				096E926D1E09052000EA363A /* LXFBaseNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +560,7 @@
 				0909FE021E0274FA00256806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

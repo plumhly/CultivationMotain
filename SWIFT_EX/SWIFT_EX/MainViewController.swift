@@ -14,7 +14,7 @@ let kTagPlus: Int = 100
 //TabBar的高度
 let kTabBarH: CGFloat = 49
 
-class MainViewController: UITabBarController {
+class MainViewController: UITabBarController, UINavigationControllerDelegate {
     
     // MARK:- 普通属性
     
@@ -53,7 +53,10 @@ class MainViewController: UITabBarController {
     // MARK:- 生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        createCustomTabBar()
+        configSubControllers()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +72,7 @@ class MainViewController: UITabBarController {
 extension MainViewController {
     
     //MARK: 自定义tabbar
-    func createTabBar() {
+    func createCustomTabBar() {
         
         //隐藏原有的tabbar
         tabBar.isHidden = true
@@ -103,15 +106,44 @@ extension MainViewController {
         playBtn.addSubview(imageView)
         
         //设置默认选中第一个
+        tabBarItemSelected(bgImageView.viewWithTag(kTagPlus) as! UIButton)
         
+    }
+    
+    // MARK: 配置视图控制器
+    func configSubControllers() {
+        tabBar.isHidden = true
         
+        var tempArray = [LXFBaseNavigationController]()
+        let findVC = navigationControllerWith(LXFFindViewController())
+        tempArray.append(findVC)
+        
+        let subscribeVC = navigationControllerWith(LXFSubScribeViewController())
+        tempArray.append(subscribeVC)
+        
+        let playVC = navigationControllerWith(LXFPlayViewController())
+        tempArray.append(playVC)
+        
+        let downloadVC = navigationControllerWith(LXFDownloadViewController())
+        tempArray.append(downloadVC)
+        
+        let mineVC = navigationControllerWith(LXFMineViewController())
+        tempArray.append(mineVC)
+        
+        viewControllers = tempArray
+    }
+    
+    func navigationControllerWith(_ vc: LXFBaseController) -> LXFBaseNavigationController {
+        let navi = LXFBaseNavigationController(rootViewController: vc)
+        navi.delegate = self
+        return navi
     }
 }
 
 // Mark:- 监听事件
 extension MainViewController {
     
-    func tabBarItemSelected(_ button: UIButton) {
+   @objc func tabBarItemSelected(_ button: UIButton) {
         button.isSelected = true
         button.isUserInteractionEnabled = false
         
@@ -143,10 +175,29 @@ extension MainViewController {
         if index == 2 {
             //播放界面
             //TODO: 差播放界面
-            
+            let playVC = LXFPlayViewController()
+            let navigationVC = LXFBaseNavigationController(rootViewController: playVC)
+            present(navigationVC, animated: true, completion: nil)
             return false
         }
         return true
+    }
+}
+
+// MARK: - NavigationControllerDelegate
+
+extension MainViewController {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController.hidesBottomBarWhenPushed {
+//            bgImageView.isHidden = true
+        }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        tabBar.isHidden = true
+        if !viewController.hidesBottomBarWhenPushed {
+//            bgImageView.isHidden = true
+        }
     }
 }
 
