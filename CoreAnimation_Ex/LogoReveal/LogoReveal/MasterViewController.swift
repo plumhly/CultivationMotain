@@ -50,7 +50,7 @@ class MasterViewController: UIViewController, UINavigationControllerDelegate {
     super.viewDidAppear(animated)
     
     // add the tap gesture recognizer
-    let pan = UIPanGestureRecognizer(target: self, action: Selector.init(("didPan:")))
+    let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
     view.addGestureRecognizer(pan)
     
     // add the logo to the view

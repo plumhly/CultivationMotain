@@ -25,6 +25,35 @@
 		096E927F1E093F2D00EA363A /* LXFSubFindFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E927E1E093F2D00EA363A /* LXFSubFindFactory.swift */; };
 		096E92821E095C8A00EA363A /* FindBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E92811E095C8A00EA363A /* FindBaseController.swift */; };
 		096E928D1E095D2100EA363A /* LXFFindRecommendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E928C1E095D2100EA363A /* LXFFindRecommendController.swift */; };
+		09902D491E0E4C5B00707A24 /* LXFFindRecHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D481E0E4C5B00707A24 /* LXFFindRecHeader.swift */; };
+		09902D4B1E0E4C6700707A24 /* LXFFindRecHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09902D4A1E0E4C6700707A24 /* LXFFindRecHeader.xib */; };
+		09902D4E1E0FB85000707A24 /* LXFFindDiscoveryColumnsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D4D1E0FB85000707A24 /* LXFFindDiscoveryColumnsList.swift */; };
+		09902D501E0FB9C300707A24 /* LXFFindDiscoveryColumnsProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D4F1E0FB9C300707A24 /* LXFFindDiscoveryColumnsProperties.swift */; };
+		09902D521E0FBC4600707A24 /* LXFFindHeaderIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D511E0FBC4600707A24 /* LXFFindHeaderIconView.swift */; };
+		09902D541E0FBC4D00707A24 /* LXFFindHeaderIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09902D531E0FBC4D00707A24 /* LXFFindHeaderIconView.xib */; };
+		09902D561E0FD4D900707A24 /* LXFFindRecViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D551E0FD4D900707A24 /* LXFFindRecViewModel.swift */; };
+		09902D5A1E0FD7C900707A24 /* LXFFindFeeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D591E0FD7C900707A24 /* LXFFindFeeDetailModel.swift */; };
+		09902D5C1E0FDB2600707A24 /* LXFFindEditorRecommendAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D5B1E0FDB2600707A24 /* LXFFindEditorRecommendAlbum.swift */; };
+		09902D5E1E0FDB5000707A24 /* LXFFindFocusImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D5D1E0FDB5000707A24 /* LXFFindFocusImages.swift */; };
+		09902D601E0FDBCF00707A24 /* LXFFindFocusImagesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D5F1E0FDBCF00707A24 /* LXFFindFocusImagesDetail.swift */; };
+		09902D621E0FDCFA00707A24 /* LXFFindSpecialColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D611E0FDCFA00707A24 /* LXFFindSpecialColumn.swift */; };
+		09902D641E0FDD3E00707A24 /* LXFFindSpecialColumnDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D631E0FDD3E00707A24 /* LXFFindSpecialColumnDetail.swift */; };
+		09902D661E0FE01D00707A24 /* LXFFindDiscoveryColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D651E0FE01D00707A24 /* LXFFindDiscoveryColumns.swift */; };
+		09902D681E0FE15500707A24 /* LXFFindGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D671E0FE15500707A24 /* LXFFindGuess.swift */; };
+		09902D6A1E0FE21300707A24 /* LXFFindCityColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D691E0FE21300707A24 /* LXFFindCityColumn.swift */; };
+		09902D6C1E0FE2A400707A24 /* LXFFindHotRecommends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D6B1E0FE2A400707A24 /* LXFFindHotRecommends.swift */; };
+		09902D6E1E0FE2E500707A24 /* LXFFindHotRecommendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D6D1E0FE2E500707A24 /* LXFFindHotRecommendsList.swift */; };
+		09902D711E10031400707A24 /* LXFFindLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D701E10031400707A24 /* LXFFindLive.swift */; };
+		09902D751E10096900707A24 /* LXFFindAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D741E10096900707A24 /* LXFFindAPI.swift */; };
+		09902D771E100B0A00707A24 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D761E100B0A00707A24 /* NetworkTools.swift */; };
+		09902D7B1E13B41200707A24 /* LXFFindCellStyleFee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D791E13B41200707A24 /* LXFFindCellStyleFee.swift */; };
+		09902D7C1E13B41200707A24 /* LXFFindCellStyleFee.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09902D7A1E13B41200707A24 /* LXFFindCellStyleFee.xib */; };
+		09902D801E13B42800707A24 /* LXFFindCellStyleLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D7E1E13B42800707A24 /* LXFFindCellStyleLive.swift */; };
+		09902D811E13B42800707A24 /* LXFFindCellStyleLive.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09902D7F1E13B42800707A24 /* LXFFindCellStyleLive.xib */; };
+		09902D851E13B45900707A24 /* LXFFindCellStyleMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D831E13B45900707A24 /* LXFFindCellStyleMore.swift */; };
+		09902D861E13B45900707A24 /* LXFFindCellStyleMore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09902D841E13B45900707A24 /* LXFFindCellStyleMore.xib */; };
+		09902D891E13B47200707A24 /* LXFFindCellStyleSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902D881E13B47200707A24 /* LXFFindCellStyleSpecial.swift */; };
+		931DC53CC5A1DCB4D36A640B /* Pods_SWIFT_EX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132917E79E51EAD2D721D3D3 /* Pods_SWIFT_EX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +77,37 @@
 		096E927E1E093F2D00EA363A /* LXFSubFindFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFSubFindFactory.swift; sourceTree = "<group>"; };
 		096E92811E095C8A00EA363A /* FindBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBaseController.swift; sourceTree = "<group>"; };
 		096E928C1E095D2100EA363A /* LXFFindRecommendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindRecommendController.swift; sourceTree = "<group>"; };
+		09902D481E0E4C5B00707A24 /* LXFFindRecHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindRecHeader.swift; sourceTree = "<group>"; };
+		09902D4A1E0E4C6700707A24 /* LXFFindRecHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LXFFindRecHeader.xib; sourceTree = "<group>"; };
+		09902D4D1E0FB85000707A24 /* LXFFindDiscoveryColumnsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindDiscoveryColumnsList.swift; sourceTree = "<group>"; };
+		09902D4F1E0FB9C300707A24 /* LXFFindDiscoveryColumnsProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindDiscoveryColumnsProperties.swift; sourceTree = "<group>"; };
+		09902D511E0FBC4600707A24 /* LXFFindHeaderIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindHeaderIconView.swift; sourceTree = "<group>"; };
+		09902D531E0FBC4D00707A24 /* LXFFindHeaderIconView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LXFFindHeaderIconView.xib; sourceTree = "<group>"; };
+		09902D551E0FD4D900707A24 /* LXFFindRecViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindRecViewModel.swift; sourceTree = "<group>"; };
+		09902D591E0FD7C900707A24 /* LXFFindFeeDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindFeeDetailModel.swift; sourceTree = "<group>"; };
+		09902D5B1E0FDB2600707A24 /* LXFFindEditorRecommendAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindEditorRecommendAlbum.swift; sourceTree = "<group>"; };
+		09902D5D1E0FDB5000707A24 /* LXFFindFocusImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindFocusImages.swift; sourceTree = "<group>"; };
+		09902D5F1E0FDBCF00707A24 /* LXFFindFocusImagesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindFocusImagesDetail.swift; sourceTree = "<group>"; };
+		09902D611E0FDCFA00707A24 /* LXFFindSpecialColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindSpecialColumn.swift; sourceTree = "<group>"; };
+		09902D631E0FDD3E00707A24 /* LXFFindSpecialColumnDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindSpecialColumnDetail.swift; sourceTree = "<group>"; };
+		09902D651E0FE01D00707A24 /* LXFFindDiscoveryColumns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindDiscoveryColumns.swift; sourceTree = "<group>"; };
+		09902D671E0FE15500707A24 /* LXFFindGuess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindGuess.swift; sourceTree = "<group>"; };
+		09902D691E0FE21300707A24 /* LXFFindCityColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindCityColumn.swift; sourceTree = "<group>"; };
+		09902D6B1E0FE2A400707A24 /* LXFFindHotRecommends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindHotRecommends.swift; sourceTree = "<group>"; };
+		09902D6D1E0FE2E500707A24 /* LXFFindHotRecommendsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindHotRecommendsList.swift; sourceTree = "<group>"; };
+		09902D701E10031400707A24 /* LXFFindLive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindLive.swift; sourceTree = "<group>"; };
+		09902D741E10096900707A24 /* LXFFindAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindAPI.swift; sourceTree = "<group>"; };
+		09902D761E100B0A00707A24 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		09902D791E13B41200707A24 /* LXFFindCellStyleFee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindCellStyleFee.swift; sourceTree = "<group>"; };
+		09902D7A1E13B41200707A24 /* LXFFindCellStyleFee.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LXFFindCellStyleFee.xib; sourceTree = "<group>"; };
+		09902D7E1E13B42800707A24 /* LXFFindCellStyleLive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindCellStyleLive.swift; sourceTree = "<group>"; };
+		09902D7F1E13B42800707A24 /* LXFFindCellStyleLive.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LXFFindCellStyleLive.xib; sourceTree = "<group>"; };
+		09902D831E13B45900707A24 /* LXFFindCellStyleMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindCellStyleMore.swift; sourceTree = "<group>"; };
+		09902D841E13B45900707A24 /* LXFFindCellStyleMore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LXFFindCellStyleMore.xib; sourceTree = "<group>"; };
+		09902D881E13B47200707A24 /* LXFFindCellStyleSpecial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFFindCellStyleSpecial.swift; sourceTree = "<group>"; };
+		132917E79E51EAD2D721D3D3 /* Pods_SWIFT_EX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWIFT_EX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F2B30E40A5CED9398EF950 /* Pods-SWIFT_EX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWIFT_EX.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWIFT_EX/Pods-SWIFT_EX.release.xcconfig"; sourceTree = "<group>"; };
+		F417868F4A5DF87DBA09803D /* Pods-SWIFT_EX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWIFT_EX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWIFT_EX/Pods-SWIFT_EX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931DC53CC5A1DCB4D36A640B /* Pods_SWIFT_EX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +127,8 @@
 			children = (
 				0909FDF01E0274FA00256806 /* SWIFT_EX */,
 				0909FDEF1E0274FA00256806 /* Products */,
+				651C84092E6E7E5509C3F82F /* Pods */,
+				C3DFAD1A45F8869FE595C398 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +143,7 @@
 		0909FDF01E0274FA00256806 /* SWIFT_EX */ = {
 			isa = PBXGroup;
 			children = (
+				09902D721E10090E00707A24 /* HttpRequst-网络请求 */,
 				096E927A1E090CCE00EA363A /* Mine-我的 */,
 				096E92761E090C7700EA363A /* Download-下载 */,
 				096E92721E090BB900EA363A /* Subscribe-订阅 */,
@@ -110,6 +174,7 @@
 				0909FDFA1E0274FA00256806 /* LaunchScreen.storyboard */,
 				0909FDF11E0274FA00256806 /* AppDelegate.swift */,
 				0909FE2B1E02894200256806 /* Common.swift */,
+				09902D761E100B0A00707A24 /* NetworkTools.swift */,
 			);
 			name = "Other-其它";
 			sourceTree = "<group>";
@@ -285,6 +350,10 @@
 		096E92881E095CE600EA363A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				09902D6F1E1002F400707A24 /* LiveRecommendAPIModel */,
+				09902D581E0FD7A600707A24 /* GeneralModel */,
+				09902D571E0FD61000707A24 /* RecommendAPIModel */,
+				09902D4C1E0FB83500707A24 /* HotAndGuessAPIModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -292,6 +361,11 @@
 		096E92891E095CF600EA363A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				09902D871E13B45C00707A24 /* LXFFindCellStyleSpecial */,
+				09902D821E13B42B00707A24 /* LXFFindCellStyleMore */,
+				09902D7D1E13B41500707A24 /* LXFFindCellStyleLive */,
+				09902D781E13B3C900707A24 /* LXFFindCellStyleFee */,
+				09902D471E0E4C2E00707A24 /* LXFFindRecHeader */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -299,8 +373,130 @@
 		096E928A1E095CFB00EA363A /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
+				09902D551E0FD4D900707A24 /* LXFFindRecViewModel.swift */,
 			);
 			name = ModelView;
+			sourceTree = "<group>";
+		};
+		09902D471E0E4C2E00707A24 /* LXFFindRecHeader */ = {
+			isa = PBXGroup;
+			children = (
+				09902D481E0E4C5B00707A24 /* LXFFindRecHeader.swift */,
+				09902D4A1E0E4C6700707A24 /* LXFFindRecHeader.xib */,
+				09902D511E0FBC4600707A24 /* LXFFindHeaderIconView.swift */,
+				09902D531E0FBC4D00707A24 /* LXFFindHeaderIconView.xib */,
+			);
+			name = LXFFindRecHeader;
+			sourceTree = "<group>";
+		};
+		09902D4C1E0FB83500707A24 /* HotAndGuessAPIModel */ = {
+			isa = PBXGroup;
+			children = (
+				09902D4D1E0FB85000707A24 /* LXFFindDiscoveryColumnsList.swift */,
+				09902D4F1E0FB9C300707A24 /* LXFFindDiscoveryColumnsProperties.swift */,
+				09902D651E0FE01D00707A24 /* LXFFindDiscoveryColumns.swift */,
+				09902D671E0FE15500707A24 /* LXFFindGuess.swift */,
+				09902D691E0FE21300707A24 /* LXFFindCityColumn.swift */,
+				09902D6B1E0FE2A400707A24 /* LXFFindHotRecommends.swift */,
+				09902D6D1E0FE2E500707A24 /* LXFFindHotRecommendsList.swift */,
+			);
+			name = HotAndGuessAPIModel;
+			sourceTree = "<group>";
+		};
+		09902D571E0FD61000707A24 /* RecommendAPIModel */ = {
+			isa = PBXGroup;
+			children = (
+				09902D5B1E0FDB2600707A24 /* LXFFindEditorRecommendAlbum.swift */,
+				09902D5D1E0FDB5000707A24 /* LXFFindFocusImages.swift */,
+				09902D5F1E0FDBCF00707A24 /* LXFFindFocusImagesDetail.swift */,
+				09902D611E0FDCFA00707A24 /* LXFFindSpecialColumn.swift */,
+				09902D631E0FDD3E00707A24 /* LXFFindSpecialColumnDetail.swift */,
+			);
+			name = RecommendAPIModel;
+			sourceTree = "<group>";
+		};
+		09902D581E0FD7A600707A24 /* GeneralModel */ = {
+			isa = PBXGroup;
+			children = (
+				09902D591E0FD7C900707A24 /* LXFFindFeeDetailModel.swift */,
+			);
+			name = GeneralModel;
+			sourceTree = "<group>";
+		};
+		09902D6F1E1002F400707A24 /* LiveRecommendAPIModel */ = {
+			isa = PBXGroup;
+			children = (
+				09902D701E10031400707A24 /* LXFFindLive.swift */,
+			);
+			name = LiveRecommendAPIModel;
+			sourceTree = "<group>";
+		};
+		09902D721E10090E00707A24 /* HttpRequst-网络请求 */ = {
+			isa = PBXGroup;
+			children = (
+				09902D731E10095400707A24 /* LXFFindAPI */,
+			);
+			name = "HttpRequst-网络请求";
+			sourceTree = "<group>";
+		};
+		09902D731E10095400707A24 /* LXFFindAPI */ = {
+			isa = PBXGroup;
+			children = (
+				09902D741E10096900707A24 /* LXFFindAPI.swift */,
+			);
+			name = LXFFindAPI;
+			sourceTree = "<group>";
+		};
+		09902D781E13B3C900707A24 /* LXFFindCellStyleFee */ = {
+			isa = PBXGroup;
+			children = (
+				09902D791E13B41200707A24 /* LXFFindCellStyleFee.swift */,
+				09902D7A1E13B41200707A24 /* LXFFindCellStyleFee.xib */,
+			);
+			name = LXFFindCellStyleFee;
+			sourceTree = "<group>";
+		};
+		09902D7D1E13B41500707A24 /* LXFFindCellStyleLive */ = {
+			isa = PBXGroup;
+			children = (
+				09902D7E1E13B42800707A24 /* LXFFindCellStyleLive.swift */,
+				09902D7F1E13B42800707A24 /* LXFFindCellStyleLive.xib */,
+			);
+			name = LXFFindCellStyleLive;
+			sourceTree = "<group>";
+		};
+		09902D821E13B42B00707A24 /* LXFFindCellStyleMore */ = {
+			isa = PBXGroup;
+			children = (
+				09902D831E13B45900707A24 /* LXFFindCellStyleMore.swift */,
+				09902D841E13B45900707A24 /* LXFFindCellStyleMore.xib */,
+			);
+			name = LXFFindCellStyleMore;
+			sourceTree = "<group>";
+		};
+		09902D871E13B45C00707A24 /* LXFFindCellStyleSpecial */ = {
+			isa = PBXGroup;
+			children = (
+				09902D881E13B47200707A24 /* LXFFindCellStyleSpecial.swift */,
+			);
+			name = LXFFindCellStyleSpecial;
+			sourceTree = "<group>";
+		};
+		651C84092E6E7E5509C3F82F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F417868F4A5DF87DBA09803D /* Pods-SWIFT_EX.debug.xcconfig */,
+				E2F2B30E40A5CED9398EF950 /* Pods-SWIFT_EX.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C3DFAD1A45F8869FE595C398 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				132917E79E51EAD2D721D3D3 /* Pods_SWIFT_EX.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,9 +506,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0909FE001E0274FA00256806 /* Build configuration list for PBXNativeTarget "SWIFT_EX" */;
 			buildPhases = (
+				5D72BCCDD20B6210E7D49A67 /* [CP] Check Pods Manifest.lock */,
 				0909FDEA1E0274FA00256806 /* Sources */,
 				0909FDEB1E0274FA00256806 /* Frameworks */,
 				0909FDEC1E0274FA00256806 /* Resources */,
+				B95D8CDDE8DF7BE6C71E7DBD /* [CP] Embed Pods Frameworks */,
+				94F6A438B4FFFAE15FCF672C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,13 +562,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09902D861E13B45900707A24 /* LXFFindCellStyleMore.xib in Resources */,
 				0909FDFC1E0274FA00256806 /* LaunchScreen.storyboard in Resources */,
+				09902D541E0FBC4D00707A24 /* LXFFindHeaderIconView.xib in Resources */,
+				09902D7C1E13B41200707A24 /* LXFFindCellStyleFee.xib in Resources */,
+				09902D811E13B42800707A24 /* LXFFindCellStyleLive.xib in Resources */,
 				0909FE081E02787C00256806 /* Assets.xcassets in Resources */,
 				0909FDF71E0274FA00256806 /* Main.storyboard in Resources */,
+				09902D4B1E0E4C6700707A24 /* LXFFindRecHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D72BCCDD20B6210E7D49A67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94F6A438B4FFFAE15FCF672C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SWIFT_EX/Pods-SWIFT_EX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B95D8CDDE8DF7BE6C71E7DBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SWIFT_EX/Pods-SWIFT_EX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0909FDEA1E0274FA00256806 /* Sources */ = {
@@ -377,20 +629,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				096E92791E090C9D00EA363A /* LXFDownloadViewController.swift in Sources */,
+				09902D561E0FD4D900707A24 /* LXFFindRecViewModel.swift in Sources */,
+				09902D6A1E0FE21300707A24 /* LXFFindCityColumn.swift in Sources */,
+				09902D4E1E0FB85000707A24 /* LXFFindDiscoveryColumnsList.swift in Sources */,
+				09902D5C1E0FDB2600707A24 /* LXFFindEditorRecommendAlbum.swift in Sources */,
 				096E926A1E08FFFB00EA363A /* LXFPlayViewController.swift in Sources */,
+				09902D6E1E0FE2E500707A24 /* LXFFindHotRecommendsList.swift in Sources */,
+				09902D711E10031400707A24 /* LXFFindLive.swift in Sources */,
 				096E92681E08FD8B00EA363A /* UIColor+Extention.swift in Sources */,
+				09902D801E13B42800707A24 /* LXFFindCellStyleLive.swift in Sources */,
 				096E92751E090BF500EA363A /* LXFSubScribeViewController.swift in Sources */,
 				096E92661E08FC6300EA363A /* LXFBaseController.swift in Sources */,
 				0909FDF41E0274FA00256806 /* MainViewController.swift in Sources */,
+				09902D5A1E0FD7C900707A24 /* LXFFindFeeDetailModel.swift in Sources */,
 				0909FE2C1E02894200256806 /* Common.swift in Sources */,
+				09902D681E0FE15500707A24 /* LXFFindGuess.swift in Sources */,
+				09902D661E0FE01D00707A24 /* LXFFindDiscoveryColumns.swift in Sources */,
+				09902D891E13B47200707A24 /* LXFFindCellStyleSpecial.swift in Sources */,
 				096E927F1E093F2D00EA363A /* LXFSubFindFactory.swift in Sources */,
+				09902D501E0FB9C300707A24 /* LXFFindDiscoveryColumnsProperties.swift in Sources */,
+				09902D851E13B45900707A24 /* LXFFindCellStyleMore.swift in Sources */,
+				09902D771E100B0A00707A24 /* NetworkTools.swift in Sources */,
+				09902D601E0FDBCF00707A24 /* LXFFindFocusImagesDetail.swift in Sources */,
 				0909FE2F1E02BF1400256806 /* UIView+Extenion.swift in Sources */,
+				09902D5E1E0FDB5000707A24 /* LXFFindFocusImages.swift in Sources */,
+				09902D7B1E13B41200707A24 /* LXFFindCellStyleFee.swift in Sources */,
 				096E92821E095C8A00EA363A /* FindBaseController.swift in Sources */,
 				096E928D1E095D2100EA363A /* LXFFindRecommendController.swift in Sources */,
+				09902D621E0FDCFA00707A24 /* LXFFindSpecialColumn.swift in Sources */,
+				09902D751E10096900707A24 /* LXFFindAPI.swift in Sources */,
 				096E927D1E090CF400EA363A /* LXFMineViewController.swift in Sources */,
+				09902D641E0FDD3E00707A24 /* LXFFindSpecialColumnDetail.swift in Sources */,
+				09902D6C1E0FE2A400707A24 /* LXFFindHotRecommends.swift in Sources */,
 				0909FDF21E0274FA00256806 /* AppDelegate.swift in Sources */,
 				096E92711E090B9400EA363A /* LXFFindViewController.swift in Sources */,
 				096E926D1E09052000EA363A /* LXFBaseNavigationController.swift in Sources */,
+				09902D521E0FBC4600707A24 /* LXFFindHeaderIconView.swift in Sources */,
+				09902D491E0E4C5B00707A24 /* LXFFindRecHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,12 +786,13 @@
 		};
 		0909FE011E0274FA00256806 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F417868F4A5DF87DBA09803D /* Pods-SWIFT_EX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 38SNWFAC99;
 				INFOPLIST_FILE = SWIFT_EX/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-210.SWIFT-EX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,12 +803,13 @@
 		};
 		0909FE021E0274FA00256806 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F2B30E40A5CED9398EF950 /* Pods-SWIFT_EX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 38SNWFAC99;
 				INFOPLIST_FILE = SWIFT_EX/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-210.SWIFT-EX";
 				PRODUCT_NAME = "$(TARGET_NAME)";

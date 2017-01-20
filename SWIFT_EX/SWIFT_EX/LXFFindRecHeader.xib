@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LXFFindRecHeader" customModule="SWIFT_EX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAD-sQ-jw2">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUV-T9-IV1">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="fDC-6Y-q2K"/>
+                            </constraints>
+                        </view>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15R-Rb-ro4">
+                            <rect key="frame" x="0.0" y="150" width="320" height="90"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="pUV-T9-IV1" secondAttribute="trailing" id="3BG-ei-MSE"/>
+                        <constraint firstItem="15R-Rb-ro4" firstAttribute="top" secondItem="pUV-T9-IV1" secondAttribute="bottom" id="Q5k-Sk-qCH"/>
+                        <constraint firstItem="15R-Rb-ro4" firstAttribute="leading" secondItem="dAD-sQ-jw2" secondAttribute="leading" id="VK2-HA-kEy"/>
+                        <constraint firstItem="pUV-T9-IV1" firstAttribute="top" secondItem="dAD-sQ-jw2" secondAttribute="top" id="ZQw-ID-GKF"/>
+                        <constraint firstItem="pUV-T9-IV1" firstAttribute="leading" secondItem="dAD-sQ-jw2" secondAttribute="leading" id="eyI-rU-rQb"/>
+                        <constraint firstAttribute="bottom" secondItem="15R-Rb-ro4" secondAttribute="bottom" id="g9V-bb-BGb"/>
+                        <constraint firstAttribute="trailing" secondItem="15R-Rb-ro4" secondAttribute="trailing" id="kUt-BI-ZAT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dAD-sQ-jw2" secondAttribute="trailing" id="dye-Ex-a9f"/>
+                <constraint firstAttribute="bottom" secondItem="dAD-sQ-jw2" secondAttribute="bottom" constant="10" id="mlu-lk-HiN"/>
+                <constraint firstItem="dAD-sQ-jw2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="q5y-B7-e5c"/>
+                <constraint firstItem="dAD-sQ-jw2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rLZ-k8-Lqh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="adverScrollView" destination="pUV-T9-IV1" id="wRJ-bd-YXu"/>
+                <outlet property="cateScrollView" destination="15R-Rb-ro4" id="7zJ-sB-ehK"/>
+            </connections>
+        </view>
+    </objects>
+</document>

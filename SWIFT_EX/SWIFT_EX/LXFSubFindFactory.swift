@@ -19,9 +19,9 @@ enum LXFSubFindType {
 
 class LXFSubFindFactory: NSObject {
    class func subFindVCWithIdentifier(_ indentifier: String) -> LXFBaseController {
-    let type = typeFromTitle(indentifier)
-    
-    
+//    let type = typeFromTitle(indentifier)
+//    
+        return LXFBaseController()
     }
     
      // MARK:- 根据唯一标识符查找对应类型

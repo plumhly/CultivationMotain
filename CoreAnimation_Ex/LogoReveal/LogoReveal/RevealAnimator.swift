@@ -23,6 +23,18 @@ class RevealAnimator: UIPercentDrivenInteractiveTransition, UIViewControllerAnim
         switch gesture.state {
         case .changed:
             update(progress)
+            
+        case .ended, .cancelled:
+            interActive = false
+            let layer = context?.containerView.layer
+            layer?.beginTime = CACurrentMediaTime()
+            if progress < 0.5 {
+                completionSpeed = -1
+                cancel()
+            } else {
+                completionSpeed = 1
+                finish()
+            }
         default:
             break
         }
