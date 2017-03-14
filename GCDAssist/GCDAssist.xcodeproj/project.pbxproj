@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092970011E325125005673C4 /* TestTargetQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 092970001E325125005673C4 /* TestTargetQueue.m */; };
 		09F792331DA2B10C000F5050 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F792321DA2B10C000F5050 /* main.m */; };
 		09F7923B1DA2B17B000F5050 /* NoteBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7923A1DA2B17B000F5050 /* NoteBook.m */; };
 		3850AD9F1DB5AA3B00F2C152 /* MRCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3850AD9E1DB5AA3B00F2C152 /* MRCClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09296FFF1E325125005673C4 /* TestTargetQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTargetQueue.h; sourceTree = "<group>"; };
+		092970001E325125005673C4 /* TestTargetQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTargetQueue.m; sourceTree = "<group>"; };
 		09F7922F1DA2B10C000F5050 /* GCDAssist */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GCDAssist; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F792321DA2B10C000F5050 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		09F792391DA2B17B000F5050 /* NoteBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBook.h; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				09F7923A1DA2B17B000F5050 /* NoteBook.m */,
 				3850AD9D1DB5AA3B00F2C152 /* MRCClass.h */,
 				3850AD9E1DB5AA3B00F2C152 /* MRCClass.m */,
+				09296FFF1E325125005673C4 /* TestTargetQueue.h */,
+				092970001E325125005673C4 /* TestTargetQueue.m */,
 			);
 			path = GCDAssist;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092970011E325125005673C4 /* TestTargetQueue.m in Sources */,
 				09F7923B1DA2B17B000F5050 /* NoteBook.m in Sources */,
 				3850AD9F1DB5AA3B00F2C152 /* MRCClass.m in Sources */,
 				09F792331DA2B10C000F5050 /* main.m in Sources */,

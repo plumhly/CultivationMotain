@@ -92,11 +92,15 @@ extension LXFFindRecommendController:UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: LXFFindCellStyleFeeId, for: indexPath) as lxffindcell
+        return UITableViewCell.init()
+        /*
         switch indexPath.section {
         case kFindSectionEditComment:
             let cell = tableView.dequeueReusableCell(withIdentifier: LXFFindCellStyleFeeID, for: indexPath) as lxffindcell
-        default:
-            <#code#>
+//        default:
+            
         }
+         */
     }
 }

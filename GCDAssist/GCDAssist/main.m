@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "NoteBook.h"
 #import "MRCClass.h"
+#import "TestTargetQueue.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
+        /*
         int A;
         volatile int B;
         A = B + 1;
@@ -41,9 +44,11 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@", helloWorldString);//输出HelloWorld
         NSLog(@"%@", newHelloWorldString);//输出null
         
-        
+        */
 //        [MRCClass test2];
+        [TestTargetQueue plum];
     }
+    sleep(1000);
     return 0;
     NSURLCache *c = [NSURLCache sharedURLCache];
     
