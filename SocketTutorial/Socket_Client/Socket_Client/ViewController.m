@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "HotGameViewController.h"
+#import "JoinGameViewController.h"
 
 @interface ViewController ()
 
@@ -34,6 +35,9 @@
 }
 
 - (IBAction)jonAGame:(id)sender {
+    JoinGameViewController *game = [JoinGameViewController new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:game];
+    [self presentViewController:nav animated:YES completion:nil];
     
 }
 

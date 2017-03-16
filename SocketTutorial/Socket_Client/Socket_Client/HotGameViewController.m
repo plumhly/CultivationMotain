@@ -7,10 +7,16 @@
 //
 
 #import "HotGameViewController.h"
+#import "GCDAsyncSocket.h"
+#import <CFNetwork/CFNetwork.h>
 
-@interface HotGameViewController ()
+@interface HotGameViewController ()<GCDAsyncSocketDelegate, NSNetServiceDelegate>
+
+@property (nonatomic, strong) GCDAsyncSocket *socket;
+@property (nonatomic, strong) NSNetService *netService;
 
 @end
+
 
 @implementation HotGameViewController
 
@@ -31,7 +37,15 @@
 }
 
 - (void)startBroadcast {
-    
+    _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    NSError *error = nil;
+    if ([_socket acceptOnPort:0 error:&error]) {
+        _netService = [[NSNetService alloc]initWithDomain:@"local." type:@"_fourinarow._tcp." name:@"" port:_socket.localPort];
+        _netService.delegate = self;
+        [_netService publish];
+    } else {
+        NSLog(@"Unable to create socket Error: %@", error);
+    }
 }
 
 - (void)cancel:(id)sender {
@@ -39,14 +53,36 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - NSNetServiceDelegate 
+
+- (void)netServiceDidPublish:(NSNetService *)sender {
+    NSLog(@"Bonjour service publish: domain: %@\n type: %@\n name: %@ \n port: %li",sender.domain, sender.type, sender.name, (long)sender.port);
 }
-*/
+
+- (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary<NSString *,NSNumber *> *)errorDict {
+    NSLog(@"Not service publish: domain: %@\n type: %@\n name: %@ \n Error: %@",sender.domain, sender.type, sender.name, errorDict);
+}
+
+#pragma mark - GCDAsyncSocketDelegate
+
+/*
+  Because we only allow one connection at a time in our application, we discard the old (listening) socket and store a reference to the new socket in the socket property.
+ */
+- (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket {
+    NSLog(@"Accept new socket from: domain (%@) port (%hu)", newSocket.localHost, newSocket.localPort);
+    _socket = newSocket;
+    [_socket readDataToLength:sizeof(uint64_t) withTimeout:-1 tag:0];
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    if (_socket == sock) {
+        self.socket.delegate = nil;
+        self.socket = nil;
+    }
+}
+
+
 
 @end
