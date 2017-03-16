@@ -114,7 +114,7 @@ static NSString *cellId = @"cell";
 
 - (uint64_t)parseHeader:(NSData *)data {
     uint64_t length = 0;
-    memcmp(&length, data.bytes, sizeof(uint64_t));
+    memcpy(&length, data.bytes, sizeof(uint64_t));
     return length;
 }
 

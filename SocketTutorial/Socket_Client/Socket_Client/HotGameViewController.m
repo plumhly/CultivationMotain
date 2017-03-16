@@ -14,6 +14,7 @@
 @interface HotGameViewController ()<GCDAsyncSocketDelegate, NSNetServiceDelegate>
 
 @property (nonatomic, strong) GCDAsyncSocket *socket;
+@property (nonatomic, strong) GCDAsyncSocket *serverSocket;
 @property (nonatomic, strong) NSNetService *netService;
 
 @end
@@ -39,10 +40,10 @@
 }
 
 - (void)startBroadcast {
-    _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    _serverSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     NSError *error = nil;
-    if ([_socket acceptOnPort:0 error:&error]) {
-        _netService = [[NSNetService alloc]initWithDomain:@"local." type:@"_fourinarow._tcp." name:@"" port:_socket.localPort];
+    if ([_serverSocket acceptOnPort:0 error:&error]) {
+        _netService = [[NSNetService alloc]initWithDomain:@"local." type:@"_fourinarow._tcp." name:@"" port:_serverSocket.localPort];
         _netService.delegate = self;
         [_netService publish];
     } else {

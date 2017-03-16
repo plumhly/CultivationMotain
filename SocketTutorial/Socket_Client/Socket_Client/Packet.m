@@ -36,7 +36,7 @@ NSString *const PocketKeyAction = @"action";
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.data forKey:PocketKeyData];
     [aCoder encodeInteger:self.type forKey:PocketKeyType];
-    [aCoder encodeInteger:self.type forKey:PocketKeyType];
+    [aCoder encodeInteger:self.action forKey:PocketKeyAction];
 }
 
 @end
