@@ -18,6 +18,7 @@
 		E5D766AEE3D641097C360DEA /* libPods-Socket_Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A845D7F3EAA9A6EF47FA09 /* libPods-Socket_Client.a */; };
 		EF555CA31E793448001D672C /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF555CA11E793448001D672C /* JoinGameViewController.m */; };
 		EF555CA41E793448001D672C /* JoinGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF555CA21E793448001D672C /* JoinGameViewController.xib */; };
+		EFF14A3F1E7A900A007F8011 /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF14A3E1E7A900A007F8011 /* Packet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		EF555CA01E793448001D672C /* JoinGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameViewController.h; sourceTree = "<group>"; };
 		EF555CA11E793448001D672C /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
 		EF555CA21E793448001D672C /* JoinGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinGameViewController.xib; sourceTree = "<group>"; };
+		EFF14A3D1E7A900A007F8011 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
+		EFF14A3E1E7A900A007F8011 /* Packet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				098CFE3F1E7830B300196C03 /* LaunchScreen.storyboard */,
 				098CFE421E7830B300196C03 /* Info.plist */,
 				098CFE311E7830B300196C03 /* Supporting Files */,
+				EFF14A3D1E7A900A007F8011 /* Packet.h */,
+				EFF14A3E1E7A900A007F8011 /* Packet.m */,
 			);
 			path = Socket_Client;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				EF555CA31E793448001D672C /* JoinGameViewController.m in Sources */,
 				098CFE4B1E78421E00196C03 /* HotGameViewController.m in Sources */,
 				098CFE331E7830B300196C03 /* main.m in Sources */,
+				EFF14A3F1E7A900A007F8011 /* Packet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +378,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 22Z9PC4Q2J;
 				INFOPLIST_FILE = Socket_Client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Socket-Client.plu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SocketClient.plumli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -386,8 +393,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 22Z9PC4Q2J;
 				INFOPLIST_FILE = Socket_Client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Socket-Client.plu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SocketClient.plumli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

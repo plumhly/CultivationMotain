@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Socket_Client/JoinGameViewController.m"
-            timestampString = "511265175.470133"
+            timestampString = "511351331.051578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-netServiceBrowser:didNotSearch:"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-netServiceDidResolveAddress:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Socket_Client/JoinGameViewController.m"
-            timestampString = "511265176.1114"
+            timestampString = "511351333.984387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-netServiceBrowserDidStopSearch:"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-socket:didConnectToHost:port:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Socket_Client/JoinGameViewController.m"
-            timestampString = "511265178.293906"
+            filePath = "Pods/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.m"
+            timestampString = "511353452.203821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-netServiceBrowser:didRemoveService:moreComing:"
+            startingLineNumber = "2716"
+            endingLineNumber = "2716"
+            landmarkName = "-connectWithAddress4:address6:error:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Socket_Client/JoinGameViewController.m"
-            timestampString = "511265278.149793"
+            filePath = "Pods/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.m"
+            timestampString = "511353648.787198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-netServiceBrowser:didFindService:moreComing:"
+            startingLineNumber = "2633"
+            endingLineNumber = "2633"
+            landmarkName = "-connectSocket:address:stateIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

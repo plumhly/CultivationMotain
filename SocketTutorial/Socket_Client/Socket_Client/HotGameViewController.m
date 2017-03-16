@@ -9,6 +9,7 @@
 #import "HotGameViewController.h"
 #import "GCDAsyncSocket.h"
 #import <CFNetwork/CFNetwork.h>
+#import "Packet.h"
 
 @interface HotGameViewController ()<GCDAsyncSocketDelegate, NSNetServiceDelegate>
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setup];
+    [self startBroadcast];
     
 }
 
@@ -54,6 +56,20 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)sendPocket:(Packet *)pocket {
+    NSMutableData *data = [NSMutableData new];
+    NSKeyedArchiver *archier = [[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
+    [archier encodeObject:pocket forKey:@"packet"];
+    [archier finishEncoding];
+    
+    NSMutableData *buffer = [NSMutableData new];
+    uint64_t length = data.length;
+    [buffer appendBytes:&length length:sizeof(uint64_t)];
+    [buffer appendBytes:[data bytes] length:length];
+    
+    [self.socket writeData:buffer withTimeout:-1 tag:0];
+}
+
 #pragma mark - NSNetServiceDelegate 
 
 - (void)netServiceDidPublish:(NSNetService *)sender {
@@ -73,6 +89,11 @@
     NSLog(@"Accept new socket from: domain (%@) port (%hu)", newSocket.localHost, newSocket.localPort);
     _socket = newSocket;
     [_socket readDataToLength:sizeof(uint64_t) withTimeout:-1 tag:0];
+    
+    //create pocket
+    NSString *me = @"Hello developer";
+    Packet *poc = [[Packet alloc]initWithData:me type:0 action:0];
+    [self sendPocket:poc];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {

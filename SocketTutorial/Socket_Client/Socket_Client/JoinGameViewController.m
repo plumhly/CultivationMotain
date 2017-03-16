@@ -8,6 +8,7 @@
 
 #import "JoinGameViewController.h"
 #import "GCDAsyncSocket.h"
+#import "Packet.h"
 
 #warning Remember that Bonjour is not responsible for creating the connection. Bonjour only provides us with the information necessary to establish a connection.
 
@@ -68,7 +69,7 @@ static NSString *cellId = @"cell";
     NSArray *address = [[service addresses] mutableCopy];
     if (!_socket.isConnected) {
         self.socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-        while (!isConnect || address.count) {
+        while (!isConnect && address.count) {
             NSData *data = address.firstObject;
             NSError *error = nil;
             if ([self.socket connectToAddress:data error:&error]) {
@@ -111,6 +112,18 @@ static NSString *cellId = @"cell";
     [self startBrowsing];
 }
 
+- (uint64_t)parseHeader:(NSData *)data {
+    uint64_t length = 0;
+    memcmp(&length, data.bytes, sizeof(uint64_t));
+    return length;
+}
+
+- (void)parseBody:(NSData *)body {
+    NSKeyedUnarchiver *unachiver = [[NSKeyedUnarchiver alloc]initForReadingWithData:body];
+    Packet *packet = [unachiver decodeObjectForKey:@"packet"];
+    NSLog(@"data = %@;\n type = %li;\n action = %li", packet.data, (long)packet.type, packet.action);
+}
+
 #pragma mark - NSNetServiceDelegate
 
 - (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary<NSString *,NSNumber *> *)errorDict {
@@ -131,6 +144,16 @@ static NSString *cellId = @"cell";
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
     NSLog(@"Socket Did connect to host %@, Port: %hu", host, port);
     [sock readDataToLength:sizeof(uint64_t) withTimeout:-1 tag:0];
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    if (tag == 0) {
+        uint64_t length = [self parseHeader:data];
+        [sock readDataToLength:length withTimeout:-1 tag:1];
+    } else if(tag == 1) {
+        [self parseBody:data];
+        [sock readDataToLength:sizeof(uint64_t) withTimeout:-1 tag:0];
+    }
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
@@ -166,40 +189,6 @@ static NSString *cellId = @"cell";
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Table view delegate
 
@@ -211,14 +200,5 @@ static NSString *cellId = @"cell";
 }
  
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
