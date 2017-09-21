@@ -72,6 +72,7 @@
  */
 
 /*
+ //Simple Text Label
 //Round2
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -111,8 +112,9 @@
 }
  */
 
+/*
+//Columnar Layout
 //Round 3
-
 - (CFArrayRef)createColumnsWithColumnCount:(int)columnCount {
     int column;
     CGRect *columnRects = (CGRect *)calloc(columnCount, sizeof(*columnRects));//calloc() 在内存中动态地分配 num 个长度为 size 的连续空间，并将每一个字节都初始化为 0。所以它的结果是分配了 num*size 个字节长度的内存空间，并且每个字节的值都是0。
@@ -124,14 +126,14 @@
     CGFloat columnWidth = CGRectGetWidth(self.bounds) / columnCount;
     
     for(column = 0;column < columnCount - 1; column++) {
-        CGRectDivide(columnRects[column + 1], &columnRects[column], &columnRects[column], columnWidth, CGRectMinXEdge);
+        CGRectDivide(columnRects[column], &columnRects[column], &columnRects[column + 1], columnWidth, CGRectMinXEdge);
     }
     
     for(column = 0;column < columnCount; column++) {
         columnRects[column] = CGRectInset(columnRects[column], 8, 15);
     }
     
-    CFArrayRef paths = CFArrayCreateMutable(kCFAllocatorDefault, columnCount, &kCFTypeArrayCallBacks);
+    CFMutableArrayRef paths = CFArrayCreateMutable(kCFAllocatorDefault, columnCount, &kCFTypeArrayCallBacks);
     
     for(column = 0;column < columnCount; column++) {
         CGMutablePathRef path = CGPathCreateMutable();
@@ -145,6 +147,71 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, CGRectGetHeight(self.bounds));
+    CGContextScaleCTM(context, 1, -1);
+    
+    // Set the text matrix.
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    
+    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:@"CGContextRef context = UIGraphicsGetCurrentContext();CG;attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColorAttributeName:[UIColor redColor]" attributes:@{NSForegroundColorAttributeName:[UIColor redColor], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
+    CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attribute);
+    
+    // Call createColumnsWithColumnCount function to create an array of
+    // three paths (columns).
+    CFArrayRef paths = [self createColumnsWithColumnCount:3];
+    CFIndex index = CFArrayGetCount(paths);
+    CFIndex startIndex = 0;
+    int column;
+    for (column = 0; column < index; column++) {
+        CGPathRef path = CFArrayGetValueAtIndex(paths, column);
+        CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(startIndex, 0), path, NULL);
+        CTFrameDraw(frame, context);
+        
+        CFRange range = CTFrameGetVisibleStringRange(frame);
+        startIndex += range.length;
+        CFRelease(frame);
+    }
+    CFRelease(paths);
+    CFRelease(frameSetter);
+}
+ */
+
+//Manual Line Breaking
+//Round 4
+- (void)drawRect:(CGRect)rect {
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, CGRectGetHeight(self.bounds));
+    CGContextScaleCTM(context, 1, -1);
+    NSString *text = @"CGContextRefcontextUIGrap = hicsGetCurrentContext();CG:attributes:@{NSForegroundColorAttributeName:[UIColor redColor]attributes:@{NSForegroundColor";
+    double width = 300;
+    CGPoint textPosition = CGPointMake(0, 200);
+    
+    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString: text attributes:@{NSForegroundColorAttributeName:[UIColor redColor], NSFontAttributeName: [UIFont systemFontOfSize:15]}];
+    
+    // Create a typesetter using the attributed string.
+    CTTypesetterRef typesetter = CTTypesetterCreateWithAttributedString((CFAttributedStringRef)attribute);
+    
+    // Find a break for line from the beginning of the string to the given width.
+    CFIndex index = 0;
+    CFIndex count = CTTypesetterSuggestLineBreak(typesetter, index, width);
+    
+    // Use the returned character count (to the break) to create the line.
+    CTLineRef line = CTTypesetterCreateLine(typesetter, CFRangeMake(index, count));
+    
+    // Get the offset needed to center the line.
+    float flush = 0;
+    double penOffset = CTLineGetPenOffsetForFlush(line, flush, width);
+    
+    // Move the given text drawing position by the calculated offset and draw the line.
+    CGContextSetTextPosition(context, textPosition.x + penOffset, textPosition.y);
+    CTLineDraw(line, context);
+    
+    index += count;
+    
+    CFRelease(typesetter);
+    CFRelease(line);
     
 }
 
