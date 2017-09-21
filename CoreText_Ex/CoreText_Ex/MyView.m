@@ -71,13 +71,13 @@
 }
  */
 
+/*
 //Round2
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextTranslateCTM(context, 0, self.frame.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
-    
     
     //create font descriptor
     NSDictionary *attribute = [NSDictionary dictionaryWithObjectsAndKeys:@"Courier",(NSString *)kCTFontFamilyNameAttribute, @"Bold", (NSString *)kCTFontStyleNameAttribute, [NSNumber numberWithInteger:17], (NSString *)kCTFontSizeAttribute, nil];
@@ -107,7 +107,44 @@
     CGContextSetTextPosition(context, 10, 300);
     CTLineDraw(line, context);
     CFRelease(line);
+
+}
+ */
+
+//Round 3
+
+- (CFArrayRef)createColumnsWithColumnCount:(int)columnCount {
+    int column;
+    CGRect *columnRects = (CGRect *)calloc(columnCount, sizeof(*columnRects));//calloc() 在内存中动态地分配 num 个长度为 size 的连续空间，并将每一个字节都初始化为 0。所以它的结果是分配了 num*size 个字节长度的内存空间，并且每个字节的值都是0。
     
+    // Set the first column to cover the entire view.
+    columnRects[0] = self.bounds;
+    
+    // Divide the columns equally across the frame's width.
+    CGFloat columnWidth = CGRectGetWidth(self.bounds) / columnCount;
+    
+    for(column = 0;column < columnCount - 1; column++) {
+        CGRectDivide(columnRects[column + 1], &columnRects[column], &columnRects[column], columnWidth, CGRectMinXEdge);
+    }
+    
+    for(column = 0;column < columnCount; column++) {
+        columnRects[column] = CGRectInset(columnRects[column], 8, 15);
+    }
+    
+    CFArrayRef paths = CFArrayCreateMutable(kCFAllocatorDefault, columnCount, &kCFTypeArrayCallBacks);
+    
+    for(column = 0;column < columnCount; column++) {
+        CGMutablePathRef path = CGPathCreateMutable();
+        CGPathAddRect(path, NULL, columnRects[column]);
+        CFArrayInsertValueAtIndex(paths, column, path);
+        CFRelease(path);
+    }
+    free(columnRects);
+    
+    return paths;
+}
+
+- (void)drawRect:(CGRect)rect {
     
 }
 
