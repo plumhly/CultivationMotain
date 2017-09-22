@@ -176,7 +176,7 @@
     CFRelease(frameSetter);
 }
  */
-
+/*
 //Manual Line Breaking
 //Round 4
 - (void)drawRect:(CGRect)rect {
@@ -214,5 +214,210 @@
     CFRelease(line);
     
 }
+ */
+
+/*
+//Applying a Paragraph Style
+//Round 5
+
+NSAttributedString * applyParaStyle(CFStringRef fontName, CGFloat size, NSString *text, CGFloat lineSpace) {
+    // Create the font so we can determine its height.
+    CTFontRef font = CTFontCreateWithName(fontName, size, NULL);
+    
+    // Set the lineSpacing.
+    CGFloat spacing = (CTFontGetLeading(font) + lineSpace) * 2;
+    
+    // Create the paragraph style settings.
+    CTParagraphStyleSetting setting;
+    setting.spec = kCTParagraphStyleSpecifierParagraphSpacing;
+    setting.valueSize = sizeof(CGFloat);
+    setting.value = &spacing;
+    
+    CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&setting, 1);
+    
+    // Add the paragraph style to the dictionary.
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:(__bridge id)font, (id)kCTFontAttributeName, (__bridge id)paragraphStyle, (id)kCTParagraphStyleAttributeName, nil];
+    
+    CFRelease(font);
+    CFRelease(paragraphStyle);
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:dic];
+}
+
+- (void)drawRect:(CGRect)rect {
+    // Initialize a graphics context in iOS.
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Flip the context coordinates in iOS only.
+    CGContextTranslateCTM(context, 0, self.bounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    
+//    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    
+    CFStringRef fontName = CFSTR("Didot Italic");
+    CGFloat fontSize = 24.0;
+    
+    NSString *text = @"Hello, World! I know nothing in the world that has as much power as a word. Sometimes I write one,and I look at it, until it begins to shine.";
+    
+    // Apply the paragraph style.
+    NSAttributedString *attribute = applyParaStyle(fontName, fontSize, text, 50.0);
+    
+    CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attribute);
+    
+    // Create a path to fill the View.
+    CGPathRef path = CGPathCreateWithRect(rect, NULL);
+    
+    //frame
+    CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(0, 0), path, NULL);
+//    CGContextSetTextPosition(context, 10, 102);
+    
+    //Draw
+    CTFrameDraw(frame, context);
+    
+    CFRelease(frameSetter);
+    CFRelease(frame);
+    CFRelease(path);
+}
+*/
+
+
+//Displaying Text in a Nonrectangular Region
+//Round 6
+
+static void addSquashedDonutPath(CGMutablePathRef path, const CGAffineTransform *m, CGRect rect) {
+    CGFloat width = CGRectGetWidth(rect);
+    CGFloat height = CGRectGetHeight(rect);
+    
+    CGFloat radiusH = width / 3.0;
+    CGFloat radiusV = height / 3.0;
+    
+    CGPathMoveToPoint(path, m, rect.origin.x, rect.origin.y + height - radiusV);
+    CGPathAddQuadCurveToPoint(path, m, rect.origin.x, rect.origin.y + height, rect.origin.x + radiusH, rect.origin.y + height);
+    CGPathAddLineToPoint(path, m, rect.origin.x + width - radiusH, rect.origin.y + height);
+    CGPathAddQuadCurveToPoint(path, m, rect.origin.x + width, rect.origin.y + height, rect.origin.x + width, rect.origin.y + height - radiusV);
+    CGPathAddLineToPoint(path, m, rect.origin.x + width, rect.origin.y + radiusV);
+    CGPathAddQuadCurveToPoint(path, m, rect.origin.x + width, rect.origin.y, rect.origin.x + width - radiusH, rect.origin.y);
+    CGPathAddLineToPoint(path, m, rect.origin.x + radiusH, rect.origin.y);
+    CGPathAddQuadCurveToPoint(path, m, rect.origin.x, rect.origin.y, rect.origin.x, rect.origin.y + radiusV);
+    CGPathCloseSubpath(path);
+    
+    CGPathAddEllipseInRect(path, m, CGRectMake( rect.origin.x + width / 2.0 - width / 5.0,
+                                               rect.origin.y + height / 2.0 - height / 5.0,
+                                               width / 5.0 * 2.0, height / 5.0 * 2.0));
+}
+
+// Generate the path outside of the drawRect call so the path is calculated only once.
+- (NSArray *)paths {
+    CGRect bouds = CGRectInset(self.bounds, 10, 10);
+    CGMutablePathRef path = CGPathCreateMutable();
+    
+    addSquashedDonutPath(path, NULL, bouds);
+    
+    NSMutableArray *array = [NSMutableArray arrayWithObject:CFBridgingRelease(path)];
+    return array;
+}
+
+- (void)drawRect:(CGRect)rect {
+    // Initialize a graphics context in iOS.
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Flip the context coordinates in iOS only.
+    CGContextTranslateCTM(context, 0, self.bounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+    
+    CFStringRef text = CFSTR("Hello, World! I know nothing in the world that has as much power as a word. Sometimes I write one, and I look at it, until it begins to shine.Hello, World! I know nothing in the world that has as much power as a word. Sometimes I write one, and I look at it, until it begins to shine.Hello, World! I know nothing in the world that has as much power as a word. Sometimes I write one, and I look at it, until it begins to shine.Hello, World! I know nothing in the world that has as much power as a word. Sometimes I write one, and I look at it, until it begins to shine.Hello, World! I know nothing in the world that has as much power as a word. Sometimes I write one, and I look at it, until it begins to shine.");
+    
+    CFMutableAttributedStringRef attributeString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
+    
+    // Copy the textString into the newly created attrString.
+    CFAttributedStringReplaceString(attributeString, CFRangeMake(0, 0), text);
+    
+    //create color
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGFloat compomet[] = {1.0, 0.0, 0.0, 1.0};
+    CGColorRef color = CGColorCreate(colorspace, compomet);
+    CFRelease(colorspace);
+    
+    CFAttributedStringSetAttribute(attributeString, CFRangeMake(0, 13), kCTForegroundColorAttributeName, color);
+    
+    CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString(attributeString);
+    
+    
+    NSArray *paths = [self paths];
+    
+    CFIndex startIndex = 0;
+#define GREEN_COLOR [UIColor greenColor]
+#define YELLOW_COLOR [UIColor yellowColor]
+#define BLACK_COLOR [UIColor blackColor]
+    
+    for (id obj in paths) {
+        CGPathRef path = (__bridge CGPathRef)obj;
+        
+         // Set the background of the path to yellow.
+        CGContextSetFillColorWithColor(context, [YELLOW_COLOR CGColor]);
+        CGContextAddPath(context, path);
+        CGContextFillPath(context);
+        CGContextDrawPath(context, kCGPathStroke);
+        
+        // Create a frame for this path and draw the text.
+        CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(startIndex, 0), path, NULL);
+        CTFrameDraw(frame, context);
+        CFRange range = CTFrameGetVisibleStringRange(frame);
+        startIndex += range.length;
+        CFRelease(frame);
+    }
+    CFRelease(frameSetter);
+    CFRelease(attributeString);
+    CFRelease(color);
+}
+
+
+//create font descriptor
+- (void)createFontDescriptor {
+    //round 1
+    // Creating a font descriptor from a name and point size
+    CFStringRef name = CFSTR("Papyrus");
+    CTFontDescriptorRef fontDescriptor1 = CTFontDescriptorCreateWithNameAndSize(name, 24);
+    
+    //round 2
+    // Creating a font descriptor from a family and traits
+    NSString *fontFamily = @"Papyrus";
+    CTFontSymbolicTraits trait = kCTFontTraitCondensed;
+    CGFloat size = 20;
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setObject:fontFamily forKey:(id)kCTFontFamilyNameAttribute];
+    
+    NSMutableDictionary *traitDic = [NSMutableDictionary dictionary];
+    [traitDic setObject:[NSNumber numberWithUnsignedInteger:trait] forKey:(id)kCTFontSymbolicTrait];
+    [attributes setObject:traitDic forKey:(id)kCTFontTraitsAttribute];
+    [attributes setObject:[NSNumber numberWithDouble:size] forKey:(id)kCTFontSizeAttribute];
+    CTFontDescriptorRef fontDescriptor2 = CTFontDescriptorCreateWithAttributes((CFDictionaryRef)attributes);
+    
+}
+
+- (void)createFontFromDescriptor {
+    //Creating a font from a font descriptor
+    //round 1
+    NSDictionary *fontAttributes =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"Courier", (NSString *)kCTFontFamilyNameAttribute,
+     @"Bold", (NSString *)kCTFontStyleNameAttribute,
+     [NSNumber numberWithFloat:16.0],
+     (NSString *)kCTFontSizeAttribute,
+     nil];
+    // Create a descriptor.
+    CTFontDescriptorRef descriptor =
+    CTFontDescriptorCreateWithAttributes((CFDictionaryRef)fontAttributes);
+    
+    // Create a font using the descriptor.
+    CTFontRef font = CTFontCreateWithFontDescriptor(descriptor, 0.0, NULL);
+    CFRelease(descriptor);
+
+    
+}
+
 
 @end
