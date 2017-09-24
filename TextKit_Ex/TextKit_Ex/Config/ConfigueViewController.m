@@ -38,10 +38,14 @@
     
     NSTextContainer *thirdContainer = [NSTextContainer new];
     [shareLayoutManager addTextContainer:thirdContainer];
-    
+    CGRect rect = [shareLayoutManager usedRectForTextContainer:thirdContainer];
     UITextView *thirdTextView = [[UITextView alloc] initWithFrame:self.thirdView.bounds textContainer:thirdContainer];
     thirdTextView.backgroundColor = [UIColor cyanColor];
+//    thirdTextView.translatesAutoresizingMaskIntoConstraints = YES;
+//    thirdTextView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     [_thirdView addSubview:thirdTextView];
+    
     
     
 }
