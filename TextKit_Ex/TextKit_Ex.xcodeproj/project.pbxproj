@@ -18,6 +18,9 @@
 		38B62EF81F750C7F0004276A /* ConfigueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B62EF71F750C7F0004276A /* ConfigueViewController.m */; };
 		38B7B6191F76B2F0002EA286 /* HighlightingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B7B6181F76B2F0002EA286 /* HighlightingViewController.m */; };
 		38B7B61C1F76B307002EA286 /* PLTextStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B7B61B1F76B307002EA286 /* PLTextStore.m */; };
+		38FBA5B61F79CCF400F52A37 /* LayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FBA5B51F79CCF400F52A37 /* LayoutViewController.m */; };
+		38FBA5B91F79CD1100F52A37 /* PMTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FBA5B81F79CD1100F52A37 /* PMTextStorage.m */; };
+		38FBA5BC1F79CD2500F52A37 /* PLLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FBA5BB1F79CD2500F52A37 /* PLLayoutManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,12 @@
 		38B7B6181F76B2F0002EA286 /* HighlightingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighlightingViewController.m; sourceTree = "<group>"; };
 		38B7B61A1F76B307002EA286 /* PLTextStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLTextStore.h; sourceTree = "<group>"; };
 		38B7B61B1F76B307002EA286 /* PLTextStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLTextStore.m; sourceTree = "<group>"; };
+		38FBA5B41F79CCF400F52A37 /* LayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutViewController.h; sourceTree = "<group>"; };
+		38FBA5B51F79CCF400F52A37 /* LayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayoutViewController.m; sourceTree = "<group>"; };
+		38FBA5B71F79CD1100F52A37 /* PMTextStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMTextStorage.h; sourceTree = "<group>"; };
+		38FBA5B81F79CD1100F52A37 /* PMTextStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PMTextStorage.m; sourceTree = "<group>"; };
+		38FBA5BA1F79CD2500F52A37 /* PLLayoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLLayoutManager.h; sourceTree = "<group>"; };
+		38FBA5BB1F79CD2500F52A37 /* PLLayoutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLLayoutManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +79,10 @@
 		38630EB61F7505EA00F36A76 /* TextKit_Ex */ = {
 			isa = PBXGroup;
 			children = (
+				38FBA5B31F79CB8900F52A37 /* Layout */,
 				38B7B6161F76B2DF002EA286 /* Highlighting */,
-				38630EB71F7505EA00F36A76 /* AppDelegate.h */,
 				38B62EF51F750C650004276A /* Config */,
+				38630EB71F7505EA00F36A76 /* AppDelegate.h */,
 				38630EB81F7505EA00F36A76 /* AppDelegate.m */,
 				38630EBD1F7505EA00F36A76 /* Main.storyboard */,
 				38630EC01F7505EA00F36A76 /* Assets.xcassets */,
@@ -112,6 +122,19 @@
 				38B7B61B1F76B307002EA286 /* PLTextStore.m */,
 			);
 			path = Highlighting;
+			sourceTree = "<group>";
+		};
+		38FBA5B31F79CB8900F52A37 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				38FBA5B41F79CCF400F52A37 /* LayoutViewController.h */,
+				38FBA5B51F79CCF400F52A37 /* LayoutViewController.m */,
+				38FBA5B71F79CD1100F52A37 /* PMTextStorage.h */,
+				38FBA5B81F79CD1100F52A37 /* PMTextStorage.m */,
+				38FBA5BA1F79CD2500F52A37 /* PLLayoutManager.h */,
+				38FBA5BB1F79CD2500F52A37 /* PLLayoutManager.m */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,8 +211,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FBA5B91F79CD1100F52A37 /* PMTextStorage.m in Sources */,
+				38FBA5BC1F79CD2500F52A37 /* PLLayoutManager.m in Sources */,
 				38B7B6191F76B2F0002EA286 /* HighlightingViewController.m in Sources */,
 				38630EC71F7505EA00F36A76 /* main.m in Sources */,
+				38FBA5B61F79CCF400F52A37 /* LayoutViewController.m in Sources */,
 				38B62EF81F750C7F0004276A /* ConfigueViewController.m in Sources */,
 				38630EB91F7505EA00F36A76 /* AppDelegate.m in Sources */,
 				38B7B61C1F76B307002EA286 /* PLTextStore.m in Sources */,
