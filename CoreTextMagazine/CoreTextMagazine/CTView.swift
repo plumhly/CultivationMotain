@@ -38,6 +38,9 @@ class CTView: UIScrollView {
             
             let ctframe = CTFramesetterCreateFrame(framesetter, CFRangeMake(textPos, 0), path, nil)
             let columView = CTColumnView(frame: columnFrame, ctframe: ctframe)
+            if images.count > imageIndex {
+                attachImagesWithFrane(images, cftframe: ctframe, margin: settings.margin, columnView: columView)
+            }
             pageView.addSubview(columView)
             let txtRange = CTFrameGetVisibleStringRange(ctframe)
             textPos += txtRange.length
@@ -48,9 +51,41 @@ class CTView: UIScrollView {
     }
     
     func attachImagesWithFrane(_ images: [[String: Any]], cftframe: CTFrame, margin: CGFloat, columnView: CTColumnView) {
-        let line = CTFrameGetLines(cftframe) as NSArray
-        var origins = [CGPoint](repeating: .zero, count: line.count)
+        let lines = CTFrameGetLines(cftframe) as NSArray
+        var origins = [CGPoint](repeating: .zero, count: lines.count)
         CTFrameGetLineOrigins(cftframe, CFRangeMake(0, 0), &origins)
+        var nextImage = images[imageIndex]
+        guard var imgLocation = nextImage["location"] as? Int else {
+            return
+        }
+        for lineIndex in 0..<lines.count {
+            let line = lines[lineIndex] as! CTLine
+            if let glyphRuns = CTLineGetGlyphRuns(line) as? [CTRun],
+                let imageFileName = nextImage["filename"] as? String,
+                let img = UIImage(named: imageFileName) {
+                for run in glyphRuns {
+                    let runRange = CTRunGetStringRange(run)
+                    if (runRange.location > imgLocation || runRange.location + runRange.length <= imgLocation) {
+                        continue
+                    }
+                    var imageBounds: CGRect = .zero
+                    var ascent: CGFloat = 0
+                    imageBounds.size.width = CGFloat(CTRunGetTypographicBounds(run, CFRangeMake(0, 0), &ascent, nil, nil))
+                    imageBounds.size.height = ascent
+                    
+                    let xOffset = CTLineGetOffsetForStringIndex(line, CTRunGetStringRange(run).location, nil)
+                    imageBounds.origin.x = origins[lineIndex].x + xOffset
+                    imageBounds.origin.y = origins[lineIndex].y
+                    
+                    columnView.images += [(image: img, frame: imageBounds)]
+                    imageIndex! += 1
+                    if imageIndex < images.count {
+                        nextImage = images[imageIndex]
+                        imgLocation = (nextImage["location"] as AnyObject).intValue
+                    }
+                }
+            }
+        }
     }
 
 }
