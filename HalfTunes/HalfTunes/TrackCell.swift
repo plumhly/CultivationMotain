@@ -100,5 +100,12 @@ class TrackCell: UITableViewCell {
     self.progressView.progress = progress
     progressLabel.text = String(format: "%.1f%% of %@", progress * 100, total)
   }
+  
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    let newvalue: Float? = (change?[NSKeyValueChangeKey.newKey] as? Float)!
+    if let ne = newvalue {
+      self.progressView.progress = ne
+    }
+  }
 
 }

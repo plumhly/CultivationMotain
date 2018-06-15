@@ -43,11 +43,14 @@ extension SearchViewController: URLSessionDownloadDelegate {
       return
     }
     
-    download.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-    let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
-    DispatchQueue.main.async {
-      let cell = self.tableView.cellForRow(at: IndexPath(row: download.track.index, section: 0)) as? TrackCell
-      cell?.updateDisplay(progress: download.progress, total: totalSize)
+    DispatchQueue.main.sync {
+      download.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
     }
+    
+    let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
+//    DispatchQueue.main.async {
+//      let cell = self.tableView.cellForRow(at: IndexPath(row: download.track.index, section: 0)) as? TrackCell
+//      cell?.updateDisplay(progress: download.progress, total: totalSize)
+//    }
   }
 }

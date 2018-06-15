@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dGf-6A-1OJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dGf-6A-1OJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gxa-dF-wgj">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="541"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="62" id="CN0-hZ-xaQ" customClass="TrackCell" customModule="HalfTunes" customModuleProvider="target">
@@ -30,22 +30,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7o-vZ-w0K">
-                                                    <rect key="frame" x="14" y="29" width="251" height="17"/>
+                                                    <rect key="frame" x="14" y="29" width="244" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eai-Fh-5KC">
-                                                    <rect key="frame" x="14" y="8" width="251" height="20"/>
+                                                    <rect key="frame" x="14" y="8" width="244" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView hidden="YES" opaque="NO" tag="40" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A2H-JY-Sug">
-                                                    <rect key="frame" x="14" y="52" width="251" height="2"/>
+                                                    <rect key="frame" x="14" y="52" width="244" height="2"/>
                                                 </progressView>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-K7-P02">
-                                                    <rect key="frame" x="319" y="9" width="48" height="30"/>
+                                                    <rect key="frame" x="319" y="12" width="48" height="30"/>
                                                     <state key="normal" title="Cancel">
                                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -54,7 +54,7 @@
                                                     </connections>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufl-ey-FHq">
-                                                    <rect key="frame" x="269" y="9" width="42" height="30"/>
+                                                    <rect key="frame" x="269" y="12" width="42" height="30"/>
                                                     <state key="normal" title="Pause">
                                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -123,16 +123,27 @@
                                     <outlet property="delegate" destination="dGf-6A-1OJ" id="iRe-jm-zBU"/>
                                 </connections>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c18-VZ-F0a">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="push:" destination="dGf-6A-1OJ" eventType="touchUpInside" id="F3E-sI-XVA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cPG-2P-6A8" firstAttribute="leading" secondItem="05r-VE-gJo" secondAttribute="leading" id="0KD-6E-Qcj"/>
-                            <constraint firstItem="05r-VE-gJo" firstAttribute="bottom" secondItem="gxa-dF-wgj" secondAttribute="bottom" id="2qq-Zy-tlD"/>
+                            <constraint firstItem="05r-VE-gJo" firstAttribute="bottom" secondItem="gxa-dF-wgj" secondAttribute="bottom" constant="50" id="2qq-Zy-tlD"/>
                             <constraint firstItem="05r-VE-gJo" firstAttribute="trailing" secondItem="cPG-2P-6A8" secondAttribute="trailing" id="8WP-gh-EDp"/>
+                            <constraint firstItem="05r-VE-gJo" firstAttribute="bottom" secondItem="c18-VZ-F0a" secondAttribute="bottom" id="Qbj-VM-bw6"/>
+                            <constraint firstItem="c18-VZ-F0a" firstAttribute="leading" secondItem="05r-VE-gJo" secondAttribute="leading" id="Tbq-O5-i6e"/>
                             <constraint firstItem="gxa-dF-wgj" firstAttribute="leading" secondItem="05r-VE-gJo" secondAttribute="leading" id="akV-r0-pAX"/>
                             <constraint firstItem="gxa-dF-wgj" firstAttribute="top" secondItem="cPG-2P-6A8" secondAttribute="bottom" id="dVV-5a-KN5"/>
                             <constraint firstItem="cPG-2P-6A8" firstAttribute="top" secondItem="05r-VE-gJo" secondAttribute="top" id="oBT-a7-ihB"/>
+                            <constraint firstItem="05r-VE-gJo" firstAttribute="trailing" secondItem="c18-VZ-F0a" secondAttribute="trailing" id="v2c-hx-f9q"/>
                             <constraint firstItem="05r-VE-gJo" firstAttribute="trailing" secondItem="gxa-dF-wgj" secondAttribute="trailing" id="vAb-lg-xZx"/>
+                            <constraint firstItem="c18-VZ-F0a" firstAttribute="top" secondItem="gxa-dF-wgj" secondAttribute="bottom" id="yXn-GH-VLM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="05r-VE-gJo"/>
                     </view>
@@ -144,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQo-rb-luQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="-308"/>
+            <point key="canvasLocation" x="773.60000000000002" y="-308.09595202398805"/>
         </scene>
     </scenes>
 </document>

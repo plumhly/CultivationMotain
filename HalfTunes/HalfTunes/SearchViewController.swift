@@ -36,11 +36,12 @@ class SearchViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
+    
   lazy var tapRecognizer: UITapGestureRecognizer = {
     var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
     return recognizer
   }()
-  
+  var isReload = false;
   lazy var downloadSession: URLSession = {
     let config = URLSessionConfiguration.background(withIdentifier: "bgSessionConfiguration")
     return URLSession(configuration: config, delegate: self, delegateQueue: nil)
@@ -48,9 +49,14 @@ class SearchViewController: UIViewController {
   
   var searchResults: [Track] = []
   let queryService = QueryService()
-  let downloadService = DownloadService()
+  let downloadService = DownloadService.share
 
-  // Get local file path: download task stores tune here; AV player plays it.
+    @IBAction func push(_ sender: Any) {
+      let vc = storyboard?.instantiateInitialViewController() as! SearchViewController
+        vc.searchResults = searchResults;
+        self.present(vc, animated: true, completion: nil)
+    }
+    // Get local file path: download task stores tune here; AV player plays it.
   let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
   func localFilePath(for url: URL) -> URL {
     return documentsPath.appendingPathComponent(url.lastPathComponent)
@@ -87,8 +93,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     cell.delegate = self
 
     let track = searchResults[indexPath.row]
-    cell.configure(track: track, downloaded: track.downloaded,download: downloadService.activeDownloads[track.previewURL])
-
+    let down = downloadService.activeDownloads[track.previewURL]
+    cell.configure(track: track, downloaded: track.downloaded,download: down)
+    down?.addObserver(cell, forKeyPath: "progress", options: [.new], context: nil)
     return cell
   }
 
@@ -104,6 +111,14 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
+  
+  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if !isReload {
+      let track = searchResults[indexPath.row]
+      let down = downloadService.activeDownloads[track.previewURL]
+      down?.removeObserver(cell, forKeyPath: "progress")
+    }
+  }
 }
 
 // MARK: - TrackCellDelegate
@@ -115,6 +130,7 @@ extension SearchViewController: TrackCellDelegate {
     if let indexPath = tableView.indexPath(for: cell) {
       let track = searchResults[indexPath.row]
       downloadService.startDownload(track)
+      isReload = true
       reload(indexPath.row)
     }
   }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Download {
+class Download: NSObject {
   let track: Track
   
   init(track: Track) {
@@ -17,6 +17,6 @@ class Download {
   
   var dataTask: URLSessionDownloadTask?
   var resumeData: Data?
-  var progress: Float = 0.0
+  @objc dynamic var progress: Float = 0.0
   var isDownloading = false
 }

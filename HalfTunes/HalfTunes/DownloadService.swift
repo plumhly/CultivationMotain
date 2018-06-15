@@ -35,6 +35,8 @@ import Foundation
 
 
 class DownloadService {
+  
+  static let share = DownloadService();
 
   // SearchViewController creates downloadsSession
   var downloadsSession: URLSession!
