@@ -13,6 +13,8 @@
 		386C358F20D3997300766B58 /* RWTFlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 386C358E20D3997300766B58 /* RWTFlickrPhoto.m */; };
 		386C359220D399CC00766B58 /* RWTFlickrSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 386C359120D399CC00766B58 /* RWTFlickrSearchResults.m */; };
 		386C359520D3B3EA00766B58 /* RWTSearchResultsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 386C359420D3B3EA00766B58 /* RWTSearchResultsViewModel.m */; };
+		38C79FF420D8A1FF0007F91A /* RWTPhotoMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C79FF320D8A1FF0007F91A /* RWTPhotoMetadata.m */; };
+		38C79FF720D8A2A00007F91A /* RWTSearchResultsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C79FF620D8A2A00007F91A /* RWTSearchResultsItemViewModel.m */; };
 		728550B5193E52740032A754 /* CETableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 728550B4193E52740032A754 /* CETableViewBindingHelper.m */; };
 		72E40170192BFFCE00354806 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E4016F192BFFCE00354806 /* Foundation.framework */; };
 		72E40172192BFFCE00354806 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E40171192BFFCE00354806 /* CoreGraphics.framework */; };
@@ -66,6 +68,10 @@
 		386C359120D399CC00766B58 /* RWTFlickrSearchResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchResults.m; sourceTree = "<group>"; };
 		386C359320D3B3E900766B58 /* RWTSearchResultsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTSearchResultsViewModel.h; sourceTree = "<group>"; };
 		386C359420D3B3EA00766B58 /* RWTSearchResultsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTSearchResultsViewModel.m; sourceTree = "<group>"; };
+		38C79FF220D8A1FF0007F91A /* RWTPhotoMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTPhotoMetadata.h; sourceTree = "<group>"; };
+		38C79FF320D8A1FF0007F91A /* RWTPhotoMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTPhotoMetadata.m; sourceTree = "<group>"; };
+		38C79FF520D8A2A00007F91A /* RWTSearchResultsItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTSearchResultsItemViewModel.h; sourceTree = "<group>"; };
+		38C79FF620D8A2A00007F91A /* RWTSearchResultsItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTSearchResultsItemViewModel.m; sourceTree = "<group>"; };
 		45FD5E4523EDC838C5FA0951 /* Pods-RWTFlickrSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWTFlickrSearchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RWTFlickrSearchTests/Pods-RWTFlickrSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		728550B2193E52740032A754 /* CEReactiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEReactiveView.h; sourceTree = "<group>"; };
 		728550B3193E52740032A754 /* CETableViewBindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETableViewBindingHelper.h; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 				386C358E20D3997300766B58 /* RWTFlickrPhoto.m */,
 				386C359020D399CC00766B58 /* RWTFlickrSearchResults.h */,
 				386C359120D399CC00766B58 /* RWTFlickrSearchResults.m */,
+				38C79FF220D8A1FF0007F91A /* RWTPhotoMetadata.h */,
+				38C79FF320D8A1FF0007F91A /* RWTPhotoMetadata.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +175,8 @@
 				386C357F20D35D6600766B58 /* RWTFlickrSearchViewModel.m */,
 				386C359320D3B3E900766B58 /* RWTSearchResultsViewModel.h */,
 				386C359420D3B3EA00766B58 /* RWTSearchResultsViewModel.m */,
+				38C79FF520D8A2A00007F91A /* RWTSearchResultsItemViewModel.h */,
+				38C79FF620D8A2A00007F91A /* RWTSearchResultsItemViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -452,10 +462,12 @@
 				72E4017C192BFFCE00354806 /* main.m in Sources */,
 				72E401B9192C03AB00354806 /* RWTSearchResultsViewController.m in Sources */,
 				386C359520D3B3EA00766B58 /* RWTSearchResultsViewModel.m in Sources */,
+				38C79FF720D8A2A00007F91A /* RWTSearchResultsItemViewModel.m in Sources */,
 				386C358C20D3933300766B58 /* RWTViewModelServicesImpl.m in Sources */,
 				728550B5193E52740032A754 /* CETableViewBindingHelper.m in Sources */,
 				72E401B4192C03AB00354806 /* RWTFlickrSearchViewController.m in Sources */,
 				386C358020D35D6600766B58 /* RWTFlickrSearchViewModel.m in Sources */,
+				38C79FF420D8A1FF0007F91A /* RWTPhotoMetadata.m in Sources */,
 				386C358F20D3997300766B58 /* RWTFlickrPhoto.m in Sources */,
 				386C359220D399CC00766B58 /* RWTFlickrSearchResults.m in Sources */,
 			);
