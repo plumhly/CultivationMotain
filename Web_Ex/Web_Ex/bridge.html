@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的</title>
+	<script type="text/javascript">
+		function getName() {
+			// body...
+			return "我看见的飞机的解放军到附近";
+        };
+
+    function makeAltert(msg) {
+        alert(msg);
+    }
+
+    function setupWebViewJavascriptBridge (callback) {
+        if (window.WebViewJavascriptBridge) {
+            return callback(WebViewJavascriptBridge);
+        }
+
+        if (window.WVJBCallbacks) {
+            return window.WVJBCallbacks.push(callback);
+        }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement("iframe");
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = "https://__bridge_loaded__";
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(() => { document.documentElement.removeChild(WVJBIframe) }, 0);
+
+    }
+
+        setupWebViewJavascriptBridge(function (bridge) {
+            bridge.registerHandler('oc call js', function (data, responseCallback) {
+                // body... 
+                let text = 'oc call js with data: ' + data;
+                alert(text);
+                responseCallback(text);
+            });
+
+            bridge.callHandler('js call oc', {'name': 'plum'}, (responseData) => {
+                console.log('js call oc, oc return data :', responseData);
+            })
+        })
+
+	</script>
+</head>
+<body>
+	<!-- <input type="button" name="按钮" onclick=""> -->
+    <div>
+        哈哈哈哈哈
+    </div>
+    <button onclick="plum('plum')">点击</button>
+</body>
+</html>
