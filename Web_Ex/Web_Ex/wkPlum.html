@@ -11,14 +11,18 @@
     function makeAltert(msg) {
         alert(msg);
     }
+    
+    function buttonAction() {
+        document.getElementById("plum").innerText = userScript();
+    }
 
 	</script>
 </head>
 <body style="font-size: 20">
 	<!-- <input type="button" name="按钮" onclick=""> -->
-    <div>
+    <p id="plum">
         哈哈哈哈哈
-    </div>
-    <button onclick="userScript()">userScript</button>
+    </p>
+    <button onclick="buttonAction()">userScript</button>
 </body>
 </html>

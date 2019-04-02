@@ -27,7 +27,9 @@
     webConfigure.userContentController = userContentController;
     
     [userContentController addScriptMessageHandler:self name:@"test"];
-    NSString *script = @"function userScript() { window.webkit.messageHandlers.test.postMessage('我填写我的') }";
+//    NSString *script = @"function userScript() { window.webkit.messageHandlers.test.postMessage('我填写我的') }";
+//    NSString *script = [NSString stringWithFormat:@"function userScript() { window.webkit.messageHandlers.test.postMessage('%@') }", @"我填写的"];
+    NSString *script = [NSString stringWithFormat:@"function userScript() { return \"%@\" }", @"我填写的"];
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:script injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:NO];
     [userContentController addUserScript:userScript];
     _wkWeb = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:webConfigure];
