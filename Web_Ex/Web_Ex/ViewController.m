@@ -30,18 +30,22 @@
 }
 
 #pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [webView stringByEvaluatingJavaScriptFromString:@"localStorage.setItem('plum', value: 'google');"];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
     // Native -> Js
     /*1*/
 //    NSString *d = [webView stringByEvaluatingJavaScriptFromString:@"getName()"];
     
-    NSString *func = @"function age() { return 21 } ; age();";
-    [webView stringByEvaluatingJavaScriptFromString:func];
-    NSString *d = [webView stringByEvaluatingJavaScriptFromString:func];
-    NSLog(@"%@", d);
+//    NSString *func = @"function age() { return 21 } ; age();";
+//    [webView stringByEvaluatingJavaScriptFromString:func];
+//    NSString *d = [webView stringByEvaluatingJavaScriptFromString:func];
+//    NSLog(@"%@", d);
     
     /*2*/
 //    JSValue *jsVal = [context evaluateScript:@"getName()"];
@@ -52,9 +56,16 @@
 //    JSValue *value = context[@"makeAltert"];
 //    [value callWithArguments:@[@"hi"]];
 
+    
+    NSString *value = [webView stringByEvaluatingJavaScriptFromString:@"localStorage.getItem('plum')"];
+    NSLog(@"%@", value);
     // js -> Native
 //    context[@"plum"] = ^(NSString *name) {
 //        NSLog(@"%@", name);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            NSString *value = [webView stringByEvaluatingJavaScriptFromString:@"localStorage.getItem('name')"];
+//            NSLog(@"%@", value);
+//        });
 //    };
 }
 

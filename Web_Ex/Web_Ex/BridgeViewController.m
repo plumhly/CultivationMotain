@@ -29,6 +29,7 @@
     
     [_bridge registerHandler:@"js call oc" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"%@", data);
+        responseCallback(@"----hello----");
     }];
     
 }

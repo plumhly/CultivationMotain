@@ -39,16 +39,17 @@
 
             bridge.callHandler('js call oc', {'name': 'plum'}, (responseData) => {
                 console.log('js call oc, oc return data :', responseData);
-            })
+                document.getElementById("first").innerText = responseData;
+            });
         })
 
 	</script>
 </head>
 <body>
 	<!-- <input type="button" name="按钮" onclick=""> -->
-    <div>
+    <div id="first">
         哈哈哈哈哈
     </div>
-    <button onclick="plum('plum')">点击</button>
+    <button onclick="my()">点击</button>
 </body>
 </html>
